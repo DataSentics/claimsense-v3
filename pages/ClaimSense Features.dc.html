@@ -14,9 +14,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
-@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
-@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('../assets/fonts/ToshA-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('../assets/fonts/ToshA-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('../assets/fonts/ToshA-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; font-family:'Roboto',sans-serif; font-weight:400; color:#1a1a1a; line-height:1.6; -webkit-font-smoothing:antialiased; background:#ffffff; }
@@ -38,7 +38,7 @@ input, textarea, select, button { font-family:inherit; }
   <nav style="max-width:1280px; margin:0 auto; padding:14px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
     <!-- LEFT: ClaimSense logo -->
     <a href="ClaimSense%20Homepage.dc.html" style="display:flex; align-items:center; flex:0 0 auto;">
-      <img src="assets/logos/ClaimSense_logo_black.svg" alt="ClaimSense" style="height:26px; width:auto;">
+      <img src="../assets/logos/ClaimSense_logo_black.svg" alt="ClaimSense" style="height:26px; width:auto;">
     </a>
     <!-- CENTER: nav links -->
     <div style="display:flex; align-items:center; justify-content:center; gap:34px; flex:1 1 auto;" data-nav>
@@ -68,7 +68,7 @@ input, textarea, select, button { font-family:inherit; }
     <div style="display:flex; align-items:center; flex:0 0 auto;" data-nav-right>
       <span style="display:flex; align-items:center; gap:8px;" data-trust-badge>
         <span style="font:400 14px/1.2 'Roboto',sans-serif; color:#6b7280; white-space:nowrap;">Built by DataSentics, part of</span>
-        <img src="assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:18px; width:auto;">
+        <img src="../assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:18px; width:auto;">
       </span>
       <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;" data-nav-divider></span>
       <button onClick="{{ scrollToDemo }}" style="margin-left:24px; background:#FF5539; color:#fff; border:none; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 2px 10px rgba(255,85,57,0.28); white-space:nowrap;" style-hover="background:#e8472d;">Book a Demo</button>
@@ -78,7 +78,7 @@ input, textarea, select, button { font-family:inherit; }
 
 <!-- ===================== HERO ===================== -->
 <section style="background:linear-gradient(180deg,#FFF7F5 0%,#ffffff 60%); padding:80px 32px 64px; position:relative; overflow:hidden;">
-  <img src="assets/bull/Bull_symbol_orange.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:280px; opacity:0.05; pointer-events:none;">
+  <img src="../assets/bull/Bull_symbol_orange.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:280px; opacity:0.05; pointer-events:none;">
   <div style="max-width:1140px; margin:0 auto; position:relative;">
     <div style="max-width:760px;" data-reveal>
       <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF5539; margin-bottom:18px;">Platform Features</div>
@@ -140,7 +140,7 @@ input, textarea, select, button { font-family:inherit; }
           <span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span>
           <span style="margin-left:12px; background:#fff; border:1px solid #e8ddd8; border-radius:6px; padding:4px 14px; font:400 12px 'Roboto',sans-serif; color:#8a7f7b;">client.claimsense.app / dashboard</span>
         </div>
-        <img src="assets/screenshots/feature-01-preprocessing-dashboard.png" alt="ClaimSense AI pre-processing dashboard showing claims with AI-proposed statuses" style="display:block; width:100%;">
+        <img src="../assets/screenshots/feature-01-preprocessing-dashboard.png" alt="ClaimSense AI pre-processing dashboard showing claims with AI-proposed statuses" style="display:block; width:100%;">
       </div>
     </div>
   </div>
@@ -160,11 +160,11 @@ input, textarea, select, button { font-family:inherit; }
           <span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span>
           <span style="margin-left:12px; background:#fff; border:1px solid #e8ddd8; border-radius:6px; padding:4px 14px; font:400 12px 'Roboto',sans-serif; color:#8a7f7b;">client.claimsense.app / master-claim</span>
         </div>
-        <img src="assets/screenshots/feature-03-master-claim.png" alt="Master claim view showing claim hierarchy with legal, finance and on-site workstreams, shared case file, and master task with linked subtasks" style="display:block; width:100%;">
+        <img src="../assets/screenshots/feature-03-master-claim.png" alt="Master claim view showing claim hierarchy with legal, finance and on-site workstreams, shared case file, and master task with linked subtasks" style="display:block; width:100%;">
       </div>
       <!-- Workflow template screenshot as secondary proof -->
       <div style="margin-top:16px; border:1px solid #eadfdb; border-radius:12px; overflow:hidden; box-shadow:0 8px 24px -16px rgba(0,40,112,0.18);">
-        <img src="assets/screenshots/feature-02-workflow-templates.png" alt="ClaimSense configurable workflow template editor" style="display:block; width:100%;">
+        <img src="../assets/screenshots/feature-02-workflow-templates.png" alt="ClaimSense configurable workflow template editor" style="display:block; width:100%;">
       </div>
     </div>
     <!-- Text column -->
@@ -233,7 +233,7 @@ input, textarea, select, button { font-family:inherit; }
           <span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span>
           <span style="margin-left:12px; background:#fff; border:1px solid #e8ddd8; border-radius:6px; padding:4px 14px; font:400 12px 'Roboto',sans-serif; color:#8a7f7b;">client.claimsense.app / analytics</span>
         </div>
-        <img src="assets/screenshots/feature-04-analytics-chat.png" alt="ClaimSense Analytics Data Assistant with natural language query interface and tabular results" style="display:block; width:100%;">
+        <img src="../assets/screenshots/feature-04-analytics-chat.png" alt="ClaimSense Analytics Data Assistant with natural language query interface and tabular results" style="display:block; width:100%;">
       </div>
     </div>
   </div>
@@ -242,7 +242,7 @@ input, textarea, select, button { font-family:inherit; }
 <!-- ===================== FEATURE 04 — FULL CLAIM CORE SYSTEM ===================== -->
 <a id="feature-04"></a>
 <section style="padding:88px 32px; background:#0a1b3d; color:#fff; position:relative; overflow:hidden;">
-  <img src="assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-60px; bottom:-50px; width:320px; opacity:0.04; pointer-events:none;">
+  <img src="../assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-60px; bottom:-50px; width:320px; opacity:0.04; pointer-events:none;">
   <div style="max-width:1140px; margin:0 auto; position:relative;">
     <div style="display:grid; align-items:start; gap:64px;" data-feat-grid data-reveal>
       <!-- Text column -->
@@ -275,7 +275,7 @@ input, textarea, select, button { font-family:inherit; }
             <span style="width:10px; height:10px; border-radius:50%; background:rgba(40,200,64,0.7);"></span>
             <span style="margin-left:12px; background:rgba(255,255,255,0.08); border:1px solid rgba(124,150,230,0.2); border-radius:6px; padding:4px 14px; font:400 12px 'Roboto',sans-serif; color:#9aa6c8;">client.claimsense.app / history</span>
           </div>
-          <img src="assets/screenshots/feature-05-claim-history-audit-trail.png" alt="ClaimSense full linear history and audit trail showing status changes and AI processing runs" style="display:block; width:100%;">
+          <img src="../assets/screenshots/feature-05-claim-history-audit-trail.png" alt="ClaimSense full linear history and audit trail showing status changes and AI processing runs" style="display:block; width:100%;">
         </div>
       </div>
     </div>
@@ -283,7 +283,7 @@ input, textarea, select, button { font-family:inherit; }
     <!-- Mini Bull sovereignty note — appears after Full Claim Core System per brief -->
     <!-- NEEDS-APPROVAL: sovereignty wording — must not describe as compliance guarantee until legal approves -->
     <div style="margin-top:56px; padding:28px 32px; background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.2); border-radius:14px; display:flex; flex-wrap:wrap; align-items:center; gap:24px;" data-reveal>
-      <div style="flex:0 0 auto;"><img src="assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:28px; width:auto;"></div>
+      <div style="flex:0 0 auto;"><img src="../assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:28px; width:auto;"></div>
       <div style="width:1px; align-self:stretch; background:rgba(124,150,230,0.2);"></div>
       <div style="flex:1 1 280px;">
         <div style="font:500 12px/1 'Roboto',sans-serif; letter-spacing:0.12em; text-transform:uppercase; color:#A4AFFB; margin-bottom:8px;">European data sovereignty</div>
@@ -327,7 +327,7 @@ input, textarea, select, button { font-family:inherit; }
 <!-- Shared demo copy & form — per content/pages/features.md instruction to reuse from Home -->
 <a id="demo"></a>
 <section style="padding:80px 32px; background:#0a1b3d; color:#fff; position:relative; overflow:hidden;">
-  <img src="assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:300px; opacity:0.04; pointer-events:none;">
+  <img src="../assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:300px; opacity:0.04; pointer-events:none;">
   <div style="max-width:1180px; margin:0 auto; display:grid; gap:56px; align-items:start; position:relative;" data-demo-grid>
     <div data-reveal>
       <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,38px); line-height:1.1; margin:0 0 20px;">You have bigger priorities than building your own AI Agentic platform for Claims &amp; Ops</h2>
@@ -384,10 +384,10 @@ input, textarea, select, button { font-family:inherit; }
   <div style="max-width:1200px; margin:0 auto;">
     <div style="display:grid; gap:40px;" data-footer-grid>
       <div>
-        <img src="assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
+        <img src="../assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
         <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">AI-first workflow for your claim team. Transform complex claims processing with intelligent automation.</p>
         <div style="display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid #1a2c54;">
-          <img src="assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:26px; width:auto;">
+          <img src="../assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:26px; width:auto;">
         </div>
         <p style="font-size:12px; color:#7e8ab0; margin:12px 0 0;">ClaimSense is built by DataSentics, part of the Bull / Eviden group.</p>
       </div>

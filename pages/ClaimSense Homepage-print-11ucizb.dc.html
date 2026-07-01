@@ -31,9 +31,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
-@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
-@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('../assets/fonts/ToshA-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('../assets/fonts/ToshA-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('../assets/fonts/ToshA-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 body { margin:0; font-family:'Roboto',sans-serif; font-weight:400; color:#1a1a1a; line-height:1.6; -webkit-font-smoothing:antialiased; background:#ffffff; }
@@ -55,9 +55,9 @@ a { text-decoration:none; color:inherit; }
 <div style="{{ introStyle }}">
   <div style="text-align:center; display:flex; flex-direction:column; align-items:center; gap:28px;">
     <div style="font:500 12px/1 'Roboto',sans-serif; letter-spacing:0.22em; text-transform:uppercase; color:#FF9280;">Built by DataSentics, part of Bull</div>
-    <img src="assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:48px; width:auto;">
+    <img src="../assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:48px; width:auto;">
     <div style="width:1px; height:34px; background:rgba(255,255,255,0.18);"></div>
-    <img src="assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:38px; width:auto; opacity:0.92;">
+    <img src="../assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:38px; width:auto; opacity:0.92;">
   </div>
   <button onClick="{{ dismissIntro }}" style="position:absolute; bottom:36px; left:50%; transform:translateX(-50%); background:none; border:none; color:rgba(255,255,255,0.45); font:400 12px 'Roboto',sans-serif; letter-spacing:0.08em; cursor:pointer;">Skip intro</button>
 </div>
@@ -70,7 +70,7 @@ a { text-decoration:none; color:inherit; }
   <nav style="max-width:1280px; margin:0 auto; padding:14px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
     <!-- LEFT zone: ClaimSense logo -->
     <a href="#top" onClick="{{ goTop }}" style="display:flex; align-items:center; flex:0 0 auto;">
-      <img src="assets/logos/ClaimSense_logo_black.svg" alt="ClaimSense" style="height:26px; width:auto;">
+      <img src="../assets/logos/ClaimSense_logo_black.svg" alt="ClaimSense" style="height:26px; width:auto;">
     </a>
     <!-- CENTER zone: nav links -->
     <div style="display:flex; align-items:center; justify-content:center; gap:34px; flex:1 1 auto;" data-nav>
@@ -86,7 +86,7 @@ a { text-decoration:none; color:inherit; }
       <!-- Compact Bull endorsement / lockup (global chrome requirement) -->
       <span style="display:flex; align-items:center; gap:8px;" data-trust-badge>
         <span style="font:400 14px/1.2 'Roboto',sans-serif; color:#6b7280; white-space:nowrap;">Built by DataSentics, part of</span>
-        <img src="assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:18px; width:auto;">
+        <img src="../assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:18px; width:auto;">
       </span>
       <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;"></span>
       <button onClick="{{ scrollToDemo }}" style="margin-left:24px; background:#FF5539; color:#fff; border:none; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 2px 10px rgba(255,85,57,0.28); white-space:nowrap;" style-hover="background:#e8472d;">Book a Demo</button>
@@ -99,7 +99,7 @@ a { text-decoration:none; color:inherit; }
 <!-- ===================== HERO ===================== -->
 <section style="position:relative; background:linear-gradient(180deg,#FFF7F5 0%,#ffffff 70%); padding:88px 32px 72px;">
   <!-- decorative Bull symbol, lower-right, subtle -->
-  <img src="assets/bull/Bull_symbol_orange.svg" alt="" aria-hidden="true" style="position:absolute; right:-40px; bottom:-30px; width:260px; opacity:0.05; pointer-events:none;">
+  <img src="../assets/bull/Bull_symbol_orange.svg" alt="" aria-hidden="true" style="position:absolute; right:-40px; bottom:-30px; width:260px; opacity:0.05; pointer-events:none;">
   <div style="max-width:1240px; margin:0 auto; position:relative;">
     <div style="max-width:780px;" data-reveal>
       <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF5539; margin-bottom:22px;">AI for Claims &amp; Operations</div>
@@ -149,7 +149,7 @@ a { text-decoration:none; color:inherit; }
           <span style="width:11px; height:11px; border-radius:50%; background:#28c840;"></span>
           <span style="margin-left:14px; background:#fff; border:1px solid #e8ddd8; border-radius:7px; padding:5px 16px; font:400 13px 'Roboto',sans-serif; color:#8a7f7b;">client.claimsense.app</span>
         </div>
-        <img src="assets/screenshots/feature-01-preprocessing-dashboard.png" alt="ClaimSense Dashboard — AI-powered claims processing interface" style="display:block; width:100%;">
+        <img src="../assets/screenshots/feature-01-preprocessing-dashboard.png" alt="ClaimSense Dashboard — AI-powered claims processing interface" style="display:block; width:100%;">
       </div>
     </sc-if>
     <sc-if value="{{ usePlaceholder }}" hint-placeholder-val="{{ false }}">
@@ -163,7 +163,7 @@ a { text-decoration:none; color:inherit; }
 
 <!-- ===================== MASTER CLAIM — SHARED OPERATIONAL VIEW ===================== -->
 <section style="padding:80px 32px; background:#0a1b3d; color:#fff; position:relative; overflow:hidden;">
-  <img src="assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-60px; bottom:-50px; width:320px; opacity:0.04; pointer-events:none;">
+  <img src="../assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-60px; bottom:-50px; width:320px; opacity:0.04; pointer-events:none;">
   <div style="max-width:1200px; margin:0 auto; position:relative;">
     <div style="display:grid; grid-template-columns:1fr; gap:48px; align-items:start;" data-master-grid>
       <div data-reveal>
@@ -247,7 +247,7 @@ a { text-decoration:none; color:inherit; }
     <!-- Brand / endorsement column — monochrome navy Bull logo as anchor, far left -->
     <div style="flex:0 0 auto; display:flex; flex-direction:column; gap:10px;">
       <div style="font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.12em; text-transform:uppercase; color:#9a4434;">Built by DataSentics, part of</div>
-      <img src="assets/bull/BULL_LOGO_NAVY_RGB.svg" alt="Bull" style="height:51px; width:auto;">
+      <img src="../assets/bull/BULL_LOGO_NAVY_RGB.svg" alt="Bull" style="height:51px; width:auto;">
     </div>
     <div style="flex:1 1 auto;"></div>
     <!-- Metric groups: clean flex row, no dangling icons, Tosh A numbers + Roboto labels -->
@@ -322,7 +322,7 @@ a { text-decoration:none; color:inherit; }
       </div>
       <!-- AFTER — Dream-in-Blue card, dominant, white text + white checkmarks -->
       <div style="background:#002870; border-radius:18px; padding:40px; color:#fff; box-shadow:0 24px 60px -28px rgba(0,40,112,0.6); position:relative; overflow:hidden;">
-        <img src="assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-40px; bottom:-36px; width:220px; opacity:0.06; pointer-events:none;">
+        <img src="../assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-40px; bottom:-36px; width:220px; opacity:0.06; pointer-events:none;">
         <div style="display:inline-flex; align-items:center; gap:9px; font:600 12px 'Roboto',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:#002870; background:#fff; border-radius:20px; padding:6px 14px; margin-bottom:24px; position:relative;">After</div>
         <ul style="list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:16px 32px; position:relative;" data-after-list>
           <li style="display:flex; gap:12px; font-size:16px; color:#fff;"><span style="flex:none;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5L8.5 15L16 5.5" fill="none" stroke="#FF5539" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pre-structured claims ready to review</li>
@@ -492,7 +492,7 @@ a { text-decoration:none; color:inherit; }
 <!-- ===================== DEMO CONVERSION ===================== -->
 <a id="demo"></a>
 <section style="padding:80px 32px; background:#0a1b3d; color:#fff; position:relative; overflow:hidden;">
-  <img src="assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:300px; opacity:0.04; pointer-events:none;">
+  <img src="../assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:300px; opacity:0.04; pointer-events:none;">
   <div style="max-width:1180px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:56px; align-items:start; position:relative;">
     <div data-reveal>
       <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,38px); line-height:1.1; margin:0 0 20px;">You have bigger priorities than building your own AI Agentic platform for Claims &amp; Ops</h2>
@@ -550,11 +550,11 @@ a { text-decoration:none; color:inherit; }
   <div style="max-width:1200px; margin:0 auto;">
     <div style="display:grid; grid-template-columns:1.5fr 1fr 1fr 1fr; gap:40px;" data-footer>
       <div>
-        <img src="assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
+        <img src="../assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
         <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">AI-first workflow for your claim team. Transform complex claims processing with intelligent automation.</p>
         <!-- Full Bull endorsement (footer requirement) -->
         <div style="display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid #1a2c54;">
-          <img src="assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:26px; width:auto;">
+          <img src="../assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:26px; width:auto;">
         </div>
         <p style="font-size:12px; color:#7e8ab0; margin:12px 0 0;">ClaimSense is built by DataSentics, part of the Bull / Eviden group.</p>
       </div>
