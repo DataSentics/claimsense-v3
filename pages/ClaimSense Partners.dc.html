@@ -23,6 +23,28 @@ body { margin:0; font-family:'Roboto',sans-serif; font-weight:400; color:#1a1a1a
 ::selection { background:#FFADA0; }
 a { text-decoration:none; color:inherit; }
 input, textarea, select, button { font-family:inherit; }
+
+
+
+/* ── CTA & Nav hover system v3 (Bull brand, all 7 fixes) ───────────────── */
+header a:not([data-nav-cta]), header button { outline:none !important; box-shadow:none !important; border:none !important; }
+header a:not([data-nav-cta]) { border:none !important; }
+footer a { border:none !important; outline:none !important; }
+header a:not([data-nav-cta]):hover { color:#FF5539 !important; transition:color .2s ease; }
+header a[style*="padding:10px"]:hover { background:#f5f0ee !important; color:#FF5539 !important; }
+[data-nav-cta] { transition:background .2s ease, color .2s ease; cursor:pointer; }
+[data-nav-cta]:hover { background:#ffffff !important; color:#000000 !important; border:3px solid #FF5539 !important; }
+[data-cta="primary"] { border:3px solid #FF5539 !important; transition:background .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="primary"]:hover { background:#ffffff !important; color:#000000 !important; box-shadow:none !important; }
+[data-cta="secondary"] { border:3px solid #002870 !important; transition:border-color .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="secondary"]:hover { border-color:#FF5539 !important; color:#000000 !important; box-shadow:none !important; }
+[data-cta="pricing"] { border:3px solid #002870 !important; transition:border-color .2s ease, background .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="pricing"]:hover { border-color:#FF5539 !important; box-shadow:none !important; }
+[data-cta="quickstart"] { background:#ffffff; color:#FF5539; border:3px solid #FF5539 !important; transition:background .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="quickstart"]:hover { background:#FF5539 !important; color:#000000 !important; box-shadow:none !important; }
+[data-pill]:hover [data-pill-badge] { background-color:#FF5539 !important; color:#ffffff !important; }
+[data-footer-active] { color:#FF5539 !important; }
+footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
 </style>
 </helmet>
 
@@ -43,24 +65,24 @@ input, textarea, select, button { font-family:inherit; }
     <div style="display:flex; align-items:center; justify-content:center; gap:34px; flex:1 1 auto;" data-nav>
       <a href="ClaimSense%20Homepage.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Home</a>
       <div style="position:relative;" onMouseEnter="{{ openProduct }}" onMouseLeave="{{ closeProduct }}">
-        <button onClick="{{ toggleProduct }}" aria-haspopup="true" aria-expanded="{{ productOpen }}" style="display:inline-flex; align-items:center; gap:6px; background:none; border:none; cursor:pointer; font:500 14px 'Roboto',sans-serif; color:#33302e; padding:0;" style-hover="color:#FF5539;">
+        <button onClick="{{ toggleProduct }}" aria-haspopup="true" aria-expanded="{{ productOpen }}" style="display:inline-flex; align-items:center; gap:6px; background:none; cursor:pointer; font:500 14px 'Roboto',sans-serif; color:#33302e; padding:0;" style-hover="color:#FF5539;">
           Product
           <svg width="11" height="7" viewBox="0 0 11 7" aria-hidden="true" style="transition:transform .2s; transform:{{ chevronRotate }};"><path d="M1 1L5.5 5.5L10 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <sc-if value="{{ productOpen }}" hint-placeholder-val="{{ false }}">
           <div style="position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:60;">
-            <div style="background:#fff; border:1px solid #ece3df; border-radius:12px; box-shadow:0 20px 50px -16px rgba(0,40,112,0.25); padding:8px; min-width:220px;">
+            <div style="background:#fff; border:1px solid #ece3df; border-radius:12px; padding:8px; min-width:220px;">
               <a href="ClaimSense%20Features.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Features</a>
               <a href="ClaimSense%20Architecture.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Architecture</a>
-              <a href="ClaimSense%20Use%20Cases.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Use Cases</a>
+              <a href="ClaimSense%20Use%20Cases.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Use cases</a>
               <a href="ClaimSense%20Implementation.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Implementation</a>
             </div>
           </div>
         </sc-if>
       </div>
-      <a href="ClaimSense%20Our%20Story.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Our Story</a>
+      <a href="ClaimSense%20Our%20Story.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Our story</a>
       <a href="ClaimSense%20Pricing.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Pricing</a>
-      <a href="ClaimSense%20Business%20Case.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Business Case</a>
+      <a href="ClaimSense%20Business%20Case.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Business case</a>
     </div>
     <div style="display:flex; align-items:center; flex:0 0 auto;" data-nav-right>
       <span style="display:flex; align-items:center; gap:8px;" data-trust-badge>
@@ -68,7 +90,7 @@ input, textarea, select, button { font-family:inherit; }
         <img src="../assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:18px; width:auto;">
       </span>
       <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;" data-nav-divider></span>
-      <button onClick="{{ scrollToForm }}" style="margin-left:24px; background:#FF5539; color:#fff; border:none; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 2px 10px rgba(255,85,57,0.28); white-space:nowrap;" style-hover="background:#e8472d;">Become a Partner</button>
+      <button onClick="{{ scrollToForm }}" style="margin-left:24px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; white-space:nowrap;" data-nav-cta="">Become a partner</button>
     </div>
   </nav>
 </header>
@@ -79,11 +101,11 @@ input, textarea, select, button { font-family:inherit; }
   <div style="max-width:1140px; margin:0 auto; position:relative;">
     <div style="max-width:780px;" data-reveal>
       <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF9280; margin-bottom:18px;">Partner Program</div>
-      <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(36px,5vw,64px); line-height:1.02; letter-spacing:-0.02em; margin:0 0 22px; color:#fff;">Unlock Massive Revenue with AI Claims Automation</h1>
+      <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(36px,5vw,64px); line-height:1.02; letter-spacing:-0.02em; margin:0 0 22px; color:#fff;">Unlock massive revenue with AI claims automation</h1>
       <!-- NEEDS-APPROVAL: commission & revenue claims — "up to 50% commission", "10x more on implementation services" -->
       <p style="font-size:20px; line-height:1.55; color:#c3cbe0; max-width:660px; margin:0 0 36px;">Partner with ClaimSense to tap into the claims process automation market. Earn up to 50% commission on licence fees and 10x more on implementation services.</p>
       <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
-        <button onClick="{{ scrollToForm }}" style="background:#FF5539; color:#fff; border:none; border-radius:10px; padding:16px 32px; font:600 18px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 4px 16px rgba(255,85,57,0.34);" style-hover="background:#e8472d;">Become a Partner</button>
+        <button onClick="{{ scrollToForm }}" style="background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:10px; padding:16px 32px; font:600 18px 'Roboto',sans-serif; cursor:pointer;" data-cta="primary">Become a partner</button>
         <a href="#tiers" onClick="{{ navTiers }}" style="display:inline-flex; align-items:center; gap:8px; font:500 16px 'Roboto',sans-serif; color:#fff; border-bottom:2px solid #FF5539; padding-bottom:2px;">View Partner Tiers <span style="color:#FF5539;">→</span></a>
       </div>
     </div>
@@ -104,7 +126,7 @@ input, textarea, select, button { font-family:inherit; }
 <section style="padding:80px 32px; background:#ffffff;">
   <div style="max-width:1200px; margin:0 auto;">
     <div style="text-align:center; max-width:680px; margin:0 auto 48px;" data-reveal>
-      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; color:#0d0d0d;">Partner Tiers</h2>
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; color:#0d0d0d;">Partner tiers</h2>
       <p style="font-size:18px; color:#5a514d; margin:0;">Choose your partnership level. Progress through tiers as you grow. Higher tiers unlock better margins, more support, and exclusive opportunities.</p>
     </div>
     <!-- NEEDS-APPROVAL: every tier commission %, requirement, benefit and typical deals/year -->
@@ -112,7 +134,7 @@ input, textarea, select, button { font-family:inherit; }
       <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="4">
         <article style="{{ t.cardStyle }}">
           <sc-if value="{{ t.popular }}" hint-placeholder-val="{{ false }}">
-            <span style="position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:#FF5539; color:#fff; font:600 10px 'Roboto',sans-serif; letter-spacing:0.08em; text-transform:uppercase; border-radius:20px; padding:5px 14px; white-space:nowrap;">Most Popular</span>
+            <span style="position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:#FF5539; color:#000; font:600 10px 'Roboto',sans-serif; letter-spacing:0.08em; text-transform:uppercase; border-radius:20px; padding:5px 14px; white-space:nowrap;; border:3px solid #FF5539;">Most Popular</span>
           </sc-if>
           <div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:22px; color:{{ t.nameColor }}; margin-bottom:14px;">{{ t.name }}</div>
           <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:6px;"><span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:40px; line-height:1; color:{{ t.nameColor }};">{{ t.commission }}</span></div>
@@ -143,7 +165,7 @@ input, textarea, select, button { font-family:inherit; }
 <section style="padding:80px 32px; background:#FFF7F5;">
   <div style="max-width:1140px; margin:0 auto;">
     <div style="text-align:center; max-width:700px; margin:0 auto 48px;" data-reveal>
-      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; color:#0d0d0d;">Partner Benefits</h2>
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; color:#0d0d0d;">Partner benefits</h2>
       <p style="font-size:18px; color:#5a514d; margin:0;">The real opportunity is in services. While licence commissions are attractive, the real revenue potential lies in implementation and professional services.</p>
     </div>
     <!-- NEEDS-APPROVAL: "10x", "€10B+ market", "6-12 weeks sales cycles", "top priority 2024-2025", deal protection -->
@@ -193,13 +215,13 @@ input, textarea, select, button { font-family:inherit; }
   <img src="../assets/bull/Bull_symbol_orange.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:280px; opacity:0.06; pointer-events:none;">
   <div style="max-width:760px; margin:0 auto; position:relative;">
     <div style="text-align:center; margin-bottom:36px;" data-reveal>
-      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; color:#0d0d0d;">Apply Now</h2>
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3.2vw,40px); margin:0 0 12px; color:#0d0d0d;">Apply now</h2>
       <p style="font-size:18px; line-height:1.55; color:#5a514d; margin:0;">Start your partnership journey. Fill out the form below and our partner team will reach out within 48 hours.</p>
     </div>
     <!-- Partner application form — per content/global/forms.md (Partner application form) -->
     <!-- FUNCTIONAL-SPEC NEEDED: endpoint/CRM, validation, success/error, consent, anti-spam, analytics, 48h SLA owner -->
     <!-- NEEDS-APPROVAL: "within 48 hours" response-time claim -->
-    <div data-reveal style="background:#fff; border-radius:18px; padding:34px; box-shadow:0 30px 70px -34px rgba(0,40,112,0.4);">
+    <div data-reveal style="background:#fff; border-radius:18px; padding:34px;">
       <sc-if value="{{ formDone }}" hint-placeholder-val="{{ false }}">
         <div style="text-align:center; padding:40px 10px;">
           <div style="width:56px; height:56px; border-radius:50%; background:#dcf5ee; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 13L11 19L21 7" fill="none" stroke="#00B290" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -228,7 +250,7 @@ input, textarea, select, button { font-family:inherit; }
             <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Country *</span><input type="text" required placeholder="Country" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
           </div>
           <label style="display:block; margin-top:14px;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Tell us about your business</span><textarea rows="4" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px; resize:vertical;"></textarea></label>
-          <button type="submit" style="margin-top:18px; width:100%; background:#FF5539; color:#fff; border:none; border-radius:9px; padding:14px; font:600 16px 'Roboto',sans-serif; cursor:pointer;" style-hover="background:#e8472d;">Submit Partner Application</button>
+          <button type="submit" style="margin-top:18px; width:100%; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:9px; padding:14px; font:600 16px 'Roboto',sans-serif; cursor:pointer;" data-cta="primary">Submit partner application</button>
         </form>
       </sc-if>
     </div>
@@ -243,7 +265,7 @@ input, textarea, select, button { font-family:inherit; }
         <img src="../assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
         <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">AI-first workflow for your claim team. Transform complex claims processing with intelligent automation.</p>
         <div style="display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid #1a2c54;">
-          <img src="../assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:26px; width:auto;">
+          <img src="../assets/bull/BULL_LOGO_WHITE_RGB.png" alt="Bull" style="height:26px; width:auto;">
         </div>
         <p style="font-size:12px; color:#7e8ab0; margin:12px 0 0;">ClaimSense is built by DataSentics, part of the Bull / Eviden group.</p>
       </div>
@@ -252,14 +274,14 @@ input, textarea, select, button { font-family:inherit; }
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
           <li><a href="ClaimSense%20Features.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Features</a></li>
           <li><a href="ClaimSense%20Pricing.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Pricing</a></li>
-          <li><a href="ClaimSense%20Use%20Cases.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Use Cases</a></li>
+          <li><a href="ClaimSense%20Use%20Cases.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Use cases</a></li>
           <li><a href="ClaimSense%20Implementation.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Implementation</a></li>
         </ul>
       </div>
       <div>
         <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Company</div>
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
-          <li><a href="ClaimSense%20Our%20Story.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Our Story</a></li>
+          <li><a href="ClaimSense%20Our%20Story.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Our story</a></li>
           <li><a href="ClaimSense%20Partners.dc.html" style="color:#FF5539;">Partners</a></li>
           <li><a href="ClaimSense%20Careers.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Careers</a></li>
         </ul>
@@ -389,8 +411,8 @@ class Component extends DCLogic {
     const tiers = this._tiers.map((t) => {
       const base = 'position:relative; display:flex; flex-direction:column; border-radius:16px; padding:28px; ';
       const cardStyle = t.popular
-        ? base + 'background:#fff; border:2px solid #FF5539; box-shadow:0 24px 60px -28px rgba(255,85,57,0.45);'
-        : base + 'background:#fff; border:1px solid #ecdcd6; box-shadow:0 10px 30px -24px rgba(0,40,112,0.22);';
+        ? base + 'background:#fff; border:3px solid #FF5539;'
+        : base + 'background:#fff; border:1px solid #ecdcd6;';
       return Object.assign({}, t, { cardStyle: cardStyle, nameColor: t.popular ? '#FF5539' : '#002870' });
     });
     return {

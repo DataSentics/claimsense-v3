@@ -24,11 +24,42 @@ body { margin:0; font-family:'Roboto',sans-serif; font-weight:400; color:#1a1a1a
 a { text-decoration:none; color:inherit; }
 input, textarea, select, button { font-family:inherit; }
 input[type=range] { accent-color:#FF5539; }
+
+
+/* ── CTA & Nav hover system v3 (Bull brand, all 7 fixes) ───────────────── */
+/* Fix 7: no border/outline on nav/footer links */
+header a:not([data-nav-cta]), header button { outline:none !important; box-shadow:none !important; border:none !important; }
+header a:not([data-nav-cta]) { border:none !important; }
+footer a { border:none !important; outline:none !important; }
+/* Fix 5: nav link hover */
+header a:not([data-nav-cta]):hover { color:#FF5539 !important; transition:color .2s ease; }
+/* Fix 5b: dropdown items hover */
+header a[style*="padding:10px"]:hover { background:#f5f0ee !important; color:#FF5539 !important; }
+/* Fix 4: nav CTA "Book a walkthrough" */
+[data-nav-cta] { transition:background .2s ease, color .2s ease; cursor:pointer; }
+[data-nav-cta]:hover { background:#ffffff !important; color:#000000 !important; border:3px solid #FF5539 !important; }
+/* Primary CTA: orange bg → white on hover */
+[data-cta="primary"] { border:3px solid #FF5539 !important; transition:background .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="primary"]:hover { background:#ffffff !important; color:#000000 !important; box-shadow:none !important; }
+/* Secondary CTA: white bg + navy border → orange border on hover */
+[data-cta="secondary"] { border:3px solid #002870 !important; transition:border-color .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="secondary"]:hover { border-color:#FF5539 !important; color:#000000 !important; box-shadow:none !important; }
+/* Pricing navy button */
+[data-cta="pricing"] { border:3px solid #002870 !important; transition:border-color .2s ease, background .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="pricing"]:hover { border-color:#FF5539 !important; box-shadow:none !important; }
+/* Fix 1: Quick Start "Get started" — outline style, inverse hover */
+[data-cta="quickstart"] { background:#ffffff; color:#FF5539; border:3px solid #FF5539 !important; transition:background .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="quickstart"]:hover { background:#FF5539 !important; color:#000000 !important; box-shadow:none !important; }
+/* Feature pills badge hover */
+[data-pill]:hover [data-pill-badge] { background-color:#FF5539 !important; color:#ffffff !important; }
+/* Fix 6: footer active link */
+[data-footer-active] { color:#FF5539 !important; }
+footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
 </style>
 </helmet>
 
 <!-- ================================================================ -->
-<!-- ClaimSense Business Case page — /business-case/                   -->
+<!-- ClaimSense Business case page — /business-case/                   -->
 <!-- Content preserved verbatim from content/pages/content_business-case.md -->
 <!-- status: needs-functional-spec (P0 calculator)                     -->
 <!-- approval_required: calculator formula, license assumptions, ranges, defaults, ROI wording, chart -->
@@ -49,24 +80,24 @@ input[type=range] { accent-color:#FF5539; }
     <div style="display:flex; align-items:center; justify-content:center; gap:34px; flex:1 1 auto;" data-nav>
       <a href="ClaimSense%20Homepage.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Home</a>
       <div style="position:relative;" onMouseEnter="{{ openProduct }}" onMouseLeave="{{ closeProduct }}">
-        <button onClick="{{ toggleProduct }}" aria-haspopup="true" aria-expanded="{{ productOpen }}" style="display:inline-flex; align-items:center; gap:6px; background:none; border:none; cursor:pointer; font:500 14px 'Roboto',sans-serif; color:#33302e; padding:0;" style-hover="color:#FF5539;">
+        <button onClick="{{ toggleProduct }}" aria-haspopup="true" aria-expanded="{{ productOpen }}" style="display:inline-flex; align-items:center; gap:6px; background:none; cursor:pointer; font:500 14px 'Roboto',sans-serif; color:#33302e; padding:0;" style-hover="color:#FF5539;">
           Product
           <svg width="11" height="7" viewBox="0 0 11 7" aria-hidden="true" style="transition:transform .2s; transform:{{ chevronRotate }};"><path d="M1 1L5.5 5.5L10 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <sc-if value="{{ productOpen }}" hint-placeholder-val="{{ false }}">
           <div style="position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:60;">
-            <div style="background:#fff; border:1px solid #ece3df; border-radius:12px; box-shadow:0 20px 50px -16px rgba(0,40,112,0.25); padding:8px; min-width:220px;">
+            <div style="background:#fff; border:1px solid #ece3df; border-radius:12px; padding:8px; min-width:220px;">
               <a href="ClaimSense%20Features.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Features</a>
               <a href="ClaimSense%20Architecture.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Architecture</a>
-              <a href="ClaimSense%20Use%20Cases.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Use Cases</a>
+              <a href="ClaimSense%20Use%20Cases.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Use cases</a>
               <a href="ClaimSense%20Implementation.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Implementation</a>
             </div>
           </div>
         </sc-if>
       </div>
-      <a href="ClaimSense%20Our%20Story.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Our Story</a>
+      <a href="ClaimSense%20Our%20Story.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Our story</a>
       <a href="ClaimSense%20Pricing.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Pricing</a>
-      <a href="ClaimSense%20Business%20Case.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#FF5539; border-bottom:2px solid #FF5539; padding-bottom:2px;">Business Case</a>
+      <a href="ClaimSense%20Business%20Case.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#FF5539; border-bottom:2px solid #FF5539; padding-bottom:2px;">Business case</a>
     </div>
     <div style="display:flex; align-items:center; flex:0 0 auto;" data-nav-right>
       <span style="display:flex; align-items:center; gap:8px;" data-trust-badge>
@@ -74,7 +105,7 @@ input[type=range] { accent-color:#FF5539; }
         <img src="../assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:18px; width:auto;">
       </span>
       <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;" data-nav-divider></span>
-      <button onClick="{{ scrollToDemo }}" style="margin-left:24px; background:#FF5539; color:#fff; border:none; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 2px 10px rgba(255,85,57,0.28); white-space:nowrap;" style-hover="background:#e8472d;">Book a Demo</button>
+      <button onClick="{{ scrollToDemo }}" style="margin-left:24px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; white-space:nowrap;" data-nav-cta="">Book a walkthrough</button>
     </div>
   </nav>
 </header>
@@ -83,8 +114,8 @@ input[type=range] { accent-color:#FF5539; }
 <section style="background:linear-gradient(180deg,#FFF7F5 0%,#ffffff 60%); padding:80px 32px 40px; position:relative; overflow:hidden;">
   <img src="../assets/bull/Bull_symbol_orange.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:280px; opacity:0.05; pointer-events:none;">
   <div style="max-width:900px; margin:0 auto; text-align:center; position:relative;" data-reveal>
-    <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF5539; margin-bottom:18px;">Business Case Calculator</div>
-    <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(34px,4.8vw,58px); line-height:1.04; letter-spacing:-0.02em; margin:0 0 20px; color:#0d0d0d;">Calculate Your ROI with ClaimSense</h1>
+    <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF5539; margin-bottom:18px;">Business case Calculator</div>
+    <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(34px,4.8vw,58px); line-height:1.04; letter-spacing:-0.02em; margin:0 0 20px; color:#0d0d0d;">Calculate your ROI with ClaimSense</h1>
     <p style="font-size:20px; line-height:1.55; color:#4a4340; max-width:660px; margin:0 auto;">See exactly how much your organization can save by automating claim processing. Adjust the parameters below and watch the savings add up.</p>
   </div>
 </section>
@@ -94,8 +125,8 @@ input[type=range] { accent-color:#FF5539; }
   <div style="max-width:1200px; margin:0 auto; display:grid; gap:28px; align-items:start;" data-calc-grid data-reveal>
 
     <!-- LEFT: Your Parameters -->
-    <div style="background:#fff; border:1px solid #ecdcd6; border-radius:18px; padding:32px; box-shadow:0 14px 40px -28px rgba(0,40,112,0.3);">
-      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:24px; margin:0 0 6px; color:#0d0d0d;">Your Parameters</h2>
+    <div style="background:#fff; border:1px solid #ecdcd6; border-radius:18px; padding:32px;">
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:24px; margin:0 0 6px; color:#0d0d0d;">Your parameters</h2>
       <!-- NEEDS-APPROVAL: input ranges/defaults/steps — confirm from source -->
       <p style="font-size:14px; color:#9ca3af; margin:0 0 28px;">Adjust to match your operation.</p>
 
@@ -120,7 +151,7 @@ input[type=range] { accent-color:#FF5539; }
         <input id="cs-cost" type="range" min="{{ costMin }}" max="{{ costMax }}" step="{{ costStep }}" value="{{ costVal }}" onInput="{{ onCost }}" style="width:100%; cursor:pointer;">
         <div style="display:flex; justify-content:space-between; font-size:12px; color:#a9a09b; margin-top:4px;"><span>€5</span><span>EUR / case</span><span>€200</span></div>
         <!-- FUNCTIONAL-SPEC NEEDED: "Not sure? Click here to calculate it" — confirm what this opens (modal / explainer / sales contact) -->
-        <button onClick="{{ scrollToHelp }}" style="margin-top:12px; background:none; border:none; padding:0; cursor:pointer; font:500 13px 'Roboto',sans-serif; color:#002870; text-decoration:underline;">Not sure? Click here to calculate it</button>
+        <button onClick="{{ scrollToHelp }}" style="margin-top:12px; background:none; border:none; padding:0; cursor:pointer; font:500 13px 'Roboto',sans-serif; color:#002870; text-decoration:underline;">Not sure? click here to calculate IT</button>
       </div>
 
       <!-- Expected Time Reduction per Case -->
@@ -137,7 +168,7 @@ input[type=range] { accent-color:#FF5539; }
 
     <!-- RIGHT: Your Savings -->
     <div>
-      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:24px; margin:0 0 18px; color:#0d0d0d;">Your Savings</h2>
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:24px; margin:0 0 18px; color:#0d0d0d;">Your savings</h2>
       <!-- NEEDS-APPROVAL: all calculated outputs depend on the unconfirmed formula -->
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
         <div style="background:#0a1b3d; border-radius:14px; padding:22px;">
@@ -223,8 +254,8 @@ input[type=range] { accent-color:#FF5539; }
       <li style="display:flex; gap:12px; font-size:15px; color:#dfe4f0;"><span style="flex:none; color:#00B290; font-size:17px;">✓</span>Walk away with a board-ready business case in days, not weeks</li>
     </ul>
     <div style="display:flex; flex-wrap:wrap; align-items:center; gap:18px;">
-      <!-- FUNCTIONAL-SPEC NEEDED: "Let's Build Your Business Case" routing (scheduler / form) -->
-      <button onClick="{{ scrollToDemo }}" style="background:#FF5539; color:#fff; border:none; border-radius:10px; padding:16px 32px; font:600 17px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 6px 20px rgba(255,85,57,0.34);" style-hover="background:#e8472d;">Let's Build Your Business Case</button>
+      <!-- FUNCTIONAL-SPEC NEEDED: "Let's Build Your Business case" routing (scheduler / form) -->
+      <button onClick="{{ scrollToDemo }}" style="background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:10px; padding:16px 32px; font:600 17px 'Roboto',sans-serif; cursor:pointer;" data-cta="primary">Let's build your business case</button>
       <span style="font-size:14px; color:#9aa6c8;">Free Consultation · 30-min call with our team</span>
     </div>
   </div>
@@ -238,8 +269,8 @@ input[type=range] { accent-color:#FF5539; }
     <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:1.08; margin:0 0 18px; color:#0d0d0d;">Ready to realize these savings?</h2>
     <p style="font-size:18px; line-height:1.6; color:#5a514d; margin:0 0 32px;">Book a demo and let us show you how ClaimSense can transform your claims processing efficiency.</p>
     <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
-      <button onClick="{{ scrollToDemo }}" style="background:#FF5539; color:#fff; border:none; border-radius:10px; padding:16px 32px; font:600 17px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 6px 20px rgba(255,85,57,0.34);" style-hover="background:#e8472d;">Book a Demo</button>
-      <a href="ClaimSense%20Pricing.dc.html" style="display:inline-flex; align-items:center; gap:9px; background:#fff; color:#002870; border:1.5px solid #d9cfca; border-radius:10px; padding:15px 30px; font:600 17px 'Roboto',sans-serif;" style-hover="border-color:#002870;">View Pricing</a>
+      <button onClick="{{ scrollToDemo }}" style="background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:10px; padding:16px 32px; font:600 17px 'Roboto',sans-serif; cursor:pointer;" data-cta="primary">Book a walkthrough</button>
+      <a href="ClaimSense%20Pricing.dc.html" data-cta="secondary" style="display:inline-flex; align-items:center; gap:9px; background:#fff; color:#002870; border:3px solid #d9cfca; border-radius:10px; padding:15px 30px; font:600 17px 'Roboto',sans-serif;" style-hover="border-color:#FF5539; color:#000000;">View Pricing</a>
     </div>
   </div>
 </section>
@@ -252,7 +283,7 @@ input[type=range] { accent-color:#FF5539; }
         <img src="../assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
         <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">AI-first workflow for your claim team. Transform complex claims processing with intelligent automation.</p>
         <div style="display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid #1a2c54;">
-          <img src="../assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:26px; width:auto;">
+          <img src="../assets/bull/BULL_LOGO_WHITE_RGB.png" alt="Bull" style="height:26px; width:auto;">
         </div>
         <p style="font-size:12px; color:#7e8ab0; margin:12px 0 0;">ClaimSense is built by DataSentics, part of the Bull / Eviden group.</p>
       </div>
@@ -261,14 +292,14 @@ input[type=range] { accent-color:#FF5539; }
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
           <li><a href="ClaimSense%20Features.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Features</a></li>
           <li><a href="ClaimSense%20Pricing.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Pricing</a></li>
-          <li><a href="ClaimSense%20Use%20Cases.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Use Cases</a></li>
+          <li><a href="ClaimSense%20Use%20Cases.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Use cases</a></li>
           <li><a href="ClaimSense%20Implementation.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Implementation</a></li>
         </ul>
       </div>
       <div>
         <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Company</div>
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
-          <li><a href="ClaimSense%20Our%20Story.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Our Story</a></li>
+          <li><a href="ClaimSense%20Our%20Story.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Our story</a></li>
           <li><a href="ClaimSense%20Partners.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Partners</a></li>
           <li><a href="ClaimSense%20Careers.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Careers</a></li>
         </ul>

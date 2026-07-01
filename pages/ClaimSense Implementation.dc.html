@@ -23,6 +23,36 @@ body { margin:0; font-family:'Roboto',sans-serif; font-weight:400; color:#1a1a1a
 ::selection { background:#FFADA0; }
 a { text-decoration:none; color:inherit; }
 input, textarea, select, button { font-family:inherit; }
+
+/* ── CTA & Nav hover system v3 (Bull brand, all 7 fixes) ───────────────── */
+/* Fix 7: no border/outline on nav/footer links */
+header a:not([data-nav-cta]), header button { outline:none !important; box-shadow:none !important; border:none !important; }
+header a:not([data-nav-cta]) { border:none !important; }
+footer a { border:none !important; outline:none !important; }
+/* Fix 5: nav link hover */
+header a:not([data-nav-cta]):hover { color:#FF5539 !important; transition:color .2s ease; }
+/* Fix 5b: dropdown items hover */
+header a[style*="padding:10px"]:hover { background:#f5f0ee !important; color:#FF5539 !important; }
+/* Fix 4: nav CTA "Book a walkthrough" */
+[data-nav-cta] { transition:background .2s ease, color .2s ease; cursor:pointer; }
+[data-nav-cta]:hover { background:#ffffff !important; color:#000000 !important; border:3px solid #FF5539 !important; }
+/* Primary CTA: orange bg → white on hover */
+[data-cta="primary"] { border:3px solid #FF5539 !important; transition:background .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="primary"]:hover { background:#ffffff !important; color:#000000 !important; box-shadow:none !important; }
+/* Secondary CTA: white bg + navy border → orange border on hover */
+[data-cta="secondary"] { border:3px solid #002870 !important; transition:border-color .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="secondary"]:hover { border-color:#FF5539 !important; color:#000000 !important; box-shadow:none !important; }
+/* Pricing navy button */
+[data-cta="pricing"] { border:3px solid #002870 !important; transition:border-color .2s ease, background .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="pricing"]:hover { border-color:#FF5539 !important; box-shadow:none !important; }
+/* Fix 1: Quick Start "Get started" — outline style, inverse hover */
+[data-cta="quickstart"] { background:#ffffff; color:#FF5539; border:3px solid #FF5539 !important; transition:background .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="quickstart"]:hover { background:#FF5539 !important; color:#000000 !important; box-shadow:none !important; }
+/* Feature pills badge hover */
+[data-pill]:hover [data-pill-badge] { background-color:#FF5539 !important; color:#ffffff !important; }
+/* Fix 6: footer active link */
+[data-footer-active] { color:#FF5539 !important; }
+footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
 </style>
 </helmet>
 
@@ -43,24 +73,24 @@ input, textarea, select, button { font-family:inherit; }
       <a href="ClaimSense%20Homepage.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Home</a>
       <!-- Product dropdown — Implementation active -->
       <div style="position:relative;" onMouseEnter="{{ openProduct }}" onMouseLeave="{{ closeProduct }}">
-        <button onClick="{{ toggleProduct }}" aria-haspopup="true" aria-expanded="{{ productOpen }}" style="display:inline-flex; align-items:center; gap:6px; background:none; border:none; cursor:pointer; font:500 14px 'Roboto',sans-serif; color:#FF5539; border-bottom:2px solid #FF5539; padding:0 0 2px;">
+        <button onClick="{{ toggleProduct }}" aria-haspopup="true" aria-expanded="{{ productOpen }}" style="display:inline-flex; align-items:center; gap:6px; background:none; cursor:pointer; font:500 14px 'Roboto',sans-serif; color:#FF5539; border:none; border-bottom:2px solid #FF5539; padding:0 0 2px;">
           Product
           <svg width="11" height="7" viewBox="0 0 11 7" aria-hidden="true" style="transition:transform .2s; transform:{{ chevronRotate }};"><path d="M1 1L5.5 5.5L10 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <sc-if value="{{ productOpen }}" hint-placeholder-val="{{ false }}">
           <div style="position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:60;">
-            <div style="background:#fff; border:1px solid #ece3df; border-radius:12px; box-shadow:0 20px 50px -16px rgba(0,40,112,0.25); padding:8px; min-width:220px;">
+            <div style="background:#fff; border:1px solid #ece3df; border-radius:12px; padding:8px; min-width:220px;">
               <a href="ClaimSense%20Features.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Features</a>
               <a href="ClaimSense%20Architecture.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Architecture</a>
-              <a href="ClaimSense%20Use%20Cases.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Use Cases</a>
+              <a href="ClaimSense%20Use%20Cases.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Use cases</a>
               <a href="ClaimSense%20Implementation.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#FF5539; background:#FFF4F1;">Implementation</a>
             </div>
           </div>
         </sc-if>
       </div>
-      <a href="ClaimSense%20Our%20Story.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Our Story</a>
+      <a href="ClaimSense%20Our%20Story.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Our story</a>
       <a href="ClaimSense%20Pricing.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Pricing</a>
-      <a href="ClaimSense%20Business%20Case.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Business Case</a>
+      <a href="ClaimSense%20Business%20Case.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Business case</a>
     </div>
     <div style="display:flex; align-items:center; flex:0 0 auto;" data-nav-right>
       <span style="display:flex; align-items:center; gap:8px;" data-trust-badge>
@@ -68,7 +98,7 @@ input, textarea, select, button { font-family:inherit; }
         <img src="../assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:18px; width:auto;">
       </span>
       <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;" data-nav-divider></span>
-      <button onClick="{{ scrollToCta }}" style="margin-left:24px; background:#FF5539; color:#fff; border:none; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 2px 10px rgba(255,85,57,0.28); white-space:nowrap;" style-hover="background:#e8472d;">Book a Demo</button>
+      <a href="ClaimSense%20Homepage.dc.html#demo" style="margin-left:24px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; white-space:nowrap;" data-nav-cta="">Book a walkthrough</a>
     </div>
   </nav>
 </header>
@@ -79,31 +109,31 @@ input, textarea, select, button { font-family:inherit; }
   <div style="max-width:1140px; margin:0 auto; position:relative;">
     <div style="max-width:760px;" data-reveal>
       <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF5539; margin-bottom:18px;">AI Claims Processing Platform Deployment</div>
-      <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(36px,5vw,62px); line-height:1.03; letter-spacing:-0.02em; margin:0 0 22px; color:#0d0d0d;">Implementation Project Plan</h1>
+      <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(36px,5vw,62px); line-height:1.03; letter-spacing:-0.02em; margin:0 0 22px; color:#0d0d0d;">Implementation project plan</h1>
       <p style="font-size:20px; line-height:1.55; color:#4a4340; max-width:660px; margin:0 0 36px;">The implementation is delivered in four clear phases to ensure controlled adoption, operational stability, and measurable value delivery. Each phase includes defined deliverables so you clearly understand what is achieved.</p>
       <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
-        <button onClick="{{ scrollToCta }}" style="background:#FF5539; color:#fff; border:none; border-radius:10px; padding:16px 32px; font:600 18px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 4px 16px rgba(255,85,57,0.3);" style-hover="background:#e8472d;">Book a Consultation</button>
+        <a href="ClaimSense%20Homepage.dc.html#demo" style="background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:10px; padding:16px 32px; font:600 18px 'Roboto',sans-serif; cursor:pointer;" data-cta="primary">Book a consultation</a>
         <a href="#phases" onClick="{{ navPhases }}" style="display:inline-flex; align-items:center; gap:8px; font:500 16px 'Roboto',sans-serif; color:#002870; border-bottom:2px solid #002870; padding-bottom:2px;">See the four phases <span>→</span></a>
       </div>
     </div>
 
     <!-- 4-phase overview stepper -->
     <div style="display:grid; gap:14px; margin-top:48px;" data-phase-stepper data-reveal>
-      <a href="#phase-1" onClick="{{ navP1 }}" style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #e5e7eb; border-radius:12px; padding:16px 18px; box-shadow:0 1px 4px rgba(0,0,0,0.06);" style-hover="border-color:#FF5539;">
-        <span style="flex:none; width:34px; height:34px; border-radius:9px; background:#FF5539; color:#fff; font:700 15px 'Roboto',sans-serif; display:flex; align-items:center; justify-content:center;">1</span>
-        <span style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#0d0d0d;">Initial Setup</span>
+      <a href="#phase-1" onClick="{{ navP1 }}" style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #e5e7eb; border-radius:12px; padding:16px 18px;" style-hover="border-color:#FF5539;">
+        <span style="flex:none; width:34px; height:34px; border-radius:9px; background:#FF5539; color:#000; font:700 15px 'Roboto',sans-serif; display:flex; align-items:center; justify-content:center;; border:3px solid #FF5539;">1</span>
+        <span style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#0d0d0d;">Initial setup</span>
       </a>
-      <a href="#phase-2" onClick="{{ navP2 }}" style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #e5e7eb; border-radius:12px; padding:16px 18px; box-shadow:0 1px 4px rgba(0,0,0,0.06);" style-hover="border-color:#FF5539;">
+      <a href="#phase-2" onClick="{{ navP2 }}" style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #e5e7eb; border-radius:12px; padding:16px 18px;" style-hover="border-color:#FF5539;">
         <span style="flex:none; width:34px; height:34px; border-radius:9px; background:#002870; color:#fff; font:700 15px 'Roboto',sans-serif; display:flex; align-items:center; justify-content:center;">2</span>
-        <span style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#0d0d0d;">Shadow Run</span>
+        <span style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#0d0d0d;">Shadow run</span>
       </a>
-      <a href="#phase-3" onClick="{{ navP3 }}" style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #e5e7eb; border-radius:12px; padding:16px 18px; box-shadow:0 1px 4px rgba(0,0,0,0.06);" style-hover="border-color:#FF5539;">
+      <a href="#phase-3" onClick="{{ navP3 }}" style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #e5e7eb; border-radius:12px; padding:16px 18px;" style-hover="border-color:#FF5539;">
         <span style="flex:none; width:34px; height:34px; border-radius:9px; background:#002870; color:#fff; font:700 15px 'Roboto',sans-serif; display:flex; align-items:center; justify-content:center;">3</span>
-        <span style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#0d0d0d;">Operational Migration</span>
+        <span style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#0d0d0d;">Operational migration</span>
       </a>
-      <a href="#phase-4" onClick="{{ navP4 }}" style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #e5e7eb; border-radius:12px; padding:16px 18px; box-shadow:0 1px 4px rgba(0,0,0,0.06);" style-hover="border-color:#FF5539;">
+      <a href="#phase-4" onClick="{{ navP4 }}" style="display:flex; align-items:center; gap:14px; background:#fff; border:1.5px solid #e5e7eb; border-radius:12px; padding:16px 18px;" style-hover="border-color:#FF5539;">
         <span style="flex:none; width:34px; height:34px; border-radius:9px; background:#002870; color:#fff; font:700 15px 'Roboto',sans-serif; display:flex; align-items:center; justify-content:center;">4</span>
-        <span style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#0d0d0d;">Full Migration</span>
+        <span style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#0d0d0d;">Full migration</span>
       </a>
     </div>
   </div>
@@ -115,7 +145,7 @@ input, textarea, select, button { font-family:inherit; }
   <div style="max-width:1000px; margin:0 auto;">
     <sc-for list="{{ phases }}" as="ph" hint-placeholder-count="4">
       <article id="{{ ph.anchor }}" style="position:relative; margin-bottom:32px;" data-reveal>
-        <div style="background:#fff; border:1px solid #ecdcd6; border-radius:18px; padding:34px; box-shadow:0 14px 40px -26px rgba(0,40,112,0.3);">
+        <div style="background:#fff; border:1px solid #ecdcd6; border-radius:18px; padding:34px;">
           <!-- Phase header -->
           <div style="display:flex; align-items:flex-start; gap:18px; margin-bottom:8px;">
             <span style="flex:none; width:52px; height:52px; border-radius:13px; background:{{ ph.badgeBg }}; color:#fff; font-family:'Tosh A',sans-serif; font-weight:900; font-size:24px; display:flex; align-items:center; justify-content:center;">{{ ph.num }}</span>
@@ -184,11 +214,11 @@ input, textarea, select, button { font-family:inherit; }
 <section style="padding:80px 32px; background:#FFF7F5; position:relative; overflow:hidden;">
   <img src="../assets/bull/Bull_symbol_orange.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:280px; opacity:0.06; pointer-events:none;">
   <div style="max-width:760px; margin:0 auto; text-align:center; position:relative;" data-reveal>
-    <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:1.08; margin:0 0 18px; color:#0d0d0d;">Ready to Start Your Implementation?</h2>
+    <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:1.08; margin:0 0 18px; color:#0d0d0d;">Ready to start your implementation?</h2>
     <p style="font-size:18px; line-height:1.6; color:#5a514d; margin:0 0 32px;">Let's discuss your specific requirements and create a tailored implementation plan for your organization.</p>
     <!-- NEEDS-APPROVAL: timing and delivery commitments (phase durations, % figures) per page front-matter -->
     <!-- FUNCTIONAL-SPEC NEEDED: "Book a Consultation" routing -->
-    <button onClick="{{ scrollToCta }}" style="display:inline-flex; align-items:center; gap:11px; background:#FF5539; color:#fff; border:none; border-radius:10px; padding:16px 34px; font:600 18px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 6px 20px rgba(255,85,57,0.34);" style-hover="background:#e8472d;">Book a Consultation <span aria-hidden="true">→</span></button>
+    <a href="ClaimSense%20Homepage.dc.html#demo" style="display:inline-flex; align-items:center; gap:11px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:10px; padding:16px 34px; font:600 18px 'Roboto',sans-serif; cursor:pointer;" data-cta="primary">Book a consultation <span aria-hidden="true">→</span></a>
   </div>
 </section>
 
@@ -200,7 +230,7 @@ input, textarea, select, button { font-family:inherit; }
         <img src="../assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
         <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">AI-first workflow for your claim team. Transform complex claims processing with intelligent automation.</p>
         <div style="display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid #1a2c54;">
-          <img src="../assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:26px; width:auto;">
+          <img src="../assets/bull/BULL_LOGO_WHITE_RGB.png" alt="Bull" style="height:26px; width:auto;">
         </div>
         <p style="font-size:12px; color:#7e8ab0; margin:12px 0 0;">ClaimSense is built by DataSentics, part of the Bull / Eviden group.</p>
       </div>
@@ -209,14 +239,14 @@ input, textarea, select, button { font-family:inherit; }
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
           <li><a href="ClaimSense%20Features.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Features</a></li>
           <li><a href="ClaimSense%20Architecture.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Architecture</a></li>
-          <li><a href="ClaimSense%20Use%20Cases.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Use Cases</a></li>
+          <li><a href="ClaimSense%20Use%20Cases.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Use cases</a></li>
           <li><a href="ClaimSense%20Implementation.dc.html" style="color:#FF5539;">Implementation</a></li>
         </ul>
       </div>
       <div>
         <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Company</div>
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
-          <li><a href="ClaimSense%20Our%20Story.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Our Story</a></li>
+          <li><a href="ClaimSense%20Our%20Story.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Our story</a></li>
           <li><a href="ClaimSense%20Partners.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Partners</a></li>
           <li><a href="ClaimSense%20Careers.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Careers</a></li>
         </ul>
