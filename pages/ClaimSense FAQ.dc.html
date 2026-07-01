@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:'Roboto',sans-serif; font-weight:400; color:#1a1a1a; line-height:1.6; -webkit-font-smoothing:antialiased; background:#ffffff; }
+::selection { background:#FFADA0; }
+a { text-decoration:none; color:inherit; }
+input, textarea, select, button { font-family:inherit; }
+</style>
+</helmet>
+
+<!-- ================================================================ -->
+<!-- ClaimSense FAQ page — /faq/                                       -->
+<!-- Content preserved verbatim from content/pages/content_faq.md      -->
+<!-- status: content-ready | approval_required: legal, product, security, delivery -->
+<!-- primary_conversion: Book a Demo                                   -->
+<!-- ================================================================ -->
+
+<!-- ===================== HEADER (shared chrome) ===================== -->
+<header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.92); backdrop-filter:blur(14px); border-bottom:1px solid #f0e6e3;">
+  <nav style="max-width:1280px; margin:0 auto; padding:14px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+    <a href="ClaimSense%20Homepage.dc.html" style="display:flex; align-items:center; flex:0 0 auto;">
+      <img src="assets/logos/ClaimSense_logo_black.svg" alt="ClaimSense" style="height:26px; width:auto;">
+    </a>
+    <div style="display:flex; align-items:center; justify-content:center; gap:34px; flex:1 1 auto;" data-nav>
+      <a href="ClaimSense%20Homepage.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Home</a>
+      <div style="position:relative;" onMouseEnter="{{ openProduct }}" onMouseLeave="{{ closeProduct }}">
+        <button onClick="{{ toggleProduct }}" aria-haspopup="true" aria-expanded="{{ productOpen }}" style="display:inline-flex; align-items:center; gap:6px; background:none; border:none; cursor:pointer; font:500 14px 'Roboto',sans-serif; color:#33302e; padding:0;" style-hover="color:#FF5539;">
+          Product
+          <svg width="11" height="7" viewBox="0 0 11 7" aria-hidden="true" style="transition:transform .2s; transform:{{ chevronRotate }};"><path d="M1 1L5.5 5.5L10 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <sc-if value="{{ productOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:60;">
+            <div style="background:#fff; border:1px solid #ece3df; border-radius:12px; box-shadow:0 20px 50px -16px rgba(0,40,112,0.25); padding:8px; min-width:220px;">
+              <a href="ClaimSense%20Features.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Features</a>
+              <a href="ClaimSense%20Architecture.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Architecture</a>
+              <a href="ClaimSense%20Use%20Cases.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Use Cases</a>
+              <a href="ClaimSense%20Implementation.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Implementation</a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <a href="ClaimSense%20Our%20Story.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Our Story</a>
+      <a href="ClaimSense%20Pricing.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Pricing</a>
+      <a href="ClaimSense%20Business%20Case.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Business Case</a>
+    </div>
+    <div style="display:flex; align-items:center; flex:0 0 auto;" data-nav-right>
+      <span style="display:flex; align-items:center; gap:8px;" data-trust-badge>
+        <span style="font:400 14px/1.2 'Roboto',sans-serif; color:#6b7280; white-space:nowrap;">Built by DataSentics, part of</span>
+        <img src="assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:18px; width:auto;">
+      </span>
+      <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;" data-nav-divider></span>
+      <button onClick="{{ scrollToCta }}" style="margin-left:24px; background:#FF5539; color:#fff; border:none; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 2px 10px rgba(255,85,57,0.28); white-space:nowrap;" style-hover="background:#e8472d;">Book a Demo</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section style="background:linear-gradient(180deg,#FFF7F5 0%,#ffffff 70%); padding:80px 32px 48px; position:relative; overflow:hidden;">
+  <img src="assets/bull/Bull_symbol_orange.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:280px; opacity:0.05; pointer-events:none;">
+  <div style="max-width:820px; margin:0 auto; text-align:center; position:relative;" data-reveal>
+    <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF5539; margin-bottom:18px;">FAQ</div>
+    <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(34px,4.8vw,58px); line-height:1.04; letter-spacing:-0.02em; margin:0 0 20px; color:#0d0d0d;">Frequently Asked Questions</h1>
+    <p style="font-size:20px; line-height:1.55; color:#4a4340; max-width:640px; margin:0 auto;">Everything you need to know about ClaimSense — from how it works to how we keep your data safe.</p>
+  </div>
+</section>
+
+<!-- ===================== FAQ ACCORDION ===================== -->
+<section style="padding:48px 32px 80px; background:#ffffff;">
+  <div style="max-width:820px; margin:0 auto;">
+    <div style="display:flex; flex-direction:column; gap:14px;" data-reveal>
+      <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="9">
+        <div style="background:#fff; border:1px solid #ecdcd6; border-radius:14px; overflow:hidden; box-shadow:0 4px 16px -12px rgba(0,40,112,0.22);">
+          <button onClick="{{ faq.toggle }}" aria-expanded="{{ faq.open }}" style="width:100%; display:flex; align-items:center; gap:18px; padding:22px 26px; background:none; border:none; cursor:pointer; text-align:left;">
+            <span style="flex:none; font-family:'Tosh A',sans-serif; font-weight:900; font-size:16px; color:#FF5539; min-width:30px;">{{ faq.num }}</span>
+            <span style="flex:1; font:500 18px 'Roboto',sans-serif; color:#0d0d0d;">{{ faq.q }}</span>
+            <span style="flex:none; font-family:'Tosh A',sans-serif; font-weight:300; font-size:28px; color:#FF5539; line-height:1; transform:{{ faq.iconRotate }}; transition:transform .2s;">+</span>
+          </button>
+          <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 26px 24px 74px;">
+              <p style="font-size:16px; line-height:1.65; color:#54504d; margin:0;">{{ faq.a }}</p>
+              <sc-if value="{{ faq.hasCta }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ faq.ctaHref }}" style="display:inline-flex; align-items:center; gap:8px; margin-top:16px; font:600 15px 'Roboto',sans-serif; color:#FF5539;">{{ faq.cta }} <span aria-hidden="true">→</span></a>
+              </sc-if>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<a id="cta"></a>
+<section style="padding:80px 32px; background:#0a1b3d; color:#fff; position:relative; overflow:hidden;">
+  <img src="assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:300px; opacity:0.04; pointer-events:none;">
+  <div style="max-width:680px; margin:0 auto; text-align:center; position:relative;" data-reveal>
+    <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:1.08; margin:0 0 18px;">Still have questions?</h2>
+    <p style="font-size:18px; line-height:1.6; color:#c3cbe0; margin:0 0 32px;">Our team is happy to walk you through ClaimSense in a 30-minute call — no commitment required.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:14px; justify-content:center;">
+      <!-- FUNCTIONAL-SPEC NEEDED: Book a Demo routing -->
+      <button onClick="{{ scrollToCta }}" style="display:inline-flex; align-items:center; gap:10px; background:#FF5539; color:#fff; border:none; border-radius:10px; padding:16px 32px; font:600 17px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 6px 20px rgba(255,85,57,0.34);" style-hover="background:#e8472d;">Book a Demo</button>
+      <!-- FUNCTIONAL-SPEC NEEDED: "Email Us Directly" — confirm destination email address -->
+      <a href="#" style="display:inline-flex; align-items:center; gap:10px; background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,0.4); border-radius:10px; padding:15px 30px; font:600 17px 'Roboto',sans-serif;" style-hover="border-color:#fff;">Email Us Directly</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:#06122b; color:#c3cbe0; padding:64px 32px 36px;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div style="display:grid; gap:40px;" data-footer-grid>
+      <div>
+        <img src="assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
+        <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">AI-first workflow for your claim team. Transform complex claims processing with intelligent automation.</p>
+        <div style="display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid #1a2c54;">
+          <img src="assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:26px; width:auto;">
+        </div>
+        <p style="font-size:12px; color:#7e8ab0; margin:12px 0 0;">ClaimSense is built by DataSentics, part of the Bull / Eviden group.</p>
+      </div>
+      <div>
+        <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Product</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
+          <li><a href="ClaimSense%20Features.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Features</a></li>
+          <li><a href="ClaimSense%20Pricing.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Pricing</a></li>
+          <li><a href="ClaimSense%20Use%20Cases.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Use Cases</a></li>
+          <li><a href="ClaimSense%20Implementation.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Implementation</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Company</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
+          <li><a href="ClaimSense%20Our%20Story.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Our Story</a></li>
+          <li><a href="ClaimSense%20Partners.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Partners</a></li>
+          <li><a href="ClaimSense%20Careers.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Resources</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
+          <li><a href="ClaimSense%20FAQ.dc.html" style="color:#FF5539;">FAQ</a></li>
+          <li><a href="ClaimSense%20Help.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Help Center</a></li>
+          <li><a href="ClaimSense%20Help.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Documentation</a></li>
+          <li><a href="ClaimSense%20Help.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">API Reference</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; margin-top:48px; padding-top:24px; border-top:1px solid #1a2c54; font-size:13px; color:#7e8ab0;">
+      <div style="display:flex; gap:22px; align-items:center;">
+        <a href="#" style="color:#9aa6c8;">Privacy Policy</a>
+        <span>© 2026 ClaimSense. All rights reserved.</span>
+      </div>
+      <span>Built with ❤ for claims teams worldwide</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { productOpen: false, openFaq: 0 };
+    // 9 Q&A — verbatim from content_faq.md
+    this._faqs = [
+      { num:'01', q:'What exactly does ClaimSense do?', a:"ClaimSense is an AI-native platform that runs the full claim lifecycle — from intake to resolution. AI reads all documents, extracts key data, creates a case summary, and proposes a decision with reasoning. Your handler reviews and decides in minutes instead of hours. It's not an AI layer bolted onto a legacy system — it's the complete environment your claims team works in, including dashboard, case management, AI chat across the full case file, and analytics." },
+      { num:'02', q:'Who is behind ClaimSense?', a:"ClaimSense is built by DataSentics, part of the Bull / Eviden group — one of the largest AI/ML teams in Central Europe with 300+ engineers and 500+ delivered AI projects. The product team combines 15+ years of hands-on experience in insurance operations with 5+ years of deploying AI in enterprise operations. We're not a startup with a prototype — we're a product team with live deployments at clients like Tuito and Pillow.", cta:'Learn more about our story', ctaHref:'#' },
+      { num:'03', q:'How long does implementation take?', a:'It depends on the package and scope. Our Analytical Agent (batch analysis, no integration) can run in 1–2 weeks. A full Operational Platform deployment follows a four-phase plan — Initial Setup, Shadow Run, Operational Migration, Full Production — and typically takes 1–2 months depending on data complexity, claim types, and integration scope.', cta:'See the full implementation plan', ctaHref:'ClaimSense%20Implementation.dc.html' },
+      { num:'04', q:'Does AI make decisions for us?', a:'No. AI pre-processes the case, creates a summary, and proposes a decision with transparent reasoning. The final decision always stays with your handler. We monitor AI accuracy in real time — if it drops, the system flags it and you adjust the rules. Full audit trail is available for regulators and internal compliance.' },
+      { num:'05', q:'Is it secure? Where does our data live?', a:'Your data stays in your environment. ClaimSense runs on your own cloud infrastructure — Azure, GCP, or AWS — via a Databricks-based deployment. Full audit trail, role-based access control, and enterprise-grade security. The platform is designed to meet GDPR, DORA, and EU AI Act requirements for data sovereignty and AI transparency.', cta:'Explore the architecture', ctaHref:'ClaimSense%20Architecture.dc.html' },
+      { num:'06', q:'How does ClaimSense integrate with our existing systems?', a:'ClaimSense integrates with your existing environment through APIs. For brokers, TPAs, and multi-carrier operations, we support multiple parallel workflows — each with its own data extraction rules, validations, and outputs. We also natively handle automated preparation of final summary documents. Integrations with public and private data sources (vehicle databases, registry systems, etc.) are extended based on client needs.' },
+      { num:'07', q:'How does ClaimSense handle complex claims with several specialist teams?', a:'ClaimSense keeps the customer outcome in one master claim while legal, finance, assessment and other teams work in linked specialist workstreams. They share the relevant case context, documents and facts, with access controlled by role. One end-to-end task owner remains accountable for the client outcome, while process subtasks provide the specific information needed to move it forward.', cta:'Explore the platform features', ctaHref:'ClaimSense%20Features.dc.html' },
+      { num:'08', q:'What happens with low-quality documents like handwritten forms?', a:"We're upfront about what AI can and can't do. For documents like handwritten accident reports, extraction is limited by source quality and legibility. ClaimSense extracts what it can and leaves the rest to the handler — no false promises of 100% automation. You always see the AI confidence score and can review flagged cases." },
+      { num:'09', q:'How much does it cost and how do we start?', a:'Pricing is per claim, not per licence. Analytical Agent starts at €3/claim, Full Operational Platform at €5/claim. Cloud infrastructure, AI tokens, updates, and security are included — no hidden fees. You can start with a small pilot: upload a batch of closed cases and compare how ClaimSense processes them against your team\u2019s historical output.', cta:'See full pricing details', ctaHref:'ClaimSense%20Pricing.dc.html' }
+    ];
+  }
+
+  componentDidMount() {
+    this._applyResponsive();
+    this._onResize = () => this._applyResponsive();
+    window.addEventListener('resize', this._onResize);
+    this._setupReveal();
+  }
+
+  _setupReveal() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    if (reduce || !els.length) return;
+    const reveal = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; el.__shown = true; };
+    const belowFold = (el) => { const r = el.getBoundingClientRect(); return r.top > (window.innerHeight || 768) * 0.92; };
+    requestAnimationFrame(() => {
+      els.forEach((el) => {
+        el.style.transition = 'opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1)';
+        if (belowFold(el)) { el.style.opacity = '0'; el.style.transform = 'translateY(28px)'; }
+        else { el.__shown = true; }
+      });
+      const check = () => els.forEach((el) => { if (!el.__shown && !belowFold(el)) reveal(el); });
+      this._onScroll = check;
+      window.addEventListener('scroll', check, { passive: true });
+      this._revealSafety = setTimeout(() => els.forEach((el) => { if (!el.__shown) reveal(el); }), 2200);
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } }); }, { threshold: 0.04 });
+        els.forEach((el) => { if (!el.__shown) io.observe(el); });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._revealSafety);
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+    if (this._onScroll) { window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onScroll); }
+  }
+
+  _applyResponsive() {
+    const w = window.innerWidth;
+    const fg = document.querySelector('[data-footer-grid]');
+    if (fg) fg.style.gridTemplateColumns = w >= 860 ? '1.5fr 1fr 1fr 1fr' : (w >= 560 ? '1fr 1fr' : '1fr');
+    const nav = document.querySelector('[data-nav]');
+    if (nav) nav.style.display = w >= 1080 ? 'flex' : 'none';
+    const badge = document.querySelector('[data-trust-badge]');
+    const divider = document.querySelector('[data-nav-divider]');
+    if (badge) badge.style.display = w >= 1280 ? 'flex' : 'none';
+    if (divider) divider.style.display = w >= 1280 ? 'block' : 'none';
+  }
+
+  _scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 72; window.scrollTo({ top: y, behavior: 'smooth' }); }
+  }
+
+  toggleFaq(i) { this.setState((s) => ({ openFaq: s.openFaq === i ? -1 : i })); }
+
+  renderVals() {
+    const open = this.state.openFaq;
+    const faqs = this._faqs.map((f, i) => ({
+      num: f.num, q: f.q, a: f.a,
+      open: open === i,
+      iconRotate: open === i ? 'rotate(45deg)' : 'rotate(0deg)',
+      hasCta: !!f.cta,
+      cta: f.cta || '',
+      ctaHref: f.ctaHref || '#',
+      toggle: () => this.toggleFaq(i)
+    }));
+    return {
+      faqs: faqs,
+      scrollToCta: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('cta'); },
+      productOpen: this.state.productOpen,
+      chevronRotate: this.state.productOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      openProduct: () => this.setState({ productOpen: true }),
+      closeProduct: () => this.setState({ productOpen: false }),
+      toggleProduct: () => this.setState((s) => ({ productOpen: !s.productOpen }))
+    };
+  }
+}
+</script>
+</body>
+</html>

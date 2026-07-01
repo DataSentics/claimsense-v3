@@ -1,0 +1,14 @@
+# Internal materials - not for publication
+_backup/import-raw/
+
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+
+# Environment variables
+.env
+
+# Local Claude Code settings (machine-specific)
+.claude/settings.local.json

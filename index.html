@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ClaimSense Redesign — Page Index</title>
+<style>
+  :root {
+    --orange: #FF5539;
+    --navy: #002870;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #FFF7F5;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  header {
+    background: var(--navy);
+    color: #fff;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
+  }
+  header p {
+    margin: 0;
+    color: #cfd8ea;
+    font-size: 0.95rem;
+  }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+  }
+  ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: page-list;
+  }
+  li {
+    counter-increment: page-list;
+    margin-bottom: 0.75rem;
+  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border: 1px solid #f0d9d4;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  a:hover {
+    border-color: var(--orange);
+    transform: translateX(2px);
+  }
+  a::before {
+    content: counter(page-list);
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--orange);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  footer {
+    text-align: center;
+    color: #7a7a7a;
+    font-size: 0.85rem;
+    padding-bottom: 2rem;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>ClaimSense — Redesign Preview</h1>
+  <p>Bull / DataSentics brand redesign · all pages</p>
+</header>
+<main>
+  <ol>
+    <li><a href="pages/ClaimSense%20Homepage.dc.html">Home</a></li>
+    <li><a href="pages/ClaimSense%20Pricing.dc.html">Pricing</a></li>
+    <li><a href="pages/ClaimSense%20Features.dc.html">Features</a></li>
+    <li><a href="pages/ClaimSense%20Use%20Cases.dc.html">Use Cases</a></li>
+    <li><a href="pages/ClaimSense%20Business%20Case.dc.html">Business Case</a></li>
+    <li><a href="pages/ClaimSense%20Architecture.dc.html">Architecture</a></li>
+    <li><a href="pages/ClaimSense%20Implementation.dc.html">Implementation</a></li>
+    <li><a href="pages/ClaimSense%20FAQ.dc.html">FAQ</a></li>
+    <li><a href="pages/ClaimSense%20Our%20Story.dc.html">Our Story</a></li>
+    <li><a href="pages/ClaimSense%20Partners.dc.html">Partners</a></li>
+    <li><a href="pages/ClaimSense%20Careers.dc.html">Careers</a></li>
+    <li><a href="pages/ClaimSense%20Help.dc.html">Help</a></li>
+  </ol>
+</main>
+<footer>
+  ClaimSense is built by DataSentics, part of the Bull / Eviden group.
+</footer>
+</body>
+</html>

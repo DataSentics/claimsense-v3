@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('assets/fonts/ToshA-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:'Roboto',sans-serif; font-weight:400; color:#1a1a1a; line-height:1.6; -webkit-font-smoothing:antialiased; background:#ffffff; }
+::selection { background:#FFADA0; }
+a { text-decoration:none; color:inherit; }
+input, textarea, select, button { font-family:inherit; }
+</style>
+</helmet>
+
+<!-- ================================================================ -->
+<!-- ClaimSense Features page — /features/                             -->
+<!-- Content preserved verbatim from content/pages/content_features.md -->
+<!-- status: content-ready                                             -->
+<!-- approval_required: deployment, security and product-capability    -->
+<!-- ================================================================ -->
+
+<!-- ===================== HEADER (shared chrome) ===================== -->
+<header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.92); backdrop-filter:blur(14px); border-bottom:1px solid #f0e6e3;">
+  <nav style="max-width:1280px; margin:0 auto; padding:14px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+    <!-- LEFT: ClaimSense logo -->
+    <a href="ClaimSense%20Homepage.dc.html" style="display:flex; align-items:center; flex:0 0 auto;">
+      <img src="assets/logos/ClaimSense_logo_black.svg" alt="ClaimSense" style="height:26px; width:auto;">
+    </a>
+    <!-- CENTER: nav links -->
+    <div style="display:flex; align-items:center; justify-content:center; gap:34px; flex:1 1 auto;" data-nav>
+      <a href="ClaimSense%20Homepage.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Home</a>
+      <!-- Product dropdown -->
+      <div style="position:relative;" onMouseEnter="{{ openProduct }}" onMouseLeave="{{ closeProduct }}">
+        <button onClick="{{ toggleProduct }}" aria-haspopup="true" aria-expanded="{{ productOpen }}" style="display:inline-flex; align-items:center; gap:6px; background:none; border:none; cursor:pointer; font:500 14px 'Roboto',sans-serif; color:#FF5539; border-bottom:2px solid #FF5539; padding:0 0 2px;">
+          Product
+          <svg width="11" height="7" viewBox="0 0 11 7" aria-hidden="true" style="transition:transform .2s; transform:{{ chevronRotate }};"><path d="M1 1L5.5 5.5L10 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <sc-if value="{{ productOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:60;">
+            <div style="background:#fff; border:1px solid #ece3df; border-radius:12px; box-shadow:0 20px 50px -16px rgba(0,40,112,0.25); padding:8px; min-width:220px;">
+              <a href="ClaimSense%20Features.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#FF5539; background:#FFF4F1;">Features</a>
+              <a href="ClaimSense%20Architecture.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Architecture</a>
+              <a href="ClaimSense%20Use%20Cases.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Use Cases</a>
+              <a href="ClaimSense%20Implementation.dc.html" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Roboto',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Implementation</a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <a href="ClaimSense%20Our%20Story.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Our Story</a>
+      <a href="ClaimSense%20Pricing.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Pricing</a>
+      <a href="ClaimSense%20Business%20Case.dc.html" style="font:500 14px 'Roboto',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Business Case</a>
+    </div>
+    <!-- RIGHT: trust badge + CTA -->
+    <div style="display:flex; align-items:center; flex:0 0 auto;" data-nav-right>
+      <span style="display:flex; align-items:center; gap:8px;" data-trust-badge>
+        <span style="font:400 14px/1.2 'Roboto',sans-serif; color:#6b7280; white-space:nowrap;">Built by DataSentics, part of</span>
+        <img src="assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:18px; width:auto;">
+      </span>
+      <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;" data-nav-divider></span>
+      <button onClick="{{ scrollToDemo }}" style="margin-left:24px; background:#FF5539; color:#fff; border:none; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 2px 10px rgba(255,85,57,0.28); white-space:nowrap;" style-hover="background:#e8472d;">Book a Demo</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section style="background:linear-gradient(180deg,#FFF7F5 0%,#ffffff 60%); padding:80px 32px 64px; position:relative; overflow:hidden;">
+  <img src="assets/bull/Bull_symbol_orange.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:280px; opacity:0.05; pointer-events:none;">
+  <div style="max-width:1140px; margin:0 auto; position:relative;">
+    <div style="max-width:760px;" data-reveal>
+      <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF5539; margin-bottom:18px;">Platform Features</div>
+      <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(36px,5vw,62px); line-height:1.03; letter-spacing:-0.02em; margin:0 0 22px; color:#0d0d0d;">ClaimSense Platform Features</h1>
+      <p style="font-size:20px; line-height:1.55; color:#4a4340; max-width:640px; margin:0 0 36px;">Four pillars of an AI-native claims platform — from automated case handling to enterprise-grade infrastructure.</p>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
+        <button onClick="{{ scrollToDemo }}" style="background:#FF5539; color:#fff; border:none; border-radius:10px; padding:16px 32px; font:600 18px 'Roboto',sans-serif; cursor:pointer; box-shadow:0 4px 16px rgba(255,85,57,0.3);" style-hover="background:#e8472d;">Book a Demo</button>
+        <!-- FUNCTIONAL-SPEC NEEDED: routes to /architecture/ -->
+        <a href="ClaimSense%20Architecture.dc.html" style="display:inline-flex; align-items:center; gap:8px; font:500 16px 'Roboto',sans-serif; color:#002870; border-bottom:2px solid #002870; padding-bottom:2px;">Explore the architecture <span>→</span></a>
+      </div>
+    </div>
+
+    <!-- Feature pill navigation — anchor links to each section -->
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:48px;" data-reveal>
+      <a href="#feature-01" onClick="{{ nav01 }}" style="display:inline-flex; align-items:center; gap:8px; background:#fff; border:1.5px solid #e5e7eb; border-radius:9999px; padding:10px 18px; font:500 14px 'Roboto',sans-serif; color:#374151; box-shadow:0 1px 4px rgba(0,0,0,0.06);" style-hover="border-color:#FF5539; color:#FF5539;">
+        <span style="width:22px; height:22px; border-radius:6px; background:#FF5539; color:#fff; font:600 11px 'Roboto',sans-serif; display:flex; align-items:center; justify-content:center; flex:none;">01</span>AI Pre-processing
+      </a>
+      <a href="#feature-02" onClick="{{ nav02 }}" style="display:inline-flex; align-items:center; gap:8px; background:#fff; border:1.5px solid #e5e7eb; border-radius:9999px; padding:10px 18px; font:500 14px 'Roboto',sans-serif; color:#374151; box-shadow:0 1px 4px rgba(0,0,0,0.06);" style-hover="border-color:#FF5539; color:#FF5539;">
+        <span style="width:22px; height:22px; border-radius:6px; background:#002870; color:#fff; font:600 11px 'Roboto',sans-serif; display:flex; align-items:center; justify-content:center; flex:none;">02</span>Master Claims
+      </a>
+      <a href="#feature-03" onClick="{{ nav03 }}" style="display:inline-flex; align-items:center; gap:8px; background:#fff; border:1.5px solid #e5e7eb; border-radius:9999px; padding:10px 18px; font:500 14px 'Roboto',sans-serif; color:#374151; box-shadow:0 1px 4px rgba(0,0,0,0.06);" style-hover="border-color:#FF5539; color:#FF5539;">
+        <span style="width:22px; height:22px; border-radius:6px; background:#002870; color:#fff; font:600 11px 'Roboto',sans-serif; display:flex; align-items:center; justify-content:center; flex:none;">03</span>Analytics &amp; Chat
+      </a>
+      <a href="#feature-04" onClick="{{ nav04 }}" style="display:inline-flex; align-items:center; gap:8px; background:#fff; border:1.5px solid #e5e7eb; border-radius:9999px; padding:10px 18px; font:500 14px 'Roboto',sans-serif; color:#374151; box-shadow:0 1px 4px rgba(0,0,0,0.06);" style-hover="border-color:#FF5539; color:#FF5539;">
+        <span style="width:22px; height:22px; border-radius:6px; background:#002870; color:#fff; font:600 11px 'Roboto',sans-serif; display:flex; align-items:center; justify-content:center; flex:none;">04</span>Claim Core System
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURE 01 — AI PRE-PROCESSING ===================== -->
+<a id="feature-01"></a>
+<section style="padding:88px 32px; background:#ffffff;">
+  <div style="max-width:1140px; margin:0 auto; display:grid; align-items:center; gap:64px;" data-feat-grid data-reveal>
+    <!-- Text column -->
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:10px; margin-bottom:20px;">
+        <span style="background:#FF5539; color:#fff; font:600 11px 'Roboto',sans-serif; letter-spacing:0.08em; border-radius:6px; padding:5px 10px;">01</span>
+        <span style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#FF5539;">Automated Case Pre-processing</span>
+      </div>
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,42px); line-height:1.08; margin:0 0 20px; color:#0d0d0d;">Automated Case Pre-processing by AI Agents</h2>
+      <p style="font-size:17px; line-height:1.6; color:#4a4340; margin:0 0 28px; max-width:520px;">Every incoming claim is picked up by AI agents that analyze, structure, and enrich the case before it reaches a human handler. The agents extract key information from all documents and communications, build a complete case summary with suggested outcomes, and log every step of their reasoning.</p>
+      <ul style="list-style:none; padding:0; margin:0 0 32px; display:flex; flex-direction:column; gap:12px;">
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#FFF4F1; border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Automatic document extraction &amp; structuring</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#FFF4F1; border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI-generated case summaries with suggested outcomes</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#FFF4F1; border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Full reasoning log &amp; transparent decision trail</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#FFF4F1; border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete data historization &amp; version tracking</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#FFF4F1; border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Built-in audit trail for every agent action</li>
+      </ul>
+      <button onClick="{{ scrollToDemo }}" style="display:inline-flex; align-items:center; gap:10px; background:#FF5539; color:#fff; border:none; border-radius:10px; padding:14px 28px; font:600 16px 'Roboto',sans-serif; cursor:pointer;" style-hover="background:#e8472d;">See it in action <span aria-hidden="true">→</span></button>
+    </div>
+    <!-- Screenshot column -->
+    <div>
+      <!-- NEEDS-APPROVAL: product screenshot — feature-01-preprocessing-dashboard.png — client.claimsense.app -->
+      <div style="border:1px solid #eadfdb; border-radius:16px; overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,40,112,0.22);">
+        <div style="display:flex; align-items:center; gap:8px; padding:11px 16px; background:#f7f2f0; border-bottom:1px solid #eadfdb;">
+          <span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span>
+          <span style="margin-left:12px; background:#fff; border:1px solid #e8ddd8; border-radius:6px; padding:4px 14px; font:400 12px 'Roboto',sans-serif; color:#8a7f7b;">client.claimsense.app / dashboard</span>
+        </div>
+        <img src="assets/screenshots/feature-01-preprocessing-dashboard.png" alt="ClaimSense AI pre-processing dashboard showing claims with AI-proposed statuses" style="display:block; width:100%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURE 02 — MASTER CLAIMS & AGENTIC WORKFLOWS ===================== -->
+<a id="feature-02"></a>
+<section style="padding:88px 32px; background:#FFF7F5;">
+  <div style="max-width:1140px; margin:0 auto; display:grid; align-items:start; gap:64px;" data-feat-grid-rev data-reveal>
+    <!-- Screenshot column (left on desktop) -->
+    <div>
+      <!-- NEEDS-APPROVAL: feature-03-master-claim.png — use master-claim screenshot; "Illustrative workflow" label shown in product -->
+      <div style="border:1px solid #eadfdb; border-radius:16px; overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,40,112,0.22);">
+        <div style="display:flex; align-items:center; gap:8px; padding:11px 16px; background:#f7f2f0; border-bottom:1px solid #eadfdb;">
+          <span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span>
+          <span style="margin-left:12px; background:#fff; border:1px solid #e8ddd8; border-radius:6px; padding:4px 14px; font:400 12px 'Roboto',sans-serif; color:#8a7f7b;">client.claimsense.app / master-claim</span>
+        </div>
+        <img src="assets/screenshots/feature-03-master-claim.png" alt="Master claim view showing claim hierarchy with legal, finance and on-site workstreams, shared case file, and master task with linked subtasks" style="display:block; width:100%;">
+      </div>
+      <!-- Workflow template screenshot as secondary proof -->
+      <div style="margin-top:16px; border:1px solid #eadfdb; border-radius:12px; overflow:hidden; box-shadow:0 8px 24px -16px rgba(0,40,112,0.18);">
+        <img src="assets/screenshots/feature-02-workflow-templates.png" alt="ClaimSense configurable workflow template editor" style="display:block; width:100%;">
+      </div>
+    </div>
+    <!-- Text column -->
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:10px; margin-bottom:20px;">
+        <span style="background:#002870; color:#fff; font:600 11px 'Roboto',sans-serif; letter-spacing:0.08em; border-radius:6px; padding:5px 10px;">02</span>
+        <span style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#002870;">Master Claims &amp; Specialist Workstreams</span>
+      </div>
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,42px); line-height:1.08; margin:0 0 20px; color:#0d0d0d;">Master Claims, Specialist Workstreams &amp; Agentic Workflows</h2>
+      <p style="font-size:17px; line-height:1.6; color:#4a4340; margin:0 0 28px;">Complex claims rarely belong to one person or one department. ClaimSense connects specialist workstreams to one master claim, so the customer context remains complete while every team has a clear, focused responsibility.</p>
+      <ul style="list-style:none; padding:0; margin:0 0 28px; display:flex; flex-direction:column; gap:12px;">
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#e8edf8; border:1.5px solid #002870; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#002870" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One master claim as the shared customer-centric record</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#e8edf8; border:1.5px solid #002870; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#002870" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Linked specialist workstreams for legal, finance, assessment and other functions</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#e8edf8; border:1.5px solid #002870; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#002870" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Shared documents, facts, correspondence and decision history</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#e8edf8; border:1.5px solid #002870; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#002870" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>One accountable end-to-end task with linked process subtasks</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#e8edf8; border:1.5px solid #002870; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#002870" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Configurable approval chains, escalation rules and workflow versioning</li>
+      </ul>
+
+      <!-- Hierarchy quick-reference diagram (inline, compact) -->
+      <div style="background:#0a1b3d; border-radius:14px; padding:22px 24px; margin-bottom:28px;">
+        <div style="font:600 10px/1 'Roboto',sans-serif; letter-spacing:0.18em; text-transform:uppercase; color:#A4AFFB; margin-bottom:14px;">Illustrative workflow</div>
+        <div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#fff; margin-bottom:10px; padding-left:0;">Master claim</div>
+        <div style="display:flex; flex-direction:column; gap:6px; padding-left:16px; border-left:2px solid rgba(119,136,249,0.4); margin-left:6px; margin-bottom:10px;">
+          <div style="font:400 13px 'Roboto',sans-serif; color:#c3cbe0;">├─ Legal workstream — owner / status</div>
+          <div style="font:400 13px 'Roboto',sans-serif; color:#c3cbe0;">├─ Finance workstream — owner / status</div>
+          <div style="font:400 13px 'Roboto',sans-serif; color:#c3cbe0;">└─ On-site assessment — owner / status</div>
+        </div>
+        <div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:14px; color:#A4AFFB; margin-bottom:6px; padding-left:0;">Master end-to-end task</div>
+        <div style="display:flex; flex-direction:column; gap:4px; padding-left:16px; border-left:2px solid rgba(119,136,249,0.2); margin-left:6px;">
+          <div style="font:400 12px 'Roboto',sans-serif; color:#7e8ab0;">├─ Request legal review</div>
+          <div style="font:400 12px 'Roboto',sans-serif; color:#7e8ab0;">└─ Confirm reserve</div>
+        </div>
+      </div>
+      <button onClick="{{ scrollToDemo }}" style="display:inline-flex; align-items:center; gap:10px; background:#002870; color:#fff; border:none; border-radius:10px; padding:14px 28px; font:600 16px 'Roboto',sans-serif; cursor:pointer;" style-hover="background:#001a52;">See how complex claims stay coordinated <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURE 03 — ANALYTICS & CHAT ===================== -->
+<a id="feature-03"></a>
+<section style="padding:88px 32px; background:#ffffff;">
+  <div style="max-width:1140px; margin:0 auto; display:grid; align-items:center; gap:64px;" data-feat-grid data-reveal>
+    <!-- Text column -->
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:10px; margin-bottom:20px;">
+        <span style="background:#002870; color:#fff; font:600 11px 'Roboto',sans-serif; letter-spacing:0.08em; border-radius:6px; padding:5px 10px;">03</span>
+        <span style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#002870;">Chat &amp; Analytics</span>
+      </div>
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,42px); line-height:1.08; margin:0 0 20px; color:#0d0d0d;">Chat Across All Cases &amp; Interactive Claim Analytics</h2>
+      <p style="font-size:17px; line-height:1.6; color:#4a4340; margin:0 0 28px; max-width:520px;">Ask questions across your entire claim portfolio in natural language. Instantly search documents, emails, call recordings, and notes — then drill into analytics dashboards that reveal patterns, bottlenecks, and satisfaction drivers. Management gets real-time interactive insights to steer operations.</p>
+      <ul style="list-style:none; padding:0; margin:0 0 32px; display:flex; flex-direction:column; gap:12px;">
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#e8edf8; border:1.5px solid #002870; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#002870" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Natural language search across all case data</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#e8edf8; border:1.5px solid #002870; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#002870" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Interactive dashboards with drill-down analytics</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#e8edf8; border:1.5px solid #002870; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#002870" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Trend analysis by handler, segment, product &amp; time</li>
+        <li style="display:flex; gap:12px; font-size:15px; color:#374151;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:#e8edf8; border:1.5px solid #002870; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#002870" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI monitoring — detect accuracy drift &amp; trigger reviews</li>
+      </ul>
+      <button onClick="{{ scrollToDemo }}" style="display:inline-flex; align-items:center; gap:10px; background:#FF5539; color:#fff; border:none; border-radius:10px; padding:14px 28px; font:600 16px 'Roboto',sans-serif; cursor:pointer;" style-hover="background:#e8472d;">Book a Demo <span aria-hidden="true">→</span></button>
+    </div>
+    <!-- Screenshot column -->
+    <div>
+      <!-- NEEDS-APPROVAL: feature-04-analytics-chat.png — Analytics Data Assistant -->
+      <div style="border:1px solid #eadfdb; border-radius:16px; overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,40,112,0.22);">
+        <div style="display:flex; align-items:center; gap:8px; padding:11px 16px; background:#f7f2f0; border-bottom:1px solid #eadfdb;">
+          <span style="width:10px; height:10px; border-radius:50%; background:#ff5f57;"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#febc2e;"></span>
+          <span style="width:10px; height:10px; border-radius:50%; background:#28c840;"></span>
+          <span style="margin-left:12px; background:#fff; border:1px solid #e8ddd8; border-radius:6px; padding:4px 14px; font:400 12px 'Roboto',sans-serif; color:#8a7f7b;">client.claimsense.app / analytics</span>
+        </div>
+        <img src="assets/screenshots/feature-04-analytics-chat.png" alt="ClaimSense Analytics Data Assistant with natural language query interface and tabular results" style="display:block; width:100%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURE 04 — FULL CLAIM CORE SYSTEM ===================== -->
+<a id="feature-04"></a>
+<section style="padding:88px 32px; background:#0a1b3d; color:#fff; position:relative; overflow:hidden;">
+  <img src="assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-60px; bottom:-50px; width:320px; opacity:0.04; pointer-events:none;">
+  <div style="max-width:1140px; margin:0 auto; position:relative;">
+    <div style="display:grid; align-items:start; gap:64px;" data-feat-grid data-reveal>
+      <!-- Text column -->
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:10px; margin-bottom:20px;">
+          <span style="background:#FF5539; color:#fff; font:600 11px 'Roboto',sans-serif; letter-spacing:0.08em; border-radius:6px; padding:5px 10px;">04</span>
+          <span style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#FF9280;">Claim Core System</span>
+        </div>
+        <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,42px); line-height:1.08; margin:0 0 20px; color:#fff;">Full Claim Core System</h2>
+        <p style="font-size:17px; line-height:1.6; color:#c3cbe0; margin:0 0 28px; max-width:520px;">The platform acts as a full claim management core, securely storing claim data and all processing actions. Complete audit trails, activity logging, and role-based access control ensure compliance and transparency. Enterprise-grade security standards protect all data and system access.</p>
+        <ul style="list-style:none; padding:0; margin:0 0 32px; display:flex; flex-direction:column; gap:12px;">
+          <li style="display:flex; gap:12px; font-size:15px; color:#dfe4f0;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:rgba(255,85,57,0.15); border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Enterprise-grade security &amp; encryption</li>
+          <li style="display:flex; gap:12px; font-size:15px; color:#dfe4f0;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:rgba(255,85,57,0.15); border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Complete audit trails &amp; activity logging</li>
+          <li style="display:flex; gap:12px; font-size:15px; color:#dfe4f0;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:rgba(255,85,57,0.15); border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Role-based access control (RBAC)</li>
+          <li style="display:flex; gap:12px; font-size:15px; color:#dfe4f0;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:rgba(255,85,57,0.15); border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Compliance-ready architecture</li>
+          <li style="display:flex; gap:12px; font-size:15px; color:#dfe4f0;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:rgba(255,85,57,0.15); border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Parent-child claim relationships with traceable state history</li>
+          <li style="display:flex; gap:12px; font-size:15px; color:#dfe4f0;"><span style="flex:none; width:20px; height:20px; border-radius:50%; background:rgba(255,85,57,0.15); border:1.5px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 5.2L4.2 7.5L8 2.5" fill="none" stroke="#FF5539" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Access-controlled sharing of common case information across linked workstreams</li>
+        </ul>
+        <!-- NEEDS-APPROVAL: security / compliance / GDPR / DORA / EU AI Act claims — pending legal sign-off -->
+        <!-- FUNCTIONAL-SPEC NEEDED: link to /architecture/ for full technical detail -->
+        <a href="ClaimSense%20Architecture.dc.html" style="display:inline-flex; align-items:center; gap:8px; font:500 16px 'Roboto',sans-serif; color:#fff; border-bottom:2px solid #FF5539; padding-bottom:3px;">Explore the architecture <span style="color:#FF5539;">→</span></a>
+      </div>
+      <!-- Screenshot column — audit trail -->
+      <div>
+        <!-- NEEDS-APPROVAL: feature-05-claim-history-audit-trail.png -->
+        <div style="border:1px solid rgba(124,150,230,0.3); border-radius:16px; overflow:hidden; box-shadow:0 30px 70px -30px rgba(0,0,0,0.5);">
+          <div style="display:flex; align-items:center; gap:8px; padding:11px 16px; background:rgba(255,255,255,0.06); border-bottom:1px solid rgba(124,150,230,0.2);">
+            <span style="width:10px; height:10px; border-radius:50%; background:rgba(255,95,87,0.7);"></span>
+            <span style="width:10px; height:10px; border-radius:50%; background:rgba(254,188,46,0.7);"></span>
+            <span style="width:10px; height:10px; border-radius:50%; background:rgba(40,200,64,0.7);"></span>
+            <span style="margin-left:12px; background:rgba(255,255,255,0.08); border:1px solid rgba(124,150,230,0.2); border-radius:6px; padding:4px 14px; font:400 12px 'Roboto',sans-serif; color:#9aa6c8;">client.claimsense.app / history</span>
+          </div>
+          <img src="assets/screenshots/feature-05-claim-history-audit-trail.png" alt="ClaimSense full linear history and audit trail showing status changes and AI processing runs" style="display:block; width:100%;">
+        </div>
+      </div>
+    </div>
+
+    <!-- Mini Bull sovereignty note — appears after Full Claim Core System per brief -->
+    <!-- NEEDS-APPROVAL: sovereignty wording — must not describe as compliance guarantee until legal approves -->
+    <div style="margin-top:56px; padding:28px 32px; background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.2); border-radius:14px; display:flex; flex-wrap:wrap; align-items:center; gap:24px;" data-reveal>
+      <div style="flex:0 0 auto;"><img src="assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:28px; width:auto;"></div>
+      <div style="width:1px; align-self:stretch; background:rgba(124,150,230,0.2);"></div>
+      <div style="flex:1 1 280px;">
+        <div style="font:500 12px/1 'Roboto',sans-serif; letter-spacing:0.12em; text-transform:uppercase; color:#A4AFFB; margin-bottom:8px;">European data sovereignty</div>
+        <p style="font-size:15px; line-height:1.5; color:#c3cbe0; margin:0;">ClaimSense is deployed into your selected cloud or on-prem environment and designed for enterprise governance, traceability and AI transparency. Built by DataSentics, part of the Bull group.</p>
+      </div>
+      <!-- FUNCTIONAL-SPEC NEEDED: routes to /architecture/ -->
+      <a href="ClaimSense%20Architecture.dc.html" style="flex:0 0 auto; display:inline-flex; align-items:center; gap:8px; background:#FF5539; color:#fff; border:none; border-radius:8px; padding:12px 22px; font:600 15px 'Roboto',sans-serif; white-space:nowrap;" style-hover="background:#e8472d;">Explore the architecture →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEPLOY ON YOUR INFRASTRUCTURE ===================== -->
+<section style="padding:72px 32px; background:#fff;">
+  <div style="max-width:1140px; margin:0 auto;" data-reveal>
+    <div style="text-align:center; margin-bottom:44px;">
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3.2vw,38px); margin:0 0 12px; color:#0d0d0d;">Deploy on Your Infrastructure</h2>
+      <p style="font-size:18px; color:#5a514d; margin:0; max-width:600px; margin-left:auto; margin-right:auto;">ClaimSense runs on Databricks and is fully deployable on your existing cloud infrastructure. Leverage your current data platform investments and simplify integration.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px;">
+      <div style="background:#FAFAF9; border:1px solid #f1efed; border-radius:14px; padding:28px 24px; text-align:center;">
+        <div style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:22px; color:#002870; margin-bottom:8px;">Databricks</div>
+        <div style="font-size:14px; color:#6b7280;">Unified data &amp; AI platform</div>
+      </div>
+      <div style="background:#FAFAF9; border:1px solid #f1efed; border-radius:14px; padding:28px 24px; text-align:center;">
+        <div style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:22px; color:#002870; margin-bottom:8px;">Azure</div>
+        <div style="font-size:14px; color:#6b7280;">Microsoft Azure Cloud</div>
+      </div>
+      <div style="background:#FAFAF9; border:1px solid #f1efed; border-radius:14px; padding:28px 24px; text-align:center;">
+        <div style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:22px; color:#002870; margin-bottom:8px;">GCP</div>
+        <div style="font-size:14px; color:#6b7280;">Google Cloud Platform</div>
+      </div>
+      <div style="background:#FAFAF9; border:1px solid #f1efed; border-radius:14px; padding:28px 24px; text-align:center;">
+        <div style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:22px; color:#002870; margin-bottom:8px;">AWS</div>
+        <div style="font-size:14px; color:#6b7280;">Amazon Web Services</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DEMO CONVERSION ===================== -->
+<!-- Shared demo copy & form — per content/pages/features.md instruction to reuse from Home -->
+<a id="demo"></a>
+<section style="padding:80px 32px; background:#0a1b3d; color:#fff; position:relative; overflow:hidden;">
+  <img src="assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-50px; bottom:-40px; width:300px; opacity:0.04; pointer-events:none;">
+  <div style="max-width:1180px; margin:0 auto; display:grid; gap:56px; align-items:start; position:relative;" data-demo-grid>
+    <div data-reveal>
+      <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,38px); line-height:1.1; margin:0 0 20px;">You have bigger priorities than building your own AI Agentic platform for Claims &amp; Ops</h2>
+      <p style="font-size:18px; line-height:1.6; color:#c3cbe0; margin:0 0 32px;">Leave the AI-heavy lifting to us. Book a 30-minute call and see how your team can benefit from client intelligence right away — no internal build required.</p>
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="display:flex; gap:15px;"><span style="flex:none; width:30px; height:30px; border-radius:8px; background:#FF5539; display:flex; align-items:center; justify-content:center; font:500 15px 'Roboto',sans-serif; color:#fff;">1</span><div><div style="font:500 16px 'Roboto',sans-serif; color:#fff;">Live demo on real data</div><p style="font-size:14px; color:#9aa6c8; margin:3px 0 0;">See ClaimSense running with scenarios that mirror your workflow — ready to use, not ready to build.</p></div></div>
+        <div style="display:flex; gap:15px;"><span style="flex:none; width:30px; height:30px; border-radius:8px; background:#FF5539; display:flex; align-items:center; justify-content:center; font:500 15px 'Roboto',sans-serif; color:#fff;">2</span><div><div style="font:500 16px 'Roboto',sans-serif; color:#fff;">Data source assessment</div><p style="font-size:14px; color:#9aa6c8; margin:3px 0 0;">We'll map your communication tools and estimate how fast you can go live.</p></div></div>
+        <div style="display:flex; gap:15px;"><span style="flex:none; width:30px; height:30px; border-radius:8px; background:#FF5539; display:flex; align-items:center; justify-content:center; font:500 15px 'Roboto',sans-serif; color:#fff;">3</span><div><div style="font:500 16px 'Roboto',sans-serif; color:#fff;">Early-adopter pricing</div><p style="font-size:14px; color:#9aa6c8; margin:3px 0 0;">Pilot customers get meaningful discounts as we bring ClaimSense to market.</p></div></div>
+      </div>
+      <!-- NEEDS-APPROVAL: "Trusted by 25+ companies" claim -->
+      <p style="font-size:13px; line-height:1.5; color:#7e8ab0; margin:32px 0 0; border-top:1px solid #20356b; padding-top:24px;">Trusted by 25+ companies — Join leading organizations in Insurance, Healthcare, Banking, and more who have already transformed their processes with DataSentics, creators of ClaimSense.</p>
+    </div>
+    <!-- Demo request form — per content/global/forms.md (Demo request form) -->
+    <!-- FUNCTIONAL-SPEC NEEDED: endpoint/CRM, validation, success/error states, consent timestamp, spam prevention, analytics events -->
+    <div data-reveal style="background:#fff; border-radius:18px; padding:32px; color:#1a1a1a; box-shadow:0 30px 70px -30px rgba(0,0,0,0.5);">
+      <sc-if value="{{ formDone }}" hint-placeholder-val="{{ false }}">
+        <div style="text-align:center; padding:40px 10px;">
+          <div style="width:56px; height:56px; border-radius:50%; background:#dcf5ee; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 13L11 19L21 7" fill="none" stroke="#00B290" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:22px; margin:0 0 8px; color:#0d0d0d;">Thanks — we'll be in touch</h3>
+          <!-- FUNCTIONAL-SPEC NEEDED: confirm real success copy & next step (calendar link / email) -->
+          <p style="font-size:14px; color:#7a716d; margin:0;">Placeholder confirmation — final copy &amp; routing pending dev handoff.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ formOpen }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submitForm }}">
+          <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:22px; margin:0 0 20px; color:#0d0d0d;">Request a demo</h3>
+          <div style="display:flex; flex-direction:column; gap:14px;">
+            <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Full Name *</span><input type="text" required placeholder="Jane Doe" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
+            <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Work Email *</span><input type="email" required placeholder="jane@company.com" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
+            <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Company Name *</span><input type="text" required placeholder="Company" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
+            <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Your Role *</span>
+              <select required style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px; background:#fff;">
+                <option value="">Select a role</option>
+                <option>Claims Manager</option>
+                <option>Operations Director</option>
+                <option>CTO / IT Leader</option>
+                <option>CEO / Founder</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Monthly Claims Volume</span><input type="text" placeholder="e.g. 5,000" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
+            <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Anything else you'd like us to know?</span><textarea rows="3" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px; resize:vertical;"></textarea></label>
+          </div>
+          <button type="submit" style="margin-top:18px; width:100%; background:#FF5539; color:#fff; border:none; border-radius:9px; padding:14px; font:600 16px 'Roboto',sans-serif; cursor:pointer;" style-hover="background:#e8472d;">Request Demo</button>
+          <p style="font-size:12px; line-height:1.5; color:#9a908b; margin:14px 0 0;">By submitting this form, you agree to our Privacy Policy. We'll never share your information.</p>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:#06122b; color:#c3cbe0; padding:64px 32px 36px;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div style="display:grid; gap:40px;" data-footer-grid>
+      <div>
+        <img src="assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
+        <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">AI-first workflow for your claim team. Transform complex claims processing with intelligent automation.</p>
+        <div style="display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid #1a2c54;">
+          <img src="assets/bull/BULL_LOGO_WHITE_RGB.svg" alt="Bull" style="height:26px; width:auto;">
+        </div>
+        <p style="font-size:12px; color:#7e8ab0; margin:12px 0 0;">ClaimSense is built by DataSentics, part of the Bull / Eviden group.</p>
+      </div>
+      <div>
+        <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Product</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
+          <li><a href="ClaimSense%20Features.dc.html" style="color:#FF5539;">Features</a></li>
+          <li><a href="ClaimSense%20Pricing.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Pricing</a></li>
+          <li><a href="ClaimSense%20Use%20Cases.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Use Cases</a></li>
+          <li><a href="ClaimSense%20Implementation.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Implementation</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Company</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
+          <li><a href="ClaimSense%20Our%20Story.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Our Story</a></li>
+          <li><a href="ClaimSense%20Partners.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Partners</a></li>
+          <li><a href="ClaimSense%20Careers.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Resources</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
+          <li><a href="ClaimSense%20FAQ.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">FAQ</a></li>
+          <li><a href="ClaimSense%20Help.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Help Center</a></li>
+          <!-- FUNCTIONAL-SPEC NEEDED: Documentation, API Reference, Case Studies route to /help/ — confirm -->
+          <li><a href="ClaimSense%20Help.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">Documentation</a></li>
+          <li><a href="ClaimSense%20Help.dc.html" style="color:#9aa6c8;" style-hover="color:#FF7761;">API Reference</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; margin-top:48px; padding-top:24px; border-top:1px solid #1a2c54; font-size:13px; color:#7e8ab0;">
+      <div style="display:flex; gap:22px; align-items:center;">
+        <!-- FUNCTIONAL-SPEC NEEDED: Privacy Policy → DataSentics privacy policy URL -->
+        <a href="#" style="color:#9aa6c8;">Privacy Policy</a>
+        <span>© 2026 ClaimSense. All rights reserved.</span>
+      </div>
+      <span>Built with ❤ for claims teams worldwide</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { formDone: false, productOpen: false };
+  }
+
+  componentDidMount() {
+    this._applyResponsive();
+    this._onResize = () => this._applyResponsive();
+    window.addEventListener('resize', this._onResize);
+
+    this._setupReveal();
+  }
+
+  // Reveal-on-scroll that can NEVER leave content hidden:
+  // elements are visible by default; we only hide ones below the fold, then animate in.
+  _setupReveal() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    if (reduce || !els.length) return;
+    const reveal = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; el.__shown = true; };
+    const belowFold = (el) => { const r = el.getBoundingClientRect(); return r.top > (window.innerHeight || 768) * 0.92; };
+    requestAnimationFrame(() => {
+      els.forEach((el) => {
+        el.style.transition = 'opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1)';
+        if (belowFold(el)) { el.style.opacity = '0'; el.style.transform = 'translateY(28px)'; }
+        else { el.__shown = true; }
+      });
+      const check = () => els.forEach((el) => { if (!el.__shown && !belowFold(el)) reveal(el); });
+      this._onScroll = check;
+      window.addEventListener('scroll', check, { passive: true });
+      this._revealSafety = setTimeout(() => els.forEach((el) => { if (!el.__shown) reveal(el); }), 2200);
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } }); }, { threshold: 0.04 });
+        els.forEach((el) => { if (!el.__shown) io.observe(el); });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._revealSafety);
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+    if (this._onScroll) { window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onScroll); }
+  }
+
+  _applyResponsive() {
+    const w = window.innerWidth;
+    // Feature grids: text left / image right on desktop, stacked on mobile
+    Array.prototype.slice.call(document.querySelectorAll('[data-feat-grid]')).forEach((g) => {
+      g.style.gridTemplateColumns = w >= 960 ? '1fr 1fr' : '1fr';
+    });
+    // Feature 02: reversed (image left, text right) on desktop
+    Array.prototype.slice.call(document.querySelectorAll('[data-feat-grid-rev]')).forEach((g) => {
+      g.style.gridTemplateColumns = w >= 960 ? '1fr 1fr' : '1fr';
+      if (w >= 960) { g.style.direction = 'rtl'; Array.prototype.slice.call(g.children).forEach((c) => { c.style.direction = 'ltr'; }); }
+      else { g.style.direction = 'ltr'; Array.prototype.slice.call(g.children).forEach((c) => { c.style.direction = 'ltr'; }); }
+    });
+    // Demo grid
+    const dg = document.querySelector('[data-demo-grid]');
+    if (dg) dg.style.gridTemplateColumns = w >= 900 ? '1fr 1fr' : '1fr';
+    // Footer grid
+    const fg = document.querySelector('[data-footer-grid]');
+    if (fg) fg.style.gridTemplateColumns = w >= 860 ? '1.5fr 1fr 1fr 1fr' : (w >= 560 ? '1fr 1fr' : '1fr');
+    // Nav
+    const nav = document.querySelector('[data-nav]');
+    if (nav) nav.style.display = w >= 1080 ? 'flex' : 'none';
+    const badge = document.querySelector('[data-trust-badge]');
+    const divider = document.querySelector('[data-nav-divider]');
+    if (badge) badge.style.display = w >= 1280 ? 'flex' : 'none';
+    if (divider) divider.style.display = w >= 1280 ? 'block' : 'none';
+  }
+
+  _scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 72; window.scrollTo({ top: y, behavior: 'smooth' }); }
+  }
+
+  submitForm(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    // FUNCTIONAL-SPEC NEEDED: real submission — CRM endpoint, validation, consent record, analytics.
+    this.setState({ formDone: true });
+  }
+
+  renderVals() {
+    return {
+      scrollToDemo: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('demo'); },
+      nav01: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('feature-01'); },
+      nav02: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('feature-02'); },
+      nav03: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('feature-03'); },
+      nav04: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('feature-04'); },
+      formOpen: !this.state.formDone,
+      formDone: this.state.formDone,
+      submitForm: (e) => this.submitForm(e),
+      productOpen: this.state.productOpen,
+      chevronRotate: this.state.productOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      openProduct: () => this.setState({ productOpen: true }),
+      closeProduct: () => this.setState({ productOpen: false }),
+      toggleProduct: () => this.setState((s) => ({ productOpen: !s.productOpen }))
+    };
+  }
+}
+</script>
+</body>
+</html>
