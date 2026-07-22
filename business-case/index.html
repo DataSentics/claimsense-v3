@@ -583,7 +583,7 @@ class Component extends DCLogic {
       // chart bars
       barCurrent: h(r.currentCost), barReduced: h(r.reducedCost), barLicense: h(r.claimsenseCost), barNet: hMag(r.netSavings),
       // nav / scroll
-      scrollToDemo: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('demo'); },
+      scrollToDemo: (e) => { if (e && e.preventDefault) e.preventDefault(); window.location.href = '/#demo'; },
       scrollToHelp: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('help'); },
       productOpen: this.state.productOpen,
       chevronRotate: this.state.productOpen ? 'rotate(180deg)' : 'rotate(0deg)',
