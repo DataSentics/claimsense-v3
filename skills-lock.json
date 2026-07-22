@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "linkedin-posts": {
+      "source": "kostja94/marketing-skills",
+      "sourceType": "github",
+      "skillPath": "skills/platforms/linkedin/SKILL.md",
+      "computedHash": "18543b3ad03f6329e45732ba0c94fa09498986f3a226c5c129269abb2781ada0"
+    }
+  }
+}
