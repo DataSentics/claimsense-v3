@@ -1,0 +1,15 @@
+# Staré .dc.html adresy (z rozbitého nasazení) -> čisté URL, trvalé 301
+/ClaimSense%20Homepage.dc.html        /                301
+/ClaimSense%20Features.dc.html        /features/       301
+/ClaimSense%20Architecture.dc.html    /architecture/   301
+/ClaimSense%20Use%20Cases.dc.html     /use-cases/      301
+/ClaimSense%20Implementation.dc.html  /implementation/ 301
+/ClaimSense%20Our%20Story.dc.html     /our-story/      301
+/ClaimSense%20Pricing.dc.html         /pricing/        301
+/ClaimSense%20Business%20Case.dc.html /business-case/  301
+/ClaimSense%20FAQ.dc.html             /faq/            301
+/ClaimSense%20Partners.dc.html        /partners/       301
+/ClaimSense%20Careers.dc.html         /careers/        301
+/ClaimSense%20Help.dc.html            /help/           301
+/ClaimSense%20Cookie%20Policy.dc.html /cookie-policy/  301
+/ClaimSense%20Privacy.dc.html         /privacy/        301
