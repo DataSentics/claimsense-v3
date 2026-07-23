@@ -700,23 +700,23 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
       <sc-if value="{{ formDone }}" hint-placeholder-val="{{ false }}">
         <div style="text-align:center; padding:40px 10px;">
           <div style="width:56px; height:56px; border-radius:50%; background:#dcf5ee; display:flex; align-items:center; justify-content:center; margin:0 auto 18px;"><svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M5 13L11 19L21 7" fill="none" stroke="#00B290" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
-          <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:22px; margin:0 0 8px;">Thank you — request received.</h3>
-          <p style="font-size:14px; color:#7a716d; margin:0; line-height:1.6;">We've got your details. A member of the ClaimSense team will be in touch within one business day to schedule your walkthrough.</p>
+          <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:22px; margin:0 0 8px;">Thank you.</h3>
+          <p style="font-size:16px; color:#7a716d; margin:0; line-height:1.6;">Your request is in. A member of our team will email you within one business day to schedule your walkthrough.</p>
         </div>
       </sc-if>
       <sc-if value="{{ formOpen }}" hint-placeholder-val="{{ true }}">
-      <form onSubmit="{{ submitForm }}" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="bb676465-962f-4e10-a53b-5d2145f13460">
-        <input type="hidden" name="subject" value="New walkthrough request — ClaimSense website">
+      <form onSubmit="{{ submitForm }}" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="a7e25bdc-625b-4a25-a202-953aad3e6cc1">
+        <input type="hidden" name="subject" value="New Homepage Request">
         <input type="hidden" name="from_name" value="ClaimSense Website">
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;">
         <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:22px; margin:0 0 20px; color:#0d0d0d;">Book a walkthrough</h3>
         <div style="display:flex; flex-direction:column; gap:14px;">
-          <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Full Name *</span><input type="text" name="name" required="" placeholder="Jane Doe" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
-          <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Work Email *</span><input type="email" name="email" required="" placeholder="jane@company.com" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
-          <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Company Name *</span><input type="text" name="company" required="" placeholder="Company" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
+          <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Full Name *</span><input type="text" name="name" required="" data-required placeholder="Jane Doe" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
+          <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Work Email *</span><input type="email" name="email" required="" data-required placeholder="jane@company.com" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
+          <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Company Name *</span><input type="text" name="company" required="" data-required placeholder="Company" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px;"></label>
           <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Your Role *</span>
-            <select name="role" required="" style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px; background:#fff;">
+            <select name="role" required="" data-required style="margin-top:6px; width:100%; padding:11px 13px; border:1px solid #e0d6d1; border-radius:8px; font-size:15px; background:#fff;">
               <option value="">Select a role</option>
               <option>Claims Manager</option>
               <option>Operations Director</option>
@@ -1265,6 +1265,13 @@ class Component extends DCLogic {
     if (this._submitting) return;
     const btn = form.querySelector('button[type="submit"]');
     const errEl = form.querySelector('[data-form-error]');
+    const __req = Array.prototype.slice.call(form.querySelectorAll('[data-required]'));
+    const __empty = (el) => !String(el.value || '').trim();
+    if (__req.some(__empty)) {
+      if (errEl) { errEl.textContent = 'Please fill in all required fields.'; errEl.style.color = 'rgb(255, 85, 57)'; errEl.style.display = 'block'; }
+      if (!form.__reqWatch) { form.__reqWatch = true; form.addEventListener('input', () => { if (!__req.some(__empty) && errEl) errEl.style.display = 'none'; }); }
+      return;
+    }
     this._submitting = true;
     const label = btn ? btn.textContent : '';
     if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.style.cursor = 'wait'; btn.textContent = 'Sending…'; }
@@ -1272,7 +1279,7 @@ class Component extends DCLogic {
     const restore = (msg) => {
       this._submitting = false;
       if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.style.cursor = 'pointer'; btn.textContent = label; }
-      if (errEl) { errEl.textContent = msg; errEl.style.display = 'block'; }
+      if (errEl) { errEl.textContent = msg; errEl.style.color = '#c02617'; errEl.style.display = 'block'; }
     };
     // Web3Forms: client-side POST (access_key + fields via hidden inputs). No backend needed —
     // works from any static host including Cloudflare Pages. Keeps the inline success screen.
@@ -1280,9 +1287,9 @@ class Component extends DCLogic {
       .then((r) => r.json())
       .then((json) => {
         if (json && json.success) { this._submitting = false; this.setState({ formDone: true }); }
-        else { restore((json && json.message) || 'Something went wrong. Please try again.'); }
+        else { restore('Something went wrong. Please try again or email us directly.'); }
       })
-      .catch(() => restore('Network error — please check your connection and try again.'));
+      .catch(() => restore('Something went wrong. Please try again or email us directly.'));
   }
 
   renderVals() {
