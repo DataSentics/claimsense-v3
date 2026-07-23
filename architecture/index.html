@@ -172,75 +172,134 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
   </div>
 </section>
 
-<!-- ===================== ARCHITECTURE FLOW DIAGRAM (Bull-style, redesigned) ===================== -->
+<!-- ===================== ARCHITECTURE FLOW DIAGRAM — Without/With ClaimSense toggle ===================== -->
 <section style="padding:72px 32px; background:#0a1b3d; color:#fff; position:relative; overflow:hidden;">
-  <div style="max-width:1140px; margin:0 auto; position:relative;">
-    <div style="text-align:center; max-width:680px; margin:0 auto 48px;" data-reveal="">
+  <style>
+    .csflow-wrap{max-width:1040px;margin:0 auto;position:relative;}
+    .csflow-tabs{display:inline-flex;gap:4px;padding:5px;border-radius:999px;background:rgba(255,255,255,0.06);border:1px solid rgba(124,150,230,0.28);}
+    .csflow-tab{appearance:none;border:none;cursor:pointer;font:500 14px 'Roboto',sans-serif;color:#9aa6c8;background:transparent;border-radius:999px;padding:9px 20px;display:inline-flex;align-items:center;gap:8px;transition:background-color .18s,color .18s;}
+    .csflow-tab:focus-visible{outline:2px solid #FFADA0;outline-offset:2px;}
+    .csflow-tab-active{background:#FF5539;color:#06122b;font-weight:700;}
+    .csflow-layer{margin:0 auto;}
+    .csflow-label{display:inline-block;font:600 10px/1 'Roboto',sans-serif;letter-spacing:0.16em;text-transform:uppercase;color:#A4AFFB;background:rgba(124,150,230,0.14);border:1px solid rgba(124,150,230,0.3);border-radius:6px;padding:5px 9px;margin-bottom:12px;}
+    .csflow-lhead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+    .csflow-ltitle{font-family:'Tosh A',sans-serif;font-weight:500;font-size:clamp(20px,2.3vw,26px);color:#fff;margin:0;}
+    .csflow-lcap{font:400 13px 'Roboto',sans-serif;color:#9aa6c8;margin:0;}
+    .csflow-grid{display:grid;gap:12px;}
+    .csflow-grid-6{grid-template-columns:repeat(6,1fr);}
+    .csflow-grid-4{grid-template-columns:repeat(4,1fr);}
+    .csflow-grid-2{grid-template-columns:repeat(2,1fr);}
+    .csflow-card{background:rgba(255,255,255,0.05);border:1px solid rgba(124,150,230,0.22);border-radius:12px;padding:16px;}
+    .csflow-chip{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;background:rgba(124,150,230,0.14);border:1px solid rgba(124,150,230,0.3);}
+    .csflow-ct{font-family:'Tosh A',sans-serif;font-weight:500;font-size:15px;color:#fff;line-height:1.25;}
+    .csflow-cd{font:400 12.5px 'Roboto',sans-serif;color:#9aa6c8;margin-top:3px;line-height:1.4;}
+    .csflow-conn{width:2px;height:26px;background:rgba(124,150,230,0.35);margin:14px auto;}
+    /* WITH state — restrained Bull-orange highlight on the processing/reporting layers */
+    [data-cs-mode="with"] .csflow-l2 .csflow-card,[data-cs-mode="with"] .csflow-l3 .csflow-card{border-color:rgba(255,85,57,0.5);box-shadow:0 6px 22px rgba(255,85,57,0.07);}
+    [data-cs-mode="with"] .csflow-l2 .csflow-chip,[data-cs-mode="with"] .csflow-l3 .csflow-chip{background:rgba(255,85,57,0.14);border-color:rgba(255,85,57,0.5);}
+    /* WITHOUT state — muted: lower-contrast borders + grayed icon chips (text stays full-contrast) */
+    [data-cs-mode="without"] .csflow-l2 .csflow-card,[data-cs-mode="without"] .csflow-l3 .csflow-card{border-color:rgba(148,163,184,0.22);}
+    [data-cs-mode="without"] .csflow-l2 .csflow-chip,[data-cs-mode="without"] .csflow-l3 .csflow-chip{background:rgba(148,163,184,0.1);border-color:rgba(148,163,184,0.3);}
+    /* cross-fade on toggle */
+    .csflow-live{transition:opacity .2s ease-in-out;}
+    .csflow-live.csflow-fading{opacity:0;}
+    @media (prefers-reduced-motion: reduce){.csflow-live{transition:none;}}
+    .csflow-badges{margin-top:30px;border:1px dashed rgba(124,150,230,0.32);border-radius:12px;padding:18px;text-align:center;}
+    .csflow-badge{font:500 13px 'Roboto',sans-serif;color:#dfe4f0;background:rgba(124,150,230,0.14);border:1px solid rgba(124,150,230,0.3);border-radius:20px;padding:7px 16px;}
+    .csflow-footnote{display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;font:400 14px 'Roboto',sans-serif;color:#c7cfe6;margin:24px auto 0;max-width:720px;}
+    .csflow-disclaimer{text-align:center;font:400 12px 'Roboto',sans-serif;color:#9aa6c8;margin:14px 0 0;}
+    /* responsive column wrapping */
+    @media (max-width:900px){.csflow-grid-6{grid-template-columns:repeat(3,1fr);}}
+    @media (max-width:620px){.csflow-grid-4{grid-template-columns:repeat(2,1fr);}}
+    @media (max-width:560px){.csflow-grid-6{grid-template-columns:repeat(2,1fr);}}
+    @media (max-width:380px){.csflow-grid-2{grid-template-columns:1fr;}}
+  </style>
+  <div class="csflow-wrap">
+    <div style="text-align:center; max-width:680px; margin:0 auto 26px;" data-reveal="">
       <div style="font:600 10px/1 'Roboto',sans-serif; letter-spacing:0.18em; text-transform:uppercase; color:#A4AFFB; margin-bottom:14px;">End-to-end flow</div>
       <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3.2vw,40px); line-height:1.1; margin:0; color:#fff;">From incoming claim to resolved case</h2>
     </div>
 
-    <!-- Flow: Input → Workflow/App + Master claim → AI agent → Core system → Secure cloud → Output -->
-    <div style="display:flex; flex-direction:column; gap:0; align-items:center;" data-reveal="">
-      <!-- Step: Claims / documents -->
-      <div style="width:100%; max-width:760px; background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.25); border-radius:12px; padding:18px 22px; display:flex; align-items:center; gap:16px;">
-        <span style="flex:none; width:38px; height:38px; border-radius:9px; background:rgba(255,85,57,0.16); border:1px solid #FF5539; display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 2h7l3 3v11H4z" fill="none" stroke="#FF7761" stroke-width="1.4" stroke-linejoin="round"></path><path d="M11 2v3h3" fill="none" stroke="#FF7761" stroke-width="1.4" stroke-linejoin="round"></path></svg></span>
-        <div><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:17px; color:#fff;">Claims / documents</div><div style="font:400 13px 'Roboto',sans-serif; color:#9aa6c8;">Received from clients</div></div>
-      </div>
-      <div style="width:2px; height:22px; background:rgba(124,150,230,0.4);"></div>
-
-      <!-- Step: Business workflow / App + Master claim workspace -->
-      <div style="width:100%; max-width:900px; background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.25); border-radius:14px; padding:22px;">
-        <div style="display:flex; align-items:center; gap:14px; margin-bottom:16px;">
-          <span style="flex:none; width:38px; height:38px; border-radius:9px; background:rgba(119,136,249,0.18); border:1px solid #7788F9; display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><rect x="2.5" y="3" width="13" height="10" rx="1.5" fill="none" stroke="#A4AFFB" stroke-width="1.4"></rect><path d="M2.5 6h13" stroke="#A4AFFB" stroke-width="1.4"></path></svg></span>
-          <div><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:17px; color:#fff;">Business workflow / App</div><div style="font:400 13px 'Roboto',sans-serif; color:#9aa6c8;">For humans</div></div>
-        </div>
-        <!-- Master claim workspace mini-hierarchy -->
-        <div style="background:rgba(0,0,0,0.18); border:1px solid rgba(124,150,230,0.2); border-radius:10px; padding:16px;">
-          <div style="font:600 9px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#A4AFFB; margin-bottom:10px;">Master claim workspace — one customer context, shared documents &amp; facts</div>
-          <div style="display:grid; gap:10px;" data-flow-streams="">
-            <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.2); border-left:3px solid #7788F9; border-radius:8px; padding:10px 12px; font:400 13px 'Roboto',sans-serif; color:#dfe4f0;">Legal workstream <span style="color:#7e8ab0; font-size:11px;">— owner / status</span></div>
-            <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.2); border-left:3px solid #7788F9; border-radius:8px; padding:10px 12px; font:400 13px 'Roboto',sans-serif; color:#dfe4f0;">Finance workstream <span style="color:#7e8ab0; font-size:11px;">— owner / status</span></div>
-            <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.2); border-left:3px solid #7788F9; border-radius:8px; padding:10px 12px; font:400 13px 'Roboto',sans-serif; color:#dfe4f0;">Assessment workstream <span style="color:#7e8ab0; font-size:11px;">— owner / status</span></div>
-          </div>
-          <div style="margin-top:10px; background:rgba(255,85,57,0.08); border:1px solid rgba(255,85,57,0.35); border-radius:8px; padding:10px 12px; font:400 13px 'Roboto',sans-serif; color:#FFADA0;">Master end-to-end task <span style="color:#c08a7c; font-size:11px;">— accountable owner; process subtasks supply missing inputs</span></div>
-        </div>
-      </div>
-      <div style="width:2px; height:22px; background:rgba(124,150,230,0.4);"></div>
-
-      <!-- Step: AI agent -->
-      <div style="width:100%; max-width:760px; background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.25); border-radius:12px; padding:18px 22px; display:flex; align-items:center; gap:16px;">
-        <span style="flex:none; width:38px; height:38px; border-radius:9px; background:rgba(255,182,0,0.16); border:1px solid #FFB600; display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6" fill="none" stroke="#FFB600" stroke-width="1.4"></circle><circle cx="9" cy="9" r="2" fill="#FFB600"></circle></svg></span>
-        <div><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:17px; color:#fff;">AI agent (Claim handler)</div><div style="font:400 13px 'Roboto',sans-serif; color:#9aa6c8;">Instructions, best practice, available actions</div></div>
-      </div>
-      <div style="width:2px; height:22px; background:rgba(124,150,230,0.4);"></div>
-
-      <!-- Step: Core system -->
-      <div style="width:100%; max-width:760px; background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.25); border-radius:12px; padding:18px 22px; display:flex; align-items:center; gap:16px;">
-        <span style="flex:none; width:38px; height:38px; border-radius:9px; background:rgba(0,178,144,0.16); border:1px solid #00B290; display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><ellipse cx="9" cy="4.5" rx="6" ry="2.2" fill="none" stroke="#00B290" stroke-width="1.4"></ellipse><path d="M3 4.5v9c0 1.2 2.7 2.2 6 2.2s6-1 6-2.2v-9" fill="none" stroke="#00B290" stroke-width="1.4"></path></svg></span>
-        <div><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:17px; color:#fff;">Claim's core system</div><div style="font:400 13px 'Roboto',sans-serif; color:#9aa6c8;">States, facts, transactions, results…</div></div>
-      </div>
-      <div style="width:2px; height:22px; background:rgba(124,150,230,0.4);"></div>
-
-      <!-- Step: Secure cloud deployment -->
-      <div style="width:100%; max-width:900px; background:rgba(255,255,255,0.05); border:1px solid rgba(124,150,230,0.25); border-radius:14px; padding:22px; text-align:center;">
-        <div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:16px; color:#fff; margin-bottom:4px;">Fully secure deployment into your cloud of choice</div>
-        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:14px;">
-          <span style="font:500 13px 'Roboto',sans-serif; color:#dfe4f0; background:rgba(124,150,230,0.14); border:1px solid rgba(124,150,230,0.3); border-radius:20px; padding:7px 16px;">Databricks</span>
-          <span style="font:500 13px 'Roboto',sans-serif; color:#dfe4f0; background:rgba(124,150,230,0.14); border:1px solid rgba(124,150,230,0.3); border-radius:20px; padding:7px 16px;">Azure</span>
-          <span style="font:500 13px 'Roboto',sans-serif; color:#dfe4f0; background:rgba(124,150,230,0.14); border:1px solid rgba(124,150,230,0.3); border-radius:20px; padding:7px 16px;">GCP</span>
-          <span style="font:500 13px 'Roboto',sans-serif; color:#dfe4f0; background:rgba(124,150,230,0.14); border:1px solid rgba(124,150,230,0.3); border-radius:20px; padding:7px 16px;">AWS</span>
-        </div>
-      </div>
-      <div style="width:2px; height:22px; background:rgba(124,150,230,0.4);"></div>
-
-      <!-- Step: Resolved claim cases -->
-      <div style="width:100%; max-width:760px; background:rgba(0,178,144,0.10); border:1px solid rgba(0,178,144,0.4); border-radius:12px; padding:18px 22px; display:flex; align-items:center; gap:16px;">
-        <span style="flex:none; width:38px; height:38px; border-radius:9px; background:rgba(0,178,144,0.2); border:1px solid #00B290; display:flex; align-items:center; justify-content:center;"><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9.5L8 13L14 5" fill="none" stroke="#00B290" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
-        <div><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:17px; color:#fff;">Resolved claim cases</div><div style="font:400 13px 'Roboto',sans-serif; color:#9aa6c8;">To be communicated to clients</div></div>
+    <!-- Toggle control -->
+    <div style="display:flex; justify-content:center; margin:0 0 30px;" data-reveal="">
+      <div class="csflow-tabs" role="tablist" aria-label="Compare claim processing without and with ClaimSense">
+        <button type="button" class="csflow-tab" role="tab" data-csflow-tab="without" id="csflow-tab-without" aria-selected="false" aria-controls="csflow-diagram">Without ClaimSense</button>
+        <button type="button" class="csflow-tab csflow-tab-active" role="tab" data-csflow-tab="with" id="csflow-tab-with" aria-selected="true" aria-controls="csflow-diagram">With ClaimSense</button>
       </div>
     </div>
-    <p style="text-align:center; font:400 12px 'Roboto',sans-serif; color:#7e8ab0; margin:28px 0 0;" data-reveal="">Illustrative architecture flow — specialist workstreams shown as examples, not a fixed requirement for every claim.</p>
+
+    <!-- Diagram: Layer 01 (top, static) → Layer 02 → Layer 03 (bottom) -->
+    <div id="csflow-diagram" data-cs-mode="with" data-reveal="">
+
+      <!-- LAYER 01 — Data inputs (identical in both states) -->
+      <div class="csflow-layer csflow-l1">
+        <span class="csflow-label">Layer 01</span>
+        <div class="csflow-lhead">
+          <h3 class="csflow-ltitle">Data inputs</h3>
+          <p class="csflow-lcap">Client documents &amp; 3rd-party data sources</p>
+        </div>
+        <div class="csflow-grid csflow-grid-6">
+          <div class="csflow-card"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><path d="M4 2.5h6l3 3v10H4z" stroke-linejoin="round"/><path d="M10 2.5v3h3"/></svg></span><div class="csflow-ct">Client data</div><div class="csflow-cd">Forms &amp; policies</div></div>
+          <div class="csflow-card"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><rect x="2.5" y="5" width="13" height="9" rx="1.5"/><circle cx="9" cy="9.5" r="2.4"/><path d="M6 5l1.1-1.6h3.8L12 5"/></svg></span><div class="csflow-ct">Photos</div><div class="csflow-cd">Damage imagery</div></div>
+          <div class="csflow-card"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><rect x="4" y="3" width="10" height="12.5" rx="1.5"/><path d="M6.5 5.5h5M6.5 8h5M6.5 10.5h3"/></svg></span><div class="csflow-ct">Protocols</div><div class="csflow-cd">Incident reports</div></div>
+          <div class="csflow-card"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><path d="M4 2.5h10v13l-2-1.3-2 1.3-2-1.3-2 1.3z" stroke-linejoin="round"/><path d="M6.5 6h5M6.5 9h3"/></svg></span><div class="csflow-ct">Invoices</div><div class="csflow-cd">Cost documents</div></div>
+          <div class="csflow-card"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><ellipse cx="9" cy="4.5" rx="5.5" ry="2"/><path d="M3.5 4.5v9c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2v-9M3.5 9c0 1.1 2.5 2 5.5 2s5.5-.9 5.5-2"/></svg></span><div class="csflow-ct">Audatex</div><div class="csflow-cd">3rd party data</div></div>
+          <div class="csflow-card"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><path d="M3 15V3M3 15h12" stroke-linecap="round"/><path d="M6 12v-3M9 12V6M12 12V8" stroke-linecap="round"/></svg></span><div class="csflow-ct">Benchmarks</div><div class="csflow-cd">Market data</div></div>
+        </div>
+      </div>
+
+      <div class="csflow-conn"></div>
+
+      <!-- CHANGING REGION (Layer 02 + Layer 03 + state note) -->
+      <div id="csflow-live" class="csflow-live" aria-live="polite">
+
+        <!-- LAYER 02 -->
+        <div class="csflow-layer csflow-l2">
+          <span class="csflow-label">Layer 02</span>
+          <div class="csflow-lhead">
+            <h3 class="csflow-ltitle" data-f="l2title">AI-driven claim processing</h3>
+            <p class="csflow-lcap" data-f="l2cap">AI agents process, check, decide and reason — end to end</p>
+          </div>
+          <div class="csflow-grid csflow-grid-4">
+            <div class="csflow-card" data-l2-card="0"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><rect x="3.5" y="3.5" width="11" height="11" rx="2"/><rect x="6.5" y="6.5" width="5" height="5" rx="1"/><path d="M9 1.5v2M9 14.5v2M1.5 9h2M14.5 9h2"/></svg></span><div class="csflow-ct" data-t>AI processing</div><div class="csflow-cd" data-d>Document understanding</div></div>
+            <div class="csflow-card" data-l2-card="1"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><path d="M2.5 9.5l3 3 6-7M8.5 12l1 1 6-7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="csflow-ct" data-t>AI checks &amp; decisions</div><div class="csflow-cd" data-d>Automated resolution</div></div>
+            <div class="csflow-card" data-l2-card="2"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><path d="M9 2l5 2v4c0 3.5-2.3 6-5 7-2.7-1-5-3.5-5-7V4z" stroke-linejoin="round"/></svg></span><div class="csflow-ct" data-t>AI CFR / OFR</div><div class="csflow-cd" data-d>Continuous coverage &amp; fraud review</div></div>
+            <div class="csflow-card" data-l2-card="3"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><path d="M9 2l1.6 4.4L15 8l-4.4 1.6L9 14l-1.6-4.4L3 8l4.4-1.6z" stroke-linejoin="round"/></svg></span><div class="csflow-ct" data-t>Detailed AI reasoning</div><div class="csflow-cd" data-d>Full traceable explanations</div></div>
+          </div>
+        </div>
+
+        <div class="csflow-conn"></div>
+
+        <!-- LAYER 03 -->
+        <div class="csflow-layer csflow-l3">
+          <span class="csflow-label">Layer 03</span>
+          <div class="csflow-lhead">
+            <h3 class="csflow-ltitle">Reporting &amp; oversight</h3>
+            <p class="csflow-lcap" data-f="l3cap">AI on top of the whole ecosystem</p>
+          </div>
+          <div class="csflow-grid csflow-grid-2">
+            <div class="csflow-card" data-l3-card="0"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><path d="M3 4h12v8H8l-3 2.5V12H3z" stroke-linejoin="round"/><path d="M6 7.5h6M6 9.5h4"/></svg></span><div class="csflow-ct" data-t>AI chatbot for management</div><div class="csflow-cd" data-d>Ask anything about operations</div></div>
+            <div class="csflow-card" data-l3-card="1"><span class="csflow-chip"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#cbd3ea" stroke-width="1.4" aria-hidden="true"><path d="M4 2.5h6l3 3v10H4z" stroke-linejoin="round"/><path d="M10 2.5v3h3"/><path d="M6 10.5l1.5 1.5L11 8.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div class="csflow-ct" data-t>AI-generated audit reports</div><div class="csflow-cd" data-d>On-demand for the regulator</div></div>
+          </div>
+        </div>
+
+        <!-- State footnote (changes with toggle; also carries the illustrative-flow intent) -->
+        <p class="csflow-footnote"><svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="#FF7761" stroke-width="1.4" aria-hidden="true" style="flex:none;"><path d="M9 2l5 2.2v4c0 3.4-2.2 5.9-5 6.8-2.8-.9-5-3.4-5-6.8v-4z" stroke-linejoin="round"/><path d="M6.6 9l1.7 1.7L11.6 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-f="footer">Every step is explainable, auditable and traceable — with full reasoning behind every decision.</span></p>
+      </div>
+
+      <!-- Cloud deployment strip (static in both states) -->
+      <div class="csflow-badges">
+        <div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:15px; color:#fff; margin-bottom:12px;">Fully secure deployment into your cloud of choice</div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px;">
+          <span class="csflow-badge">Databricks</span>
+          <span class="csflow-badge">Azure</span>
+          <span class="csflow-badge">GCP</span>
+          <span class="csflow-badge">AWS</span>
+        </div>
+      </div>
+
+      <p class="csflow-disclaimer">Illustrative architecture — layers and cards are shown as examples, not a fixed requirement for every claim.</p>
+    </div>
   </div>
 </section>
 
@@ -424,6 +483,7 @@ class Component extends DCLogic {
     this._onResize = () => this._applyResponsive();
     window.addEventListener('resize', this._onResize);
     this._setupReveal();
+    this._setupArchToggle();
   }
 
   _setupReveal() {
@@ -515,6 +575,66 @@ class Component extends DCLogic {
       if (tbLogo) tbLogo.style.alignSelf = wide ? 'flex-start' : 'center';
       if (tbDesc) { tbDesc.style.marginLeft = wide ? '0' : 'auto'; tbDesc.style.marginRight = wide ? '0' : 'auto'; }
     }
+  }
+
+  _setupArchToggle() {
+    const root = document.getElementById('csflow-diagram');
+    const live = document.getElementById('csflow-live');
+    const tabs = Array.prototype.slice.call(document.querySelectorAll('[data-csflow-tab]'));
+    if (!root || !live || !tabs.length) return;
+    const D = {
+      'with': {
+        l2title: 'AI-driven claim processing',
+        l2cap: 'AI agents process, check, decide and reason — end to end',
+        l2: [['AI processing', 'Document understanding'], ['AI checks & decisions', 'Automated resolution'], ['AI CFR / OFR', 'Continuous coverage & fraud review'], ['Detailed AI reasoning', 'Full traceable explanations']],
+        l3cap: 'AI on top of the whole ecosystem',
+        l3: [['AI chatbot for management', 'Ask anything about operations'], ['AI-generated audit reports', 'On-demand for the regulator']],
+        footer: 'Every step is explainable, auditable and traceable — with full reasoning behind every decision.'
+      },
+      'without': {
+        l2title: 'Human-driven claim processing',
+        l2cap: 'Adjusters process, check, decide and reason — manually',
+        l2: [['Manual processing', 'Reading documents'], ['Manual checks', 'Case decisions'], ['Human CFR / OFR', 'Coverage & fraud review'], ['Partial reasoning', 'Brief human notes']],
+        l3cap: 'Manual reporting cadence',
+        l3: [['Management reports', 'Manual dashboards & decks'], ['Regulatory reports', 'Periodic submissions']],
+        footer: "Today, most decisions live in adjusters' heads — only summary notes survive into the system."
+      }
+    };
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const setText = (sel, txt) => { const el = live.querySelector(sel); if (el) el.textContent = txt; };
+    const fillCards = (prefix, rows) => {
+      rows.forEach((c, i) => {
+        const card = live.querySelector('[data-' + prefix + '-card="' + i + '"]');
+        if (!card) return;
+        const t = card.querySelector('[data-t]'); const d = card.querySelector('[data-d]');
+        if (t) t.textContent = c[0];
+        if (d) d.textContent = c[1];
+      });
+    };
+    const apply = (mode) => {
+      const d = D[mode]; if (!d) return;
+      root.setAttribute('data-cs-mode', mode);
+      setText('[data-f="l2title"]', d.l2title);
+      setText('[data-f="l2cap"]', d.l2cap);
+      setText('[data-f="l3cap"]', d.l3cap);
+      setText('[data-f="footer"]', d.footer);
+      fillCards('l2', d.l2);
+      fillCards('l3', d.l3);
+      tabs.forEach((t) => {
+        const on = t.getAttribute('data-csflow-tab') === mode;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.classList.toggle('csflow-tab-active', on);
+      });
+    };
+    const setMode = (mode) => {
+      if (root.getAttribute('data-cs-mode') === mode) return;
+      if (reduce) { apply(mode); return; }
+      live.classList.add('csflow-fading');
+      window.setTimeout(() => { apply(mode); live.classList.remove('csflow-fading'); }, 200);
+    };
+    tabs.forEach((t) => {
+      t.addEventListener('click', () => setMode(t.getAttribute('data-csflow-tab')));
+    });
   }
 
   _scrollTo(id) {
