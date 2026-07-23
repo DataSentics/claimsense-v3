@@ -460,22 +460,22 @@ class Component extends DCLogic {
     // Named galleries
     this._galleries = {
       'workflow-designer': [
-        { src: 'assets/screenshots/feature-02-a-workflow-definitions.png',        cap: 'Workflow definitions with version history' },
-        { src: 'assets/screenshots/feature-02-b-workflow-configuration.png',      cap: 'Workflow configuration context and naming' },
-        { src: 'assets/screenshots/feature-02-c-workflow-states-configuration.png', cap: 'Workflow states configuration' },
-        { src: 'assets/screenshots/feature-02-d-workflow-resolution-templates.png', cap: 'Workflow resolution templates' },
-        { src: 'assets/screenshots/feature-02-e-workflow-state-transition-rules.png', cap: 'Workflow state transition rules' },
+        { src: '/assets/screenshots/feature-02-a-workflow-definitions.png',        cap: 'Workflow definitions with version history' },
+        { src: '/assets/screenshots/feature-02-b-workflow-configuration.png',      cap: 'Workflow configuration context and naming' },
+        { src: '/assets/screenshots/feature-02-c-workflow-states-configuration.png', cap: 'Workflow states configuration' },
+        { src: '/assets/screenshots/feature-02-d-workflow-resolution-templates.png', cap: 'Workflow resolution templates' },
+        { src: '/assets/screenshots/feature-02-e-workflow-state-transition-rules.png', cap: 'Workflow state transition rules' },
       ],
       'master-claims': [
-        { src: 'assets/screenshots/feature-02-a-workflow-definitions.png',           cap: 'Workflow definitions with version history' },
-        { src: 'assets/screenshots/feature-02-b-workflow-configuration.png',          cap: 'Workflow configuration context and naming' },
-        { src: 'assets/screenshots/feature-02-c-workflow-states-configuration.png',   cap: 'Workflow states configuration' },
-        { src: 'assets/screenshots/feature-02-d-workflow-resolution-templates.png',   cap: 'Workflow resolution templates' },
-        { src: 'assets/screenshots/feature-02-e-workflow-state-transition-rules.png', cap: 'Workflow state transition rules' }
+        { src: '/assets/screenshots/feature-02-a-workflow-definitions.png',           cap: 'Workflow definitions with version history' },
+        { src: '/assets/screenshots/feature-02-b-workflow-configuration.png',          cap: 'Workflow configuration context and naming' },
+        { src: '/assets/screenshots/feature-02-c-workflow-states-configuration.png',   cap: 'Workflow states configuration' },
+        { src: '/assets/screenshots/feature-02-d-workflow-resolution-templates.png',   cap: 'Workflow resolution templates' },
+        { src: '/assets/screenshots/feature-02-e-workflow-state-transition-rules.png', cap: 'Workflow state transition rules' }
       ],
       'claim-core': [
-        { src: 'assets/screenshots/feature-05-claim-history-audit-trail.png', cap: 'Full linear history with complete audit trail' },
-        { src: 'assets/screenshots/feature-05-b-document-extraction.png',     cap: 'Document extraction and field matching records' }
+        { src: '/assets/screenshots/feature-05-claim-history-audit-trail.png', cap: 'Full linear history with complete audit trail' },
+        { src: '/assets/screenshots/feature-05-b-document-extraction.png',     cap: 'Document extraction and field matching records' }
       ]
     };
   }
@@ -607,14 +607,14 @@ class Component extends DCLogic {
       navAnalytics: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('analytics-chat'); },
       navCore: (e) => { if (e && e.preventDefault) e.preventDefault(); this._scrollTo('claim-core'); },
       // thumbs
-      openAI: () => this._lbOpenSingle('assets/screenshots/feature-01-preprocessing-dashboard.png', 'Claims dashboard with AI-proposed case statuses'),
-      openAnalytics: () => this._lbOpenSingle('assets/screenshots/feature-04-analytics-chat.png', 'Analytics Data Assistant with natural language queries'),
+      openAI: () => this._lbOpenSingle('/assets/screenshots/feature-01-preprocessing-dashboard.png', 'Claims dashboard with AI-proposed case statuses'),
+      openAnalytics: () => this._lbOpenSingle('/assets/screenshots/feature-04-analytics-chat.png', 'Analytics Data Assistant with natural language queries'),
       openWorkflowGallery0: () => this._lbOpenGalleryAt('workflow-designer', 0),
       openWorkflowGallery1: () => this._lbOpenGalleryAt('workflow-designer', 1),
       openWorkflowGallery2: () => this._lbOpenGalleryAt('workflow-designer', 2),
       openWorkflowGallery3: () => this._lbOpenGalleryAt('workflow-designer', 3),
       openWorkflowGallery4: () => this._lbOpenGalleryAt('workflow-designer', 4),
-      openMasterSingle: () => this._lbOpenSingle('assets/screenshots/feature-03-master-claim-workstreams.webp', 'Master claims, specialist workstreams & agentic workflows'),
+      openMasterSingle: () => this._lbOpenSingle('/assets/screenshots/feature-03-master-claim-workstreams.webp', 'Master claims, specialist workstreams & agentic workflows'),
       openMasterGallery: () => this._lbOpenGallery('master-claims'),
       openCoreGallery: () => this._lbOpenGallery('claim-core'),
       // lightbox
