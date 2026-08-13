@@ -128,6 +128,13 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
      centering against the full block, since the description wraps to many lines here. */
   [data-testi-row] { align-items:flex-start !important; }
 }
+
+/* Shared list icons — one tick shape, one cross shape, identical box + stroke weight.
+   Kept in sync with /pricing/ (same pattern as .bpb-card__tick on comm-inspector.com). */
+[data-tick], [data-cross] { flex-shrink:0; width:20px; height:20px; margin-top:1px; }
+
+/* FAQ accordion chevron — matches comm-inspector.com (18px, orange, rotates on open) */
+[data-faq-icon] { flex-shrink:0; width:18px; height:18px; color:#FF5539; transition:transform .2s cubic-bezier(.16,1,.3,1); }
 </style>
 <script src="/industry-use-cases.js"></script>
 </helmet>
@@ -499,12 +506,12 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
         <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:24px; margin:0 0 6px; color:#0d0d0d;">Build</h3>
         <p style="font-size:14px; color:#7a716d; margin:0 0 22px; min-height:42px;">Develop a custom AI solution in-house with your own engineering team.</p>
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px; color:#54504d;">
-          <li style="display:flex; gap:10px;"><span style="color:#bbb;">—</span>Slow time to market</li>
-          <li style="display:flex; gap:10px;"><span style="color:#bbb;">—</span>Expensive — no economy of scale + overhead costs</li>
-          <li style="display:flex; gap:10px;"><span style="color:#bbb;">—</span>Risky investment — what if an ideal solution already exists?</li>
-          <li style="display:flex; gap:10px;"><span style="color:#bbb;">—</span>Need to manage IT costs on your own</li>
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>Tailored to your needs</li>
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>No lock-in — you own the IP</li>
+          <li style="display:flex; gap:10px;"><svg data-cross="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false" style="color:#7a716d;"><path d="M5.5 5.5l9 9m0-9l-9 9"></path></svg>Slow time to market</li>
+          <li style="display:flex; gap:10px;"><svg data-cross="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false" style="color:#7a716d;"><path d="M5.5 5.5l9 9m0-9l-9 9"></path></svg>Expensive — no economy of scale + overhead costs</li>
+          <li style="display:flex; gap:10px;"><svg data-cross="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false" style="color:#7a716d;"><path d="M5.5 5.5l9 9m0-9l-9 9"></path></svg>Risky investment — what if an ideal solution already exists?</li>
+          <li style="display:flex; gap:10px;"><svg data-cross="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false" style="color:#7a716d;"><path d="M5.5 5.5l9 9m0-9l-9 9"></path></svg>Need to manage IT costs on your own</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>Tailored to your needs</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>No lock-in — you own the IP</li>
         </ul>
       </div>
       <!-- ClaimSense (recommended) -->
@@ -513,12 +520,12 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
         <h3 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:24px; margin:6px 0 6px; color:#FF5539;">ClaimSense</h3>
         <p style="font-size:14px; color:#5a514d; margin:0 0 22px; min-height:42px;">Leverage our proven AI products and pay only for results. Zero risk, maximum speed.</p>
         <ul style="list-style:none; padding:0; margin:0 0 20px; display:flex; flex-direction:column; gap:11px; font-size:14px; color:#33302e;">
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>Quick time to market</li>
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>No risk from product development</li>
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>Pay according to business impact</li>
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>Tailored to your needs — product adapted for you</li>
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>No lock-in — you own the IP</li>
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>All costs included — implementation, IT, adoption</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>Quick time to market</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>No risk from product development</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>Pay according to business impact</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>Tailored to your needs — product adapted for you</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>No lock-in — you own the IP</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>All costs included — implementation, IT, adoption</li>
         </ul>
         <!-- NEEDS-APPROVAL: "backed by the French State (APE)" claim — pending legal/product sign-off -->
         <div style="background:#FFF7F5; border-radius:10px; padding:14px 16px; font-size:13px; line-height:1.5; color:#7a3b2c;"><strong style="color:#9a4434;">Why can we offer this?</strong> We are backed by the French State (APE) and we are on a mission to create something impactful on an entire European level. No quick-ROI pressure, no squeezing gains before the product can truly shape Europe's competitiveness.</div>
@@ -528,13 +535,13 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
         <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:24px; margin:0 0 6px; color:#0d0d0d;">Buy SaaS</h3>
         <p style="font-size:14px; color:#7a716d; margin:0 0 22px; min-height:42px;">Subscribe to an off-the-shelf AI platform from a third-party vendor.</p>
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px; color:#54504d;">
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>Quick time to market</li>
-          <li style="display:flex; gap:10px;"><span style="color:#00B290;">✓</span>No risk from product development</li>
-          <li style="display:flex; gap:10px;"><span style="color:#bbb;">—</span>Pay for usage</li>
-          <li style="display:flex; gap:10px;"><span style="color:#bbb;">—</span>Vendor lock-in — you can't buy it, it's their IP</li>
-          <li style="display:flex; gap:10px;"><span style="color:#bbb;">—</span>Business outcome not guaranteed</li>
-          <li style="display:flex; gap:10px;"><span style="color:#bbb;">—</span>Extra costs for implementation services (consulting / IT partners)</li>
-          <li style="display:flex; gap:10px;"><span style="color:#bbb;">—</span>Duplicating IT investments — your IT already built data platforms</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>Quick time to market</li>
+          <li style="display:flex; gap:10px;"><svg data-tick="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="color:#FF5539;"><path d="M4 10.5l4 4 8-9"></path></svg>No risk from product development</li>
+          <li style="display:flex; gap:10px;"><svg data-cross="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false" style="color:#7a716d;"><path d="M5.5 5.5l9 9m0-9l-9 9"></path></svg>Pay for usage</li>
+          <li style="display:flex; gap:10px;"><svg data-cross="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false" style="color:#7a716d;"><path d="M5.5 5.5l9 9m0-9l-9 9"></path></svg>Vendor lock-in — you can't buy it, it's their IP</li>
+          <li style="display:flex; gap:10px;"><svg data-cross="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false" style="color:#7a716d;"><path d="M5.5 5.5l9 9m0-9l-9 9"></path></svg>Business outcome not guaranteed</li>
+          <li style="display:flex; gap:10px;"><svg data-cross="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false" style="color:#7a716d;"><path d="M5.5 5.5l9 9m0-9l-9 9"></path></svg>Extra costs for implementation services (consulting / IT partners)</li>
+          <li style="display:flex; gap:10px;"><svg data-cross="" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false" style="color:#7a716d;"><path d="M5.5 5.5l9 9m0-9l-9 9"></path></svg>Duplicating IT investments — your IT already built data platforms</li>
         </ul>
       </div>
     </div>
@@ -616,39 +623,55 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
 <!-- ===================== PRICING TEASER ===================== -->
 <a id="pricing"></a>
 <section style="padding:80px 32px; background:#fff;">
-  <div style="max-width:1000px; margin:0 auto;">
+  <div style="max-width:1140px; margin:0 auto;">
     <div style="text-align:center; margin-bottom:44px;" data-reveal="">
       <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,42px); margin:0 0 12px; color:#0d0d0d;">Finally a transparent price of AI</h2>
-      <p style="font-size:18px; color:#5a514d; margin:0; max-width:680px; margin-left:auto; margin-right:auto;">Our pricing includes everything — cloud infrastructure, AI model tokens, updates, and security. No hidden fees. What you see is what you pay.</p>
+      <p style="font-size:18px; color:#5a514d; margin:0; max-width:680px; margin-left:auto; margin-right:auto;">One fixed annual price per package — cloud infrastructure, AI model tokens, updates, support, and SLA all included. No hidden fees, no usage surprises.</p>
     </div>
-    <!-- NEEDS-APPROVAL: price & package facts (€3/claim, €5/claim, user counts, SLAs, delivery time) -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;" data-reveal="">
+    <!-- NEEDS-APPROVAL: price & package facts (€10k/€50k/€200k per year, volume caps, man-days, SLAs) — keep in sync with /pricing/ -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px; align-items:start; margin-top:14px;" data-reveal="">
+      <!-- S — Pilot -->
       <div style="border:1px solid #ecdcd6; border-radius:16px; padding:32px; background:#fff;">
-        <div style="font:500 12px 'Roboto',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:#7a716d; margin-bottom:8px;">Quick Start</div>
-        <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:26px; margin:0 0 16px; color:#0d0d0d;">Analytical Agent</h3>
-        <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:22px;"><span style="font-family: 'Tosh A',sans-serif; font-weight: 900; font-size: 40px; color: #002870">from €3</span><span style="font-size:15px; color:#7a716d;">/claim</span></div>
+        <div style="font:500 12px 'Roboto',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:#7a716d; margin-bottom:8px;">Pilot</div>
+        <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:26px; margin:0 0 16px; color:#0d0d0d;">S — Pilot</h3>
+        <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:6px;"><span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:40px; line-height:1; color:#002870;">€10,000</span><span style="font-size:15px; color:#7a716d;">/year</span></div>
+        <p style="font-size:13px; color:#9ca3af; margin:0 0 22px;">Up to 2,000 claims/year</p>
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px; color:#54504d;">
-          <li style="display:flex; gap:10px;"><span style="color:#FF5539;">›</span>Setup in 1–2 weeks</li>
-          <li style="display:flex; gap:10px;"><span style="color:#FF5539;">›</span>Batch analysis</li>
-          <li style="display:flex; gap:10px;"><span style="color:#FF5539;">›</span>Basic SLA</li>
-          <li style="display:flex; gap:10px;"><span style="color:#FF5539;">›</span>Up to 10 users</li>
+          <li style="display:flex; gap:10px;"><span style="flex:none; color:#002870;">›</span>Implementation: 10 man-days</li>
+          <li style="display:flex; gap:10px;"><span style="flex:none; color:#002870;">›</span>Dedicated managed hosting</li>
+          <li style="display:flex; gap:10px;"><span style="flex:none; color:#002870;">›</span>Support &amp; business SLA</li>
         </ul>
       </div>
-      <div style="border:3px solid #002870; border-radius:16px; padding:32px; background:#fff;">
-        <div style="font:500 12px 'Roboto',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:#002870; margin-bottom:8px;">Full Scale</div>
-        <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:26px; margin:0 0 16px; color:#0d0d0d;">AI-native Platform</h3>
-        <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:22px;"><span style="font-family: 'Tosh A',sans-serif; font-weight: 900; font-size: 40px; color: #FF5539">from €5</span><span style="font-size:15px; color:#7a716d;">/claim</span></div>
+      <!-- M — Standard (most common) -->
+      <div style="border:3px solid #FF5539; border-radius:16px; padding:32px; background:#fff; position:relative;">
+        <span style="position:absolute; top:-13px; left:50%; transform:translateX(-50%); background:#FF5539; color:#000; font:600 11px 'Roboto',sans-serif; letter-spacing:0.08em; text-transform:uppercase; border-radius:20px; padding:5px 16px; border:3px solid #FF5539; white-space:nowrap;">Most common</span>
+        <div style="font:500 12px 'Roboto',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:#FF5539; margin-bottom:8px;">Standard</div>
+        <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:26px; margin:0 0 16px; color:#0d0d0d;">M — Standard</h3>
+        <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:6px;"><span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:40px; line-height:1; color:#FF5539;">€50,000</span><span style="font-size:15px; color:#7a716d;">/year</span></div>
+        <p style="font-size:13px; color:#9ca3af; margin:0 0 22px;">Up to 20,000 claims/year</p>
         <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px; color:#54504d;">
-          <li style="display:flex; gap:10px;"><span style="color:#002870;">›</span>Full integration</li>
-          <li style="display:flex; gap:10px;"><span style="color:#002870;">›</span>Real-time processing; chat with cases; operational platform</li>
-          <li style="display:flex; gap:10px;"><span style="color:#002870;">›</span>24/7 SLA</li>
-          <li style="display:flex; gap:10px;"><span style="color:#002870;">›</span>Up to 20 users</li>
+          <li style="display:flex; gap:10px;"><span style="flex:none; color:#FF5539;">›</span>Implementation: 20 man-days</li>
+          <li style="display:flex; gap:10px;"><span style="flex:none; color:#FF5539;">›</span>Dedicated managed hosting</li>
+          <li style="display:flex; gap:10px;"><span style="flex:none; color:#FF5539;">›</span>Support &amp; business SLA</li>
+        </ul>
+      </div>
+      <!-- L — Enterprise -->
+      <div style="border:1px solid #ecdcd6; border-radius:16px; padding:32px; background:#fff;">
+        <div style="font:500 12px 'Roboto',sans-serif; letter-spacing:0.1em; text-transform:uppercase; color:#7a716d; margin-bottom:8px;">Enterprise</div>
+        <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:26px; margin:0 0 16px; color:#0d0d0d;">L — Enterprise</h3>
+        <div style="display:flex; align-items:baseline; gap:6px; margin-bottom:6px;"><span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:40px; line-height:1; color:#002870;">€200,000</span><span style="font-size:15px; color:#7a716d;">/year</span></div>
+        <p style="font-size:13px; color:#9ca3af; margin:0 0 22px;">Up to 100,000 claims/year</p>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px; color:#54504d;">
+          <li style="display:flex; gap:10px;"><span style="flex:none; color:#002870;">›</span>Implementation: 50 man-days</li>
+          <li style="display:flex; gap:10px;"><span style="flex:none; color:#002870;">›</span>Dedicated managed hosting</li>
+          <li style="display:flex; gap:10px;"><span style="flex:none; color:#002870;">›</span>Support &amp; business SLA</li>
         </ul>
       </div>
     </div>
-    <div style="text-align:center; margin-top:36px;" data-reveal="">
+    <p style="text-align:center; font-size:14px; color:#5a514d; margin:28px 0 0;" data-reveal=""><strong style="color:#0d0d0d;">Exceeding your limit?</strong> Each additional claim is a flat <strong style="color:#0d0d0d;">€5</strong> — same for every package. Or upgrade anytime.</p>
+    <div style="text-align:center; margin-top:28px;" data-reveal="">
       <a href="/pricing/" data-cta="pricing" style="display:inline-block; background:#002870; color:#fff; border-radius:10px; padding:14px 30px; font:500 16px 'Roboto',sans-serif;">See full pricing &amp; packages</a>
-      <p style="font-size:14px; color:#7a716d; margin:16px 0 0;">Compare packages, optional add-ons, and request a custom quote.</p>
+      <p style="font-size:14px; color:#7a716d; margin:16px 0 0;">Compare packages, estimate your annual cost, and request a proposal.</p>
     </div>
   </div>
 </section>
@@ -665,7 +688,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
         <div style="background:#fff; border:1px solid #f0e0da; border-radius:12px; overflow:hidden;">
           <button onClick="{{ faq.toggle }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 24px; background:none; border:none; cursor:pointer; text-align:left;">
             <span style="font:500 17px 'Roboto',sans-serif; color:#0d0d0d;">{{ faq.q }}</span>
-            <span style="font-family:'Tosh A',sans-serif; font-weight:300; font-size:26px; color:#FF5539; flex:none; line-height:1; transform:{{ faq.iconRotate }};">+</span>
+            <svg data-faq-icon="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="transform:{{ faq.iconRotate }};"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
             <div style="padding:0 24px 22px; font-size:15px; line-height:1.6; color:#54504d;">{{ faq.a }}</div>
@@ -824,7 +847,7 @@ class Component extends DCLogic {
       { q: 'What exactly does ClaimSense do?', a: 'ClaimSense is an AI-native platform that runs the full claim lifecycle — from intake to resolution. AI reads all documents, extracts key data, creates a case summary, and proposes a decision with reasoning. Your handler reviews and decides in minutes instead of hours.' },
       { q: 'Does AI make decisions for us?', a: 'No. AI pre-processes the case, creates a summary, and proposes a decision with transparent reasoning. The final decision always stays with your handler. We monitor AI accuracy in real time — if it drops, the system flags it and you adjust the rules.' },
       { q: 'Is it secure? Where does our data live?', a: 'Your data stays in your environment. ClaimSense runs on your own cloud infrastructure — Azure, GCP, or AWS — via a Databricks-based deployment. Full audit trail, role-based access control, and enterprise-grade security.' },
-      { q: 'How much does it cost and how do we start?', a: 'Pricing is per claim, not per licence. Analytical Agent starts at €3/claim, Full Operational Platform at €5/claim. Cloud infrastructure, AI tokens, updates, and security are included — no hidden fees.' }
+      { q: 'How much does it cost and how do we start?', a: 'One fixed annual price, not a per-licence fee. Three packages by claim volume: S — Pilot at €10,000/year (up to 2,000 claims), M — Standard at €50,000/year (up to 20,000), L — Enterprise at €200,000/year (up to 100,000). Cloud infrastructure, AI model tokens, updates, security, support, SLA, and the implementation project are all included — no hidden fees. Beyond your limit, each additional claim is a flat €5.' }
     ];
   }
 
@@ -1300,7 +1323,7 @@ class Component extends DCLogic {
       q: f.q,
       a: f.a,
       open: open === i,
-      iconRotate: open === i ? 'rotate(45deg)' : 'rotate(0deg)',
+      iconRotate: open === i ? 'rotate(180deg)' : 'rotate(0deg)',
       toggle: () => this.toggleFaq(i)
     }));
     const proof = this.props.proofVisual ?? 'screenshot';
