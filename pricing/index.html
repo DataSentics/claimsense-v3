@@ -104,6 +104,11 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
   [style*="repeat(auto-fill,minmax"],
   [style*="repeat(auto-fill, minmax"] { grid-template-columns:1fr !important; }
 }
+
+/* FAQ accordion: show SVG chevron instead of DC-generated +/X */
+#faq-section button { position:relative; }
+#faq-section button svg { display:flex !important; }
+#faq-section button::after { display:none !important; }
 </style>
 </helmet>
 
@@ -426,7 +431,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
 </section>
 
 <!-- ===================== FAQ ===================== -->
-<section style="padding:72px 32px; background:#FFF7F5;">
+<section style="padding:72px 32px; background:#FFF7F5;" id="faq-section">
   <div style="max-width:800px; margin:0 auto;">
     <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3.2vw,38px); margin:0 0 40px; color:#0d0d0d; text-align:center;" data-reveal="">Pricing questions</h2>
 
@@ -435,7 +440,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
         <div style="background:#fff; border:1px solid #f0e0da; border-radius:12px; overflow:hidden;">
           <button onClick="{{ faq.toggle }}" style="width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 24px; background:none; border:none; cursor:pointer; text-align:left;">
             <span style="font:500 17px 'Roboto',sans-serif; color:#0d0d0d;">{{ faq.q }}</span>
-            <span style="font-family:'Tosh A',sans-serif; font-weight:300; font-size:26px; color:#FF5539; flex:none; line-height:1; transform:{{ faq.iconRotate }};">+</span>
+            <span style="flex:none; font-size:20px; color:#FF5539; transform:{{ faq.iconRotate }}; transition:transform 0.2s ease; display:inline-block; line-height:1;">↓</span>
           </button>
           <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
             <div style="padding:0 24px 22px; font-size:15px; line-height:1.6; color:#54504d;">{{ faq.a }}</div>
@@ -697,7 +702,7 @@ class Component extends DCLogic {
       q: item.q,
       a: item.a,
       open: open === i,
-      iconRotate: open === i ? 'rotate(45deg)' : 'rotate(0deg)',
+      iconRotate: open === i ? 'rotate(180deg)' : 'rotate(0deg)',
       toggle: () => toggleFaq(i)
     }));
 
