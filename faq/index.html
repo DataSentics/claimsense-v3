@@ -96,6 +96,9 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
   [style*="repeat(auto-fill,minmax"],
   [style*="repeat(auto-fill, minmax"] { grid-template-columns:1fr !important; }
 }
+
+/* FAQ accordion chevron — matches comm-inspector.com (18px, orange, rotates on open) */
+[data-faq-icon] { flex-shrink:0; width:18px; height:18px; color:#FF5539; transition:transform .2s cubic-bezier(.16,1,.3,1); }
 </style>
 </helmet>
 
@@ -185,7 +188,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
           <button onClick="{{ faq.toggle }}" aria-expanded="{{ faq.open }}" style="width:100%; display:flex; align-items:center; gap:18px; padding:22px 26px; background:none; border:none; cursor:pointer; text-align:left;">
             <span style="flex:none; font-family:'Tosh A',sans-serif; font-weight:900; font-size:16px; color:#FF5539; min-width:30px;">{{ faq.num }}</span>
             <span style="flex:1; font:500 18px 'Roboto',sans-serif; color:#0d0d0d;">{{ faq.q }}</span>
-            <span style="flex:none; font-family:'Tosh A',sans-serif; font-weight:300; font-size:28px; color:#FF5539; line-height:1; transform:{{ faq.iconRotate }}; transition:transform .2s;">+</span>
+            <svg data-faq-icon="" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="transform:{{ faq.iconRotate }};"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </button>
           <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
             <div style="padding:0 26px 24px 74px;">
@@ -276,13 +279,13 @@ class Component extends DCLogic {
     this._faqs = [
       { num:'01', q:'What exactly does ClaimSense do?', a:"ClaimSense is an AI-native platform that runs the full claim lifecycle — from intake to resolution. AI reads all documents, extracts key data, creates a case summary, and proposes a decision with reasoning. Your handler reviews and decides in minutes instead of hours. It's not an AI layer bolted onto a legacy system — it's the complete environment your claims team works in, including dashboard, case management, AI chat across the full case file, and analytics." },
       { num:'02', q:'Who is behind ClaimSense?', a:"ClaimSense is built by DataSentics, part of the Bull / Eviden group — one of the largest AI/ML teams in Central Europe with 300+ engineers and 500+ delivered AI projects. The product team combines 15+ years of hands-on experience in insurance operations with 5+ years of deploying AI in enterprise operations. We're not a startup with a prototype — we're a product team with live deployments at clients like Tuito and Pillow.", cta:'Learn more about our story', ctaHref:'#' },
-      { num:'03', q:'How long does implementation take?', a:'It depends on the package and scope. Our Analytical Agent (batch analysis, no integration) can run in 1–2 weeks. A full Operational Platform deployment follows a four-phase plan — Initial Setup, Shadow Run, Operational Migration, Full Production — and typically takes 1–2 months depending on data complexity, claim types, and integration scope.', cta:'See the full implementation plan', ctaHref:'/implementation/' },
+      { num:'03', q:'How long does implementation take?', a:'It depends on the package and scope. The implementation project is included in every package — 10 man-days for S — Pilot, 20 for M — Standard, 50 for L — Enterprise. A pilot rollout can run in 1–2 weeks. A full deployment follows a four-phase plan — Initial Setup, Shadow Run, Operational Migration, Full Production — and typically takes 1–2 months depending on data complexity, claim types, and integration scope.', cta:'See the full implementation plan', ctaHref:'/implementation/' },
       { num:'04', q:'Does AI make decisions for us?', a:'No. AI pre-processes the case, creates a summary, and proposes a decision with transparent reasoning. The final decision always stays with your handler. We monitor AI accuracy in real time — if it drops, the system flags it and you adjust the rules. Full audit trail is available for regulators and internal compliance.' },
       { num:'05', q:'Is it secure? Where does our data live?', a:'Your data stays in your environment. ClaimSense runs on your own cloud infrastructure — Azure, GCP, or AWS — via a Databricks-based deployment. Full audit trail, role-based access control, and enterprise-grade security. The platform is designed to meet GDPR, DORA, and EU AI Act requirements for data sovereignty and AI transparency.', cta:'Explore the architecture', ctaHref:'/architecture/' },
       { num:'06', q:'How does ClaimSense integrate with our existing systems?', a:'ClaimSense integrates with your existing environment through APIs. For brokers, TPAs, and multi-carrier operations, we support multiple parallel workflows — each with its own data extraction rules, validations, and outputs. We also natively handle automated preparation of final summary documents. Integrations with public and private data sources (vehicle databases, registry systems, etc.) are extended based on client needs.' },
       { num:'07', q:'How does ClaimSense handle complex claims with several specialist teams?', a:'ClaimSense keeps the customer outcome in one master claim while legal, finance, assessment and other teams work in linked specialist workstreams. They share the relevant case context, documents and facts, with access controlled by role. One end-to-end task owner remains accountable for the client outcome, while process subtasks provide the specific information needed to move it forward.', cta:'Explore the platform features', ctaHref:'/features/' },
       { num:'08', q:'What happens with low-quality documents like handwritten forms?', a:"We're upfront about what AI can and can't do. For documents like handwritten accident reports, extraction is limited by source quality and legibility. ClaimSense extracts what it can and leaves the rest to the handler — no false promises of 100% automation. You always see the AI confidence score and can review flagged cases." },
-      { num:'09', q:'How much does it cost and how do we start?', a:'Pricing is per claim, not per licence. Analytical Agent starts at €3/claim, Full Operational Platform at €5/claim. Cloud infrastructure, AI tokens, updates, and security are included — no hidden fees. You can start with a small pilot: upload a batch of closed cases and compare how ClaimSense processes them against your team\u2019s historical output.', cta:'See full pricing details', ctaHref:'/pricing/' }
+      { num:'09', q:'How much does it cost and how do we start?', a:'One fixed annual price, not a per-licence fee. Three packages by claim volume: S — Pilot at €10,000/year (up to 2,000 claims), M — Standard at €50,000/year (up to 20,000), L — Enterprise at €200,000/year (up to 100,000). Cloud infrastructure, AI model tokens, updates, security, support, SLA, and the implementation project are all included — no hidden fees. Beyond your limit, each additional claim is a flat €5. You can start with the S — Pilot package: upload a batch of closed cases and compare how ClaimSense processes them against your team\u2019s historical output.', cta:'See full pricing details', ctaHref:'/pricing/' }
     ];
   }
 
@@ -377,7 +380,7 @@ class Component extends DCLogic {
     const faqs = this._faqs.map((f, i) => ({
       num: f.num, q: f.q, a: f.a,
       open: open === i,
-      iconRotate: open === i ? 'rotate(45deg)' : 'rotate(0deg)',
+      iconRotate: open === i ? 'rotate(180deg)' : 'rotate(0deg)',
       hasCta: !!f.cta,
       cta: f.cta || '',
       ctaHref: f.ctaHref || '#',
