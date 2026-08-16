@@ -60,7 +60,7 @@ window.CLAIMSENSE_INDUSTRY_USE_CASES = [
     ],
     "variantB": [
       { "title": "Pre-claim diagnostic deflection", "description": "ClaimSense guides customers through a diagnostic flow before a claim is filed, so easily-resolved or out-of-warranty cases don't trigger transport and technician costs." },
-      { "title": "Multi-channel claim intake", "description": "ClaimSense unifies claims arriving through retail stores, in-home service, and direct service centers into one tracked flow." },
+      { "title": "Multi-channel claim intake", "description": "ClaimSense unifies claims arriving through retail stores, in-home service, and direct service centres into one tracked flow." },
       { "title": "Automated customer response", "description": "ClaimSense replaces manually-written template replies with an AI-driven first response, freeing staff from fully manual email triage." }
     ]
   },
@@ -68,7 +68,7 @@ window.CLAIMSENSE_INDUSTRY_USE_CASES = [
     "label": "Logistics & freight",
     "status": "Early-stage outreach in this sector",
     "confidence": "Certain",
-    "confidenceNote": "'Cargo Claims Specialist/Analyst' and 'Freight Claims Specialist' are both active, standardized job titles.",
+    "confidenceNote": "'Cargo Claims Specialist/Analyst' and 'Freight Claims Specialist' are both active, standardised job titles.",
     "variantANote": null,
     "variantA": [
       "Cargo & freight claim intake",
@@ -88,13 +88,13 @@ window.CLAIMSENSE_INDUSTRY_USE_CASES = [
     "confidenceNote": "No live client conversation has confirmed this terminology yet.",
     "variantANote": "Early-stage exploration — validating these use cases with payer-side teams.",
     "variantA": [
-      "Prior authorization adjudication",
+      "Prior authorisation adjudication",
       "Claims denial & appeal review",
       "Coverage determination documentation"
     ],
     "variantB": [
-      { "title": "Prior authorization adjudication", "description": "ClaimSense reviews authorization requests against plan criteria and flags missing documentation." },
-      { "title": "Claims denial & appeal review", "description": "ClaimSense organizes incoming appeals and surfaces the relevant policy and clinical context for reviewers." },
+      { "title": "Prior authorisation adjudication", "description": "ClaimSense reviews authorisation requests against plan criteria and flags missing documentation." },
+      { "title": "Claims denial & appeal review", "description": "ClaimSense organises incoming appeals and surfaces the relevant policy and clinical context for reviewers." },
       { "title": "Coverage determination documentation", "description": "ClaimSense generates audit-ready records of each coverage decision automatically." }
     ]
   },
@@ -107,12 +107,12 @@ window.CLAIMSENSE_INDUSTRY_USE_CASES = [
     "variantA": [
       "Chargeback evidence & response",
       "Customer dispute investigation",
-      "Unauthorized transaction claims"
+      "Unauthorised transaction claims"
     ],
     "variantB": [
       { "title": "Chargeback evidence & response", "description": "ClaimSense assembles evidence packages and tracks card network deadlines automatically." },
-      { "title": "Customer dispute investigation", "description": "ClaimSense organizes transaction data and flags discrepancies for faster resolution." },
-      { "title": "Unauthorized transaction claims", "description": "ClaimSense routes fraud-flagged claims to investigation with full documentation trail." }
+      { "title": "Customer dispute investigation", "description": "ClaimSense organises transaction data and flags discrepancies for faster resolution." },
+      { "title": "Unauthorised transaction claims", "description": "ClaimSense routes fraud-flagged claims to investigation with full documentation trail." }
     ]
   },
   {
