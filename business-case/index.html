@@ -288,8 +288,11 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
           <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">ClaimSense package ({{ packageName }}, up to {{ packageCap }} claims/year)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">+ {{ packageBase }}</span></div>
           <sc-if value="{{ hasOverage }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Overage ({{ packageOverageCases }} claims over cap × €5)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">+ {{ packageOverageCost }}</span></div>
+            <!-- Subtotal — without it the package and overage rows read as if they
+                 summed to the total below, which also includes the remaining FTE cost. -->
+            <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="font-weight:500; color:#0d0d0d;">ClaimSense cost</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">{{ claimsenseCost }}</span></div>
           </sc-if>
-          <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Total cost with ClaimSense</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#0d0d0d;">{{ costWith }}</span></div>
+          <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Total claims cost with ClaimSense (FTE + ClaimSense)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#0d0d0d;">{{ costWith }}</span></div>
           <div style="display:flex; justify-content:space-between; gap:16px; padding:13px 0 2px; font-size:15px;"><span style="font-weight:500; color:#0d0d0d;">{{ netResultLabel }}</span><span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:18px; color:{{ netColorDark }};">{{ netSavingsSigned }}</span></div>
         </div>
 
