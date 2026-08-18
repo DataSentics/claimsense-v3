@@ -292,6 +292,18 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
           <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Total cost with ClaimSense</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#0d0d0d;">{{ costWith }}</span></div>
           <div style="display:flex; justify-content:space-between; gap:16px; padding:13px 0 2px; font-size:15px;"><span style="font-weight:500; color:#0d0d0d;">{{ netResultLabel }}</span><span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:18px; color:{{ netColorDark }};">{{ netSavingsSigned }}</span></div>
         </div>
+
+        <!-- Unit price — derived, not part of the ledger above. Paired with the
+             customer's own per-case cost so it reads as a comparison, not a rate card. -->
+        <div style="border-top:1px solid #f1ebe8; margin-top:14px; padding-top:14px;">
+          <div style="display:flex; justify-content:space-between; gap:16px; font-size:14px;">
+            <span style="color:#54504d;">Cost per claim with ClaimSense</span>
+            <span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">{{ costPerClaim }}</span><span style="color:#7a716d; font-size:13px;"> vs {{ costPerClaimToday }} today</span></span>
+          </div>
+          <sc-if value="{{ showAtCap }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:12px; color:#7a716d; margin-top:6px;">{{ costPerClaimAtCap }} per claim if you use the full {{ packageCap }} claims in your package.</div>
+          </sc-if>
+        </div>
       </div>
 
       <!-- Cost vs Benefit chart -->
@@ -516,9 +528,6 @@ class Component extends DCLogic {
       }
     }
 
-    if (cases > 0) {
-      parts.push('That works out to €' + (pkg.cost / cases).toFixed(2) + ' per claim.');
-    }
     return parts.join(' ');
   }
 
@@ -529,6 +538,9 @@ class Component extends DCLogic {
     return sign + '€' + Math.abs(r).toLocaleString('en-US');
   }
   _int(n) { return Math.round(n).toLocaleString('en-US'); }
+  // Unit prices need cents — whole-euro rounding would hide the difference
+  // between tiers (e.g. €2.00 vs €2.50 per claim).
+  _eur2(n) { return '€' + Number(n).toFixed(2); }
 
   componentDidMount() {
     this._applyResponsive();
@@ -680,6 +692,13 @@ class Component extends DCLogic {
       hasOverage: r.pkg.overageCases > 0,
       packageAdviceTitle: r.pkg.name + ' is your cheapest option.',
       packageAdvice: this._packageAdvice(this.state.annualCases, r.pkg),
+      // Unit price. The rate at full cap is shown alongside because overage makes
+      // the live rate non-monotonic — it rises between caps, and without the
+      // at-cap figure that reads as a penalty for growing rather than headroom.
+      costPerClaim: this._eur2(r.claimsenseCost / Math.max(1, this.state.annualCases)),
+      costPerClaimToday: this._eur2(this.state.costPerCase),
+      costPerClaimAtCap: this._eur2(r.pkg.base / r.pkg.cap),
+      showAtCap: Math.abs(r.claimsenseCost / Math.max(1, this.state.annualCases) - r.pkg.base / r.pkg.cap) >= 0.01,
       currentCost: this._eur(r.currentCost),
       reducedCost: this._eur(r.reducedCost),
       costWith: this._eur(r.costWith),
