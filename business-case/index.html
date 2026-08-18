@@ -119,13 +119,15 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
 <!-- ClaimSense Business case page — /business-case/                   -->
 <!-- Content preserved verbatim from content/pages/content_business-case.md -->
 <!-- status: needs-functional-spec (P0 calculator)                     -->
-<!-- approval_required: calculator formula, license assumptions, ranges, defaults, ROI wording, chart -->
+<!-- approval_required: calculator formula, package prices/caps, ranges, defaults, ROI wording, chart -->
 <!-- ================================================================ -->
-<!-- ▶▶ CALCULATOR LOGIC IS A PLACEHOLDER (inferred formula). The exact -->
-<!--    formula, defaults, slider steps, €3-vs-€5 rule, negative-value -->
-<!--    handling and rounding are ALL isolated in the logic class:      -->
-<!--    `this._calcConfig` (inputs/defaults/ranges + licensePerClaim)   -->
-<!--    and `_calculate(inputs)` (the formula). Swap those two only.    -->
+<!-- ▶▶ CALCULATOR LOGIC is isolated in the logic class — swap only:     -->
+<!--    `this._calcConfig`  inputs/defaults/ranges + packages + overage  -->
+<!--    `_calculate(inputs)` the formula                                 -->
+<!--    Package prices and caps MUST stay in sync with /pricing/.        -->
+<!--    Overage (€5/claim over cap) makes a smaller package overtake the -->
+<!--    next one up at 10,000 and 50,000 claims/year; `_bestPackage()`   -->
+<!--    picks the cheapest tier and switches at exactly those points.    -->
 <!-- ================================================================ -->
 
 <!-- ===================== HEADER (shared chrome) ===================== -->
@@ -271,6 +273,11 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
         </div>
       </div>
 
+      <!-- Why this package — the cheapest tier changes at 10,000 and 50,000 claims -->
+      <div style="background:#FFF7F5; border:1px solid #f6ded7; border-radius:14px; padding:16px 20px; margin-bottom:24px; font-size:13px; line-height:1.6; color:#54504d;">
+        <strong style="color:#0d0d0d;">{{ packageAdviceTitle }}</strong> {{ packageAdvice }}
+      </div>
+
       <!-- Detailed Breakdown -->
       <div style="background:#fff; border:1px solid #ecdcd6; border-radius:14px; padding:24px; margin-bottom:24px;">
         <h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:18px; margin:0 0 16px; color:#0d0d0d;">Detailed breakdown</h3>
@@ -278,7 +285,10 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
           <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Current annual processing cost</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#0d0d0d;">{{ currentCost }}</span></div>
           <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Productivity gain ({{ redDisplay }} time reduction)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#00B290;">- {{ efficiency }}</span></div>
           <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Reduced annual FTE cost</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#0d0d0d;">{{ reducedCost }}</span></div>
-          <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">ClaimSense cost ({{ claimsenseCostFormula }})</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">+ {{ claimsenseCost }}</span></div>
+          <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">ClaimSense package ({{ packageName }}, up to {{ packageCap }} claims/year)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">+ {{ packageBase }}</span></div>
+          <sc-if value="{{ hasOverage }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Overage ({{ packageOverageCases }} claims over cap × €5)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">+ {{ packageOverageCost }}</span></div>
+          </sc-if>
           <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Total cost with ClaimSense</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#0d0d0d;">{{ costWith }}</span></div>
           <div style="display:flex; justify-content:space-between; gap:16px; padding:13px 0 2px; font-size:15px;"><span style="font-weight:500; color:#0d0d0d;">{{ netResultLabel }}</span><span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:18px; color:{{ netColorDark }};">{{ netSavingsSigned }}</span></div>
         </div>
@@ -309,7 +319,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
               <div style="font:500 12px 'Roboto',sans-serif; color:#54504d; margin-bottom:6px; white-space:nowrap;">{{ claimsenseCost }}</div>
               <div style="width:100%; max-width:64px; background:#FFB600; border-radius:7px 7px 0 0; transition:height .4s ease; height:{{ barLicense }};"></div>
             </div>
-            <div style="text-align:center; font-size:11px; color:#7a716d; margin-top:10px;">ClaimSense license</div>
+            <div style="text-align:center; font-size:11px; color:#7a716d; margin-top:10px;">ClaimSense package</div>
           </div>
           <div style="display:flex; flex-direction:column; align-items:center;">
             <div style="width:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:150px;">
@@ -414,16 +424,24 @@ class Component extends DCLogic {
     super(props);
 
     // ================================================================
-    // ▶▶ CALCULATOR CONFIG — REPLACE WITH CONFIRMED VALUES FROM SOURCE
-    //    (defaults, slider ranges/steps, and licence price per claim)
+    // ▶▶ CALCULATOR CONFIG
     //    Ranges are from content_business-case.md "Visible range".
-    //    Defaults/steps + €5 are INFERRED — confirm before production.
+    //    Slider defaults/steps are INFERRED — confirm before production.
+    //    NEEDS-APPROVAL: package prices, caps and the €5 overage rate,
+    //    same as the figures on /pricing/.
     // ================================================================
     this._calcConfig = {
       annualCases:   { default: 10000, min: 500, max: 1000000, step: 500 },
       costPerCase:   { default: 50,    min: 5,   max: 200,     step: 1 },
       timeReduction: { default: 30,    min: 5,   max: 90,      step: 1 },
-      licensePerClaim: 5   // ▶▶ CONFIRM: fixed €5, or €3-vs-€5 by package/volume?
+      // Fixed annual packages — must stay in sync with /pricing/.
+      // Cost(n) = base + overagePerClaim × max(0, n − cap).
+      packages: [
+        { key: 'S', name: 'S — Pilot',      base: 10000,  cap: 2000   },
+        { key: 'M', name: 'M — Standard',   base: 50000,  cap: 20000  },
+        { key: 'L', name: 'L — Enterprise', base: 200000, cap: 100000 }
+      ],
+      overagePerClaim: 5
     };
 
     this.state = {
@@ -440,15 +458,68 @@ class Component extends DCLogic {
   //    Returns the raw numbers; formatting/clamping handled separately.
   // ================================================================
   _calculate(inp) {
-    const lic = this._calcConfig.licensePerClaim;
     const currentCost   = inp.annualCases * inp.costPerCase;
     const efficiency    = currentCost * (inp.timeReduction / 100); // productivity gain
     const reducedCost   = currentCost - efficiency;
-    const claimsenseCost = inp.annualCases * lic;
+    const pkg           = this._bestPackage(inp.annualCases);
+    const claimsenseCost = pkg.cost;
     const costWith      = reducedCost + claimsenseCost;
     const netSavings    = currentCost - costWith;
     const roiPercent    = claimsenseCost > 0 ? (netSavings / claimsenseCost) * 100 : 0;
-    return { currentCost, efficiency, reducedCost, claimsenseCost, costWith, netSavings, roiPercent };
+    return { currentCost, efficiency, reducedCost, claimsenseCost, costWith, netSavings, roiPercent, pkg };
+  }
+
+  // Cost of one package at a given volume: base + €5 per claim over the cap.
+  _packageCost(p, cases) {
+    return p.base + this._calcConfig.overagePerClaim * Math.max(0, cases - p.cap);
+  }
+
+  // Cheapest package for this volume. Overage makes a smaller package overtake
+  // the next one up at 10,000 and 50,000 claims; on a tie we take the larger
+  // package, since it costs the same but leaves headroom before overage starts.
+  _bestPackage(cases) {
+    const pkgs = this._calcConfig.packages;
+    let best = null;
+    pkgs.forEach((p) => {
+      const cost = this._packageCost(p, cases);
+      if (!best || cost < best.cost || (cost === best.cost && p.cap > best.cap)) {
+        best = { key: p.key, name: p.name, base: p.base, cap: p.cap, cost: cost };
+      }
+    });
+    best.overageCases = Math.max(0, cases - best.cap);
+    best.overageCost = this._calcConfig.overagePerClaim * best.overageCases;
+    return best;
+  }
+
+  // Plain-words explanation of the chosen tier, plus the volume at which the
+  // next package up takes over. Break-even with the next package q solves
+  // p.base + 5 × (n − p.cap) = q.base, i.e. n = p.cap + (q.base − p.base) / 5.
+  _packageAdvice(cases, pkg) {
+    const cfg = this._calcConfig;
+    const idx = cfg.packages.map((p) => p.key).indexOf(pkg.key);
+    const next = cfg.packages[idx + 1];
+    const parts = [];
+
+    if (pkg.overageCases > 0) {
+      parts.push('You are ' + this._int(pkg.overageCases) + ' claims over the ' + this._int(pkg.cap) +
+        ' cap, so €' + cfg.overagePerClaim + ' per extra claim is added to the ' + this._eur(pkg.base) + ' package price.');
+    } else {
+      parts.push('Your volume fits inside the ' + this._int(pkg.cap) + ' claims/year cap, so the price stays fixed at ' +
+        this._eur(pkg.base) + ' with no overage.');
+    }
+
+    if (next) {
+      const breakEven = pkg.cap + (next.base - pkg.base) / cfg.overagePerClaim;
+      if (cases < breakEven) {
+        parts.push('Above ' + this._int(breakEven) + ' claims/year, overage would push this package past the flat ' +
+          this._eur(next.base) + ' of ' + next.name + ' — the calculator switches you over at that point.');
+      }
+    }
+
+    if (cases > 0) {
+      parts.push('That works out to €' + (pkg.cost / cases).toFixed(2) + ' per claim.');
+    }
+    return parts.join(' ');
   }
 
   // ---- formatting helpers (▶▶ confirm rounding/decimals with source) ----
@@ -597,7 +668,18 @@ class Component extends DCLogic {
       bannerAria: fin === 'profit' ? ('Financial result: ' + absNetStr + ' saved') : (fin === 'loss' ? ('Financial result: ' + absNetStr + ' net loss') : 'Financial result: break-even'),
       efficiency: this._eur(r.efficiency),
       claimsenseCost: this._eur(r.claimsenseCost),
-      claimsenseCostFormula: this._int(this.state.annualCases) + ' cases × €' + cfg.licensePerClaim,
+      // Reads as a fixed package price, or "package + overage" once over the cap.
+      claimsenseCostFormula: r.pkg.overageCases > 0
+        ? (r.pkg.name + ' + ' + this._int(r.pkg.overageCases) + ' over cap × €' + cfg.overagePerClaim)
+        : (r.pkg.name + ' package, up to ' + this._int(r.pkg.cap) + ' claims/year'),
+      packageName: r.pkg.name,
+      packageBase: this._eur(r.pkg.base),
+      packageCap: this._int(r.pkg.cap),
+      packageOverageCases: this._int(r.pkg.overageCases),
+      packageOverageCost: this._eur(r.pkg.overageCost),
+      hasOverage: r.pkg.overageCases > 0,
+      packageAdviceTitle: r.pkg.name + ' is your cheapest option.',
+      packageAdvice: this._packageAdvice(this.state.annualCases, r.pkg),
       currentCost: this._eur(r.currentCost),
       reducedCost: this._eur(r.reducedCost),
       costWith: this._eur(r.costWith),
