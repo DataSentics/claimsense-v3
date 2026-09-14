@@ -183,7 +183,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
     <div style="max-width:760px;" data-reveal>
       <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF5539; margin-bottom:18px;">Déploiement de la plateforme IA de traitement des sinistres</div>
       <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(36px,5vw,62px); line-height:1.03; letter-spacing:-0.02em; margin:0 0 22px; color:#0d0d0d;">Plan de projet d’implémentation</h1>
-      <p style="font-size:20px; line-height:1.55; color:#4a4340; max-width:660px; margin:0 0 36px;">L’implémentation se déroule en quatre phases claires, afin de garantir une adoption maîtrisée, une stabilité opérationnelle et une création de valeur mesurable. Chaque phase inclut des livrables définis, pour que vous compreniez précisément ce qui est accompli.</p>
+      <p style="font-size:20px; line-height:1.55; color:#4a4340; max-width:660px; margin:0 0 36px;">L’implémentation se déroule en quatre phases, pour une adoption maîtrisée, une stabilité opérationnelle et une valeur mesurable. Chaque phase a ses livrables : vous savez précisément où vous en êtes.</p>
       <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center;">
         <a href="/fr/#demo" style="background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:10px; padding:16px 32px; font:600 18px 'Roboto',sans-serif; cursor:pointer;" data-cta="primary">Réserver une consultation</a>
       </div>
@@ -274,7 +274,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
 <section style="padding:80px 32px; background:#FFF7F5; position:relative; overflow:hidden;">
   <div style="max-width:760px; margin:0 auto; text-align:center; position:relative;" data-reveal>
     <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:1.08; margin:0 0 18px; color:#0d0d0d;">Prêt à démarrer votre implémentation ?</h2>
-    <p style="font-size:18px; line-height:1.6; color:#5a514d; margin:0 0 32px;">Discutons de vos besoins spécifiques et construisons ensemble un plan d’implémentation adapté à votre organisation.</p>
+    <p style="font-size:18px; line-height:1.6; color:#5a514d; margin:0 0 32px;">Parlons de vos besoins et construisons ensemble un plan d’implémentation adapté à votre organisation.</p>
     <!-- NEEDS-APPROVAL: timing and delivery commitments (phase durations, % figures) per page front-matter -->
     <!-- FUNCTIONAL-SPEC NEEDED: "Book a Consultation" routing -->
     <a href="/fr/#demo" style="display:inline-flex; align-items:center; gap:11px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:10px; padding:16px 34px; font:600 18px 'Roboto',sans-serif; cursor:pointer;" data-cta="primary">Réserver une consultation <span aria-hidden="true">→</span></a>
@@ -343,14 +343,14 @@ class Component extends DCLogic {
         accent:'#FF5539', badgeBg:'#FF5539', outcomeBg:'#FFF4F1', outcomeBorder:'#ffd9d0',
         desc:'Préparer l’environnement technique et intégrer les flux de données nécessaires au fonctionnement de la plateforme.', note:'',
         activities:['Accord sur le modèle de déploiement et configuration de l’infrastructure','Définition de l’architecture d’intégration des données','Configuration d’un environnement sécurisé','Import initial des données et configuration du système','Mise en place des droits d’accès et des politiques de sécurité','Intégration avec les sources de données sinistres','Configuration IA initiale','Définition de la hiérarchie des sinistres maîtres, des workstreams spécialisés, des responsabilités et des règles d’accès','Cartographie des tâches de bout en bout et des dépendances entre sous-tâches'],
-        deliverables:['Environnement cloud opérationnel, prêt à l’emploi','Pipeline d’intégration des données mis en place','Données historiques de sinistres importées','Configuration des accès utilisateurs et de la sécurité finalisée','Configuration du système alignée sur les processus du client','Plateforme prête pour un usage pilote'],
+        deliverables:['Environnement cloud opérationnel, prêt à l’emploi','Pipeline d’intégration des données en place','Données historiques de sinistres importées','Configuration des accès utilisateurs et de la sécurité finalisée','Configuration du système alignée sur les processus du client','Plateforme prête pour un usage pilote'],
         outcome:'Le système est techniquement prêt pour les tests opérationnels.'
       },
       {
         num:'2', anchor:'phase-2', title:'Fonctionnement en parallèle & calibration de l’IA',
         accent:'#002870', badgeBg:'#002870', outcomeBg:'#eef0fe', outcomeBorder:'#d4d9fb',
-        desc:'Valider les résultats du système pendant que les processus actuels se poursuivent sans changement.', note:'L’équipe sinistres utilise la plateforme en parallèle du workflow existant.',
-        activities:['Les gestionnaires de sinistres examinent les résultats de l’IA dans le cadre du traitement normal','Identification des cas particuliers et des écarts de processus','Organisation d’ateliers de calibration et de réglage de l’IA','Ajustements du workflow sur la base des retours utilisateurs','Validation continue de la qualité','Validation des transmissions, des règles de contexte partagé et des chemins d’escalade pour les sinistres complexes'],
+        desc:'Valider les résultats du système pendant que vos processus actuels se poursuivent sans changement.', note:'L’équipe sinistres utilise la plateforme en parallèle du workflow existant.',
+        activities:['Les gestionnaires de sinistres examinent les résultats de l’IA au fil du traitement courant','Identification des cas particuliers et des écarts de processus','Organisation d’ateliers de calibration et de réglage de l’IA','Ajustements du workflow sur la base des retours utilisateurs','Validation continue de la qualité','Validation des transmissions, des règles de contexte partagé et des chemins d’escalade pour les sinistres complexes'],
         deliverables:['IA calibrée sur les pratiques du client','Cas particuliers et écarts de processus traités','Retours des gestionnaires de sinistres intégrés','Premiers gains de productivité observés','Équipe familiarisée avec la plateforme'],
         outcome:'La plateforme fait ses preuves en conditions réelles, sans risque opérationnel.'
       },
