@@ -13,23 +13,3 @@
 /ClaimSense%20Help.dc.html            /help/           301
 /ClaimSense%20Cookie%20Policy.dc.html /cookie-policy/  301
 /ClaimSense%20Privacy.dc.html         /privacy/        301
-
-# FR slug localization (2026-09-14): old English-slug FR paths -> new French slugs, trvalé 301
-/fr/features            /fr/fonctionnalites/     301
-/fr/features/            /fr/fonctionnalites/     301
-/fr/use-cases            /fr/cas-d-usage/         301
-/fr/use-cases/           /fr/cas-d-usage/         301
-/fr/our-story            /fr/notre-histoire/      301
-/fr/our-story/           /fr/notre-histoire/      301
-/fr/pricing              /fr/tarifs/              301
-/fr/pricing/             /fr/tarifs/              301
-/fr/partners             /fr/partenaires/         301
-/fr/partners/            /fr/partenaires/         301
-/fr/careers              /fr/carrieres/           301
-/fr/careers/             /fr/carrieres/           301
-/fr/help                 /fr/aide/                301
-/fr/help/                /fr/aide/                301
-/fr/privacy              /fr/confidentialite/     301
-/fr/privacy/             /fr/confidentialite/     301
-/fr/cookie-policy        /fr/politique-cookies/   301
-/fr/cookie-policy/       /fr/politique-cookies/   301
