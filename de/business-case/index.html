@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <!-- Cookiebot consent banner: must precede every cookie-setting script (blockingmode=auto) -->
@@ -34,8 +34,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <meta name="robots" content="noindex, nofollow">
 <script src="/support.js"></script>
 <title>Business Case & ROI-Rechner – ClaimSense</title>
-<meta name="description" content="ROI-Rechner für die automatisierte Schadenbearbeitung. Parameter anpassen: Schadenfälle pro Jahr, Kosten pro Fall, FTE-Einsparungen. Kostensenkungen sofort sichtbar.">
+<meta name="description" content="ROI-Rechner für die automatisierte Schadenbearbeitung. Parameter anpassen: Fälle pro Jahr, Kosten pro Fall, FTE-Einsparungen. Kostensenkungen sofort sichtbar.">
 <link rel="canonical" href="https://claimsense.app/de/business-case/">
+    <link rel="alternate" hreflang="en" href="https://claimsense.app/business-case/" data-i18n-alt>
+    <link rel="alternate" hreflang="de" href="https://claimsense.app/de/business-case/" data-i18n-alt>
+    <link rel="alternate" hreflang="fr" href="https://claimsense.app/fr/business-case/" data-i18n-alt>
+    <link rel="alternate" hreflang="x-default" href="https://claimsense.app/business-case/" data-i18n-alt>
 <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
 </head>
 <body>
@@ -179,6 +183,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
         <img src="/assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:26px; width:auto;">
       </span>
       <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;" data-nav-divider></span>
+      <span data-lang-switch style="display:flex; align-items:center; gap:6px; margin-left:24px;"><a href="/business-case/" hreflang="en" style="font:500 13px/1 'Roboto',sans-serif; color:#6b7280; text-decoration:none; white-space:nowrap;">EN</a><span aria-hidden="true" style="color:#d6cec9;">&middot;</span><a href="/de/business-case/" hreflang="de" aria-current="true" style="font:700 13px/1 'Roboto',sans-serif; color:#0d0d0d; text-decoration:none; white-space:nowrap;">DE</a><span aria-hidden="true" style="color:#d6cec9;">&middot;</span><a href="/fr/business-case/" hreflang="fr" style="font:500 13px/1 'Roboto',sans-serif; color:#6b7280; text-decoration:none; white-space:nowrap;">FR</a></span>
       <button onClick="{{ scrollToDemo }}" style="margin-left:24px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; white-space:nowrap;" data-nav-cta="">Demo vereinbaren</button>
       <button data-nav-burger="" type="button" aria-label="Menü öffnen" aria-expanded="false" style="display:none; align-items:center; justify-content:center; width:44px; height:44px; padding:0; background:none; border:none; cursor:pointer; color:#0d0d0d; margin-left:12px;">
         <svg data-burger-icon="" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
@@ -196,6 +201,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
     <a href="/de/unsere-geschichte/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Unsere Geschichte</a>
     <a href="/de/preise/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Preise</a>
     <a href="/de/business-case/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Business Case</a>
+    <div data-lang-switch style="display:flex; gap:4px; margin-top:12px; padding-top:12px; border-top:1px solid #f0e6e3;"><a href="/business-case/" hreflang="en" style="flex:1; text-align:center; padding:9px 0; border-radius:8px; font:500 14px 'Roboto',sans-serif; text-decoration:none; color:#6b7280; background:transparent;">EN</a><a href="/de/business-case/" hreflang="de" aria-current="true" style="flex:1; text-align:center; padding:9px 0; border-radius:8px; font:600 14px 'Roboto',sans-serif; text-decoration:none; color:#0d0d0d; background:#f5f0ee;">DE</a><a href="/fr/business-case/" hreflang="fr" style="flex:1; text-align:center; padding:9px 0; border-radius:8px; font:500 14px 'Roboto',sans-serif; text-decoration:none; color:#6b7280; background:transparent;">FR</a></div>
     <a href="/de/#demo" style="display:block; text-align:center; margin-top:10px; background:#FF5539; color:#000; border:2px solid #FF5539; border-radius:9px; padding:13px; font:500 15px 'Roboto',sans-serif; text-decoration:none;">Demo vereinbaren</a>
   </div>
 </header>
@@ -222,23 +228,23 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
       <!-- Cases Processed Per Year -->
       <div style="margin-bottom:30px;">
         <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px;">
-          <label for="cs-cases" style="font:500 15px 'Roboto',sans-serif; color:#0d0d0d;">Jährlich bearbeitete Schadenfälle</label>
+          <label for="cs-cases" style="font:500 15px 'Roboto',sans-serif; color:#0d0d0d;">Jährlich bearbeitete Fälle</label>
           <span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:22px; color:#FF5539;">{{ casesDisplay }}</span>
         </div>
         <p style="font-size:13px; color:#7a716d; margin:0 0 12px;">Gesamtzahl der jährlich bearbeiteten Versicherungsschäden</p>
         <input id="cs-cases" type="range" min="{{ casesMin }}" max="{{ casesMax }}" step="{{ casesStep }}" value="{{ casesVal }}" onInput="{{ onCases }}" style="width:100%; cursor:pointer;">
-        <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; font-size:12px; color:#a9a09b; margin-top:4px;"><span style="justify-self:start; white-space:nowrap;">500</span><span style="justify-self:center; white-space:nowrap;">Schadenfälle / Jahr</span><span style="justify-self:end; white-space:nowrap;">1.000.000</span></div>
+        <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; font-size:12px; color:#a9a09b; margin-top:4px;"><span style="justify-self:start; white-space:nowrap;">500</span><span style="justify-self:center; white-space:nowrap;">Fälle / Jahr</span><span style="justify-self:end; white-space:nowrap;">1.000.000</span></div>
       </div>
 
       <!-- Cost of Processing 1 Case -->
       <div style="margin-bottom:30px;">
         <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px;">
-          <label for="cs-cost" style="font:500 15px 'Roboto',sans-serif; color:#0d0d0d;">Kosten für die Bearbeitung eines Schadenfalls</label>
+          <label for="cs-cost" style="font:500 15px 'Roboto',sans-serif; color:#0d0d0d;">Kosten für die Bearbeitung eines Falls</label>
           <span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:22px; color:#FF5539;">{{ costDisplay }}</span>
         </div>
-        <p style="font-size:13px; color:#7a716d; margin:0 0 12px;">FTE-Kosten geteilt durch die Anzahl der Fälle (durchschnittliche Kosten pro Schadenfall)</p>
+        <p style="font-size:13px; color:#7a716d; margin:0 0 12px;">FTE-Kosten geteilt durch die Anzahl der Fälle (durchschnittliche Kosten pro Fall)</p>
         <input id="cs-cost" type="range" min="{{ costMin }}" max="{{ costMax }}" step="{{ costStep }}" value="{{ costVal }}" onInput="{{ onCost }}" style="width:100%; cursor:pointer;">
-        <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; font-size:12px; color:#a9a09b; margin-top:4px;"><span style="justify-self:start; white-space:nowrap;">€5</span><span style="justify-self:center; white-space:nowrap;">EUR / Schadenfall</span><span style="justify-self:end; white-space:nowrap;">€200</span></div>
+        <div style="display:grid; grid-template-columns:1fr auto 1fr; align-items:center; font-size:12px; color:#a9a09b; margin-top:4px;"><span style="justify-self:start; white-space:nowrap;">€5</span><span style="justify-self:center; white-space:nowrap;">EUR / Fall</span><span style="justify-self:end; white-space:nowrap;">€200</span></div>
         <!-- FUNCTIONAL-SPEC NEEDED: "Not sure? Click here to calculate it" — confirm what this opens (modal / explainer / sales contact) -->
         <button onClick="{{ scrollToHelp }}" style="margin-top:12px; background:none; border:none; padding:0; cursor:pointer; font:500 13px 'Roboto',sans-serif; color:#002870; text-decoration:underline;">Nicht sicher? Hier klicken zur Berechnung</button>
       </div>
@@ -246,7 +252,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
       <!-- Expected Time Reduction per Case -->
       <div>
         <div style="display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:4px;">
-          <label for="cs-red" style="font:500 15px 'Roboto',sans-serif; color:#0d0d0d;">Erwartete Zeitersparnis pro Schadenfall</label>
+          <label for="cs-red" style="font:500 15px 'Roboto',sans-serif; color:#0d0d0d;">Erwartete Zeitersparnis pro Fall</label>
           <span style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:22px; color:#FF5539;">{{ redDisplay }}</span>
         </div>
         <p style="font-size:13px; color:#7a716d; margin:0 0 12px;">Wie viel schneller jeder Fall mit ClaimSense bearbeitet wird</p>
@@ -294,9 +300,9 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
           <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Aktuelle jährliche Bearbeitungskosten</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#0d0d0d;">{{ currentCost }}</span></div>
           <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Produktivitätsgewinn ({{ redDisplay }} Zeitersparnis)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#00B290;">- {{ efficiency }}</span></div>
           <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Reduzierte jährliche FTE-Kosten</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#0d0d0d;">{{ reducedCost }}</span></div>
-          <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">ClaimSense-Paket ({{ packageName }}, bis zu {{ packageCap }} Schadenfälle/Jahr)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">+ {{ packageBase }}</span></div>
+          <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">ClaimSense-Paket ({{ packageName }}, bis zu {{ packageCap }} Fälle/Jahr)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">+ {{ packageBase }}</span></div>
           <sc-if value="{{ hasOverage }}" hint-placeholder-val="{{ false }}">
-            <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Mehrverbrauch ({{ packageOverageCases }} Schadenfälle über dem Limit × €5)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">+ {{ packageOverageCost }}</span></div>
+            <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="color:#54504d;">Mehrverbrauch ({{ packageOverageCases }} Fälle über dem Limit × €5)</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">+ {{ packageOverageCost }}</span></div>
             <!-- Subtotal — without it the package and overage rows read as if they
                  summed to the total below, which also includes the remaining FTE cost. -->
             <div style="display:flex; justify-content:space-between; gap:16px; padding:11px 0; border-bottom:1px solid #f1ebe8; font-size:14px;"><span style="font-weight:500; color:#0d0d0d;">ClaimSense-Kosten</span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">{{ claimsenseCost }}</span></div>
@@ -309,11 +315,11 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
              customer's own per-case cost so it reads as a comparison, not a rate card. -->
         <div style="border-top:1px solid #f1ebe8; margin-top:14px; padding-top:14px;">
           <div style="display:flex; justify-content:space-between; gap:16px; font-size:14px;">
-            <span style="color:#54504d;">Kosten pro Schadenfall mit ClaimSense</span>
+            <span style="color:#54504d;">Kosten pro Fall mit ClaimSense</span>
             <span><span style="font-family:'Tosh A',sans-serif; font-weight:500; color:#002870;">{{ costPerClaim }}</span><span style="color:#7a716d; font-size:13px;"> vs. {{ costPerClaimToday }} heute</span></span>
           </div>
           <sc-if value="{{ showAtCap }}" hint-placeholder-val="{{ false }}">
-            <div style="font-size:12px; color:#7a716d; margin-top:6px;">{{ costPerClaimAtCap }} pro Schadenfall bei voller Ausschöpfung der {{ packageCap }} Schadenfälle Ihres Pakets.</div>
+            <div style="font-size:12px; color:#7a716d; margin-top:6px;">{{ costPerClaimAtCap }} pro Fall bei voller Ausschöpfung der {{ packageCap }} Fälle Ihres Pakets.</div>
           </sc-if>
         </div>
       </div>
@@ -398,7 +404,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
     <div style="display:grid; gap:40px;" data-footer-grid>
       <div>
         <img src="/assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
-        <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">KI-first-Workflow für Ihr Schadenteam. Transformieren Sie komplexe Schadenbearbeitung mit intelligenter Automatisierung.</p>
+        <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">KI-first-Workflow für Ihr Team. Transformieren Sie komplexe Schadenbearbeitung mit intelligenter Automatisierung.</p>
         <div style="display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid #1a2c54;">
           <img src="/assets/bull/BULL_LOGO_WHITE_RGB.png" alt="Bull" style="height:26px; width:auto;">
         </div>
@@ -437,7 +443,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
         <a href="javascript: Cookiebot.renew()" style="color:#9aa6c8;">Cookie-Einstellungen</a>
         <span>© 2026 ClaimSense. Alle Rechte vorbehalten.</span>
       </div>
-      <span>Mit ❤ entwickelt für Schadenteams weltweit</span>
+      <span>Mit ❤ entwickelt für Schaden- und Leistungsteams weltweit</span>
     </div>
   </div>
 </footer>
@@ -525,17 +531,17 @@ class Component extends DCLogic {
     const parts = [];
 
     if (pkg.overageCases > 0) {
-      parts.push('Sie liegen ' + this._int(pkg.overageCases) + ' Schadenfälle über dem Limit von ' + this._int(pkg.cap) +
+      parts.push('Sie liegen ' + this._int(pkg.overageCases) + ' Fälle über dem Limit von ' + this._int(pkg.cap) +
         ', daher werden €' + cfg.overagePerClaim + ' pro zusätzlichem Schadenfall zum Paketpreis von ' + this._eur(pkg.base) + ' hinzugerechnet.');
     } else {
-      parts.push('Ihr Volumen liegt innerhalb des Limits von ' + this._int(pkg.cap) + ' Schadenfällen/Jahr, daher bleibt der Preis fix bei ' +
+      parts.push('Ihr Volumen liegt innerhalb des Limits von ' + this._int(pkg.cap) + ' Fällen/Jahr, daher bleibt der Preis fix bei ' +
         this._eur(pkg.base) + ' ohne Mehrverbrauch.');
     }
 
     if (next) {
       const breakEven = pkg.cap + (next.base - pkg.base) / cfg.overagePerClaim;
       if (cases < breakEven) {
-        parts.push('Über ' + this._int(breakEven) + ' Schadenfällen/Jahr würde der Mehrverbrauch dieses Paket über den Festpreis von ' +
+        parts.push('Über ' + this._int(breakEven) + ' Fällen/Jahr würde der Mehrverbrauch dieses Paket über den Festpreis von ' +
           this._eur(next.base) + ' für ' + next.name + ' hinaustreiben — der Rechner wechselt Sie an diesem Punkt automatisch.');
       }
     }
@@ -624,6 +630,8 @@ class Component extends DCLogic {
     const divider = document.querySelector('[data-nav-divider]');
     if (badge) badge.style.display = w >= 1040 ? 'flex' : 'none';
     if (divider) divider.style.display = w >= 1040 ? 'block' : 'none';
+    const langSw = document.querySelector('[data-lang-switch]');
+    if (langSw) langSw.style.display = w >= 900 ? 'flex' : 'none';
     const burger = document.querySelector('[data-nav-burger]');
     const navCta = document.querySelector('[data-nav-cta]');
     const mobileNav = w < 900;
@@ -695,7 +703,7 @@ class Component extends DCLogic {
       // Reads as a fixed package price, or "package + overage" once over the cap.
       claimsenseCostFormula: r.pkg.overageCases > 0
         ? (r.pkg.name + ' + ' + this._int(r.pkg.overageCases) + ' über dem Limit × €' + cfg.overagePerClaim)
-        : (r.pkg.name + '-Paket, bis zu ' + this._int(r.pkg.cap) + ' Schadenfälle/Jahr'),
+        : (r.pkg.name + '-Paket, bis zu ' + this._int(r.pkg.cap) + ' Fälle/Jahr'),
       packageName: r.pkg.name,
       packageBase: this._eur(r.pkg.base),
       packageCap: this._int(r.pkg.cap),
@@ -727,6 +735,54 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+
+<script data-lang-suggest>
+(function(){
+  var KEY='cs_lang_choice';
+  try{ if(localStorage.getItem(KEY)) return; }catch(e){}
+  var cur=(document.documentElement.lang||'en').slice(0,2).toLowerCase();
+  var langs=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||'en'];
+  var want=null;
+  for(var i=0;i<langs.length;i++){
+    var l=String(langs[i]||'').slice(0,2).toLowerCase();
+    if(l===cur) return;
+    if(l==='de'||l==='fr'||l==='en'){ want=l; break; }
+  }
+  if(!want||want===cur) return;
+  var alt=document.querySelector('link[rel="alternate"][hreflang="'+want+'"]');
+  if(!alt) return;
+  var T={
+    de:{msg:'Diese Seite gibt es auch auf Deutsch.',cta:'Zur deutschen Version',close:'Schlie\u00dfen'},
+    fr:{msg:'Cette page est aussi disponible en fran\u00e7ais.',cta:'Voir la version fran\u00e7aise',close:'Fermer'},
+    en:{msg:'This page is also available in English.',cta:'Go to the English version',close:'Close'}
+  }[want];
+  function save(){ try{ localStorage.setItem(KEY,'1'); }catch(e){} }
+  function build(){
+    var bar=document.createElement('div');
+    bar.setAttribute('role','region');
+    bar.setAttribute('aria-label',T.msg);
+    bar.style.cssText='position:fixed; left:16px; right:16px; bottom:16px; z-index:9000; margin:0 auto;'
+      +'max-width:640px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;'
+      +'background:#fff; border:1px solid #ece3df; border-radius:12px;'
+      +'box-shadow:0 8px 28px rgba(13,13,13,.13); padding:14px 16px;'
+      +"font:400 14px/1.45 'Roboto',sans-serif; color:#33302e;";
+    var msg=document.createElement('span'); msg.textContent=T.msg; msg.style.cssText='flex:1 1 220px;';
+    var a=document.createElement('a'); a.href=alt.href; a.textContent=T.cta;
+    a.setAttribute('hreflang',want);
+    a.style.cssText="font:500 14px 'Roboto',sans-serif; color:#0d0d0d; background:#FF5539;"
+      +'border-radius:8px; padding:9px 14px; text-decoration:none; white-space:nowrap;';
+    a.addEventListener('click',save);
+    var x=document.createElement('button'); x.type='button'; x.setAttribute('aria-label',T.close);
+    x.textContent='\u00d7';
+    x.style.cssText='background:none; border:0; cursor:pointer; font-size:22px; line-height:1;'
+      +'color:#8a827d; padding:0 2px;';
+    x.addEventListener('click',function(){ save(); bar.remove(); });
+    bar.appendChild(msg); bar.appendChild(a); bar.appendChild(x);
+    document.body.appendChild(bar);
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',build); } else { build(); }
+})();
 </script>
 </body>
 </html>

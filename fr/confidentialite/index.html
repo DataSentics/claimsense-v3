@@ -36,6 +36,10 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
 <title>Politique de confidentialité – ClaimSense</title>
 <meta name="description" content="Déclaration de politique de confidentialité de ClaimSense. Comment DataSentics, une entreprise du groupe Bull, collecte, traite et protège vos données personnelles, et vos droits en vertu du RGPD.">
 <link rel="canonical" href="https://claimsense.app/fr/confidentialite/">
+    <link rel="alternate" hreflang="en" href="https://claimsense.app/privacy/" data-i18n-alt>
+    <link rel="alternate" hreflang="de" href="https://claimsense.app/de/datenschutz/" data-i18n-alt>
+    <link rel="alternate" hreflang="fr" href="https://claimsense.app/fr/confidentialite/" data-i18n-alt>
+    <link rel="alternate" hreflang="x-default" href="https://claimsense.app/privacy/" data-i18n-alt>
 <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
 </head>
 <body>
@@ -156,6 +160,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
         <img src="/assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:26px; width:auto;">
       </span>
       <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;" data-nav-divider></span>
+      <span data-lang-switch style="display:flex; align-items:center; gap:6px; margin-left:24px;"><a href="/privacy/" hreflang="en" style="font:500 13px/1 'Roboto',sans-serif; color:#6b7280; text-decoration:none; white-space:nowrap;">EN</a><span aria-hidden="true" style="color:#d6cec9;">&middot;</span><a href="/de/datenschutz/" hreflang="de" style="font:500 13px/1 'Roboto',sans-serif; color:#6b7280; text-decoration:none; white-space:nowrap;">DE</a><span aria-hidden="true" style="color:#d6cec9;">&middot;</span><a href="/fr/confidentialite/" hreflang="fr" aria-current="true" style="font:700 13px/1 'Roboto',sans-serif; color:#0d0d0d; text-decoration:none; white-space:nowrap;">FR</a></span>
       <button onClick="{{ scrollToApply }}" style="margin-left:24px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; white-space:nowrap;" data-nav-cta="">Devenir partenaire</button>
       <button data-nav-burger="" type="button" aria-label="Ouvrir le menu" aria-expanded="false" style="display:none; align-items:center; justify-content:center; width:44px; height:44px; padding:0; background:none; border:none; cursor:pointer; color:#0d0d0d; margin-left:12px;">
         <svg data-burger-icon="" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
@@ -173,6 +178,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
     <a href="/fr/notre-histoire/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Notre histoire</a>
     <a href="/fr/tarifs/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Tarifs</a>
     <a href="/fr/business-case/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Business Case</a>
+    <div data-lang-switch style="display:flex; gap:4px; margin-top:12px; padding-top:12px; border-top:1px solid #f0e6e3;"><a href="/privacy/" hreflang="en" style="flex:1; text-align:center; padding:9px 0; border-radius:8px; font:500 14px 'Roboto',sans-serif; text-decoration:none; color:#6b7280; background:transparent;">EN</a><a href="/de/datenschutz/" hreflang="de" style="flex:1; text-align:center; padding:9px 0; border-radius:8px; font:500 14px 'Roboto',sans-serif; text-decoration:none; color:#6b7280; background:transparent;">DE</a><a href="/fr/confidentialite/" hreflang="fr" aria-current="true" style="flex:1; text-align:center; padding:9px 0; border-radius:8px; font:600 14px 'Roboto',sans-serif; text-decoration:none; color:#0d0d0d; background:#f5f0ee;">FR</a></div>
     <a href="/fr/#demo" style="display:block; text-align:center; margin-top:10px; background:#FF5539; color:#000; border:2px solid #FF5539; border-radius:9px; padding:13px; font:500 15px 'Roboto',sans-serif; text-decoration:none;">Réserver une démo</a>
   </div>
 </header>
@@ -416,6 +422,8 @@ class Component extends DCLogic {
     const divider = document.querySelector('[data-nav-divider]');
     if (badge) badge.style.display = w >= 1040 ? 'flex' : 'none';
     if (divider) divider.style.display = w >= 1040 ? 'block' : 'none';
+    const langSw = document.querySelector('[data-lang-switch]');
+    if (langSw) langSw.style.display = w >= 900 ? 'flex' : 'none';
     const burger = document.querySelector('[data-nav-burger]');
     const navCta = document.querySelector('[data-nav-cta]');
     const mobileNav = w < 900;
@@ -472,6 +480,54 @@ class Component extends DCLogic {
     };
   }
 }
+</script>
+
+<script data-lang-suggest>
+(function(){
+  var KEY='cs_lang_choice';
+  try{ if(localStorage.getItem(KEY)) return; }catch(e){}
+  var cur=(document.documentElement.lang||'en').slice(0,2).toLowerCase();
+  var langs=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||'en'];
+  var want=null;
+  for(var i=0;i<langs.length;i++){
+    var l=String(langs[i]||'').slice(0,2).toLowerCase();
+    if(l===cur) return;
+    if(l==='de'||l==='fr'||l==='en'){ want=l; break; }
+  }
+  if(!want||want===cur) return;
+  var alt=document.querySelector('link[rel="alternate"][hreflang="'+want+'"]');
+  if(!alt) return;
+  var T={
+    de:{msg:'Diese Seite gibt es auch auf Deutsch.',cta:'Zur deutschen Version',close:'Schlie\u00dfen'},
+    fr:{msg:'Cette page est aussi disponible en fran\u00e7ais.',cta:'Voir la version fran\u00e7aise',close:'Fermer'},
+    en:{msg:'This page is also available in English.',cta:'Go to the English version',close:'Close'}
+  }[want];
+  function save(){ try{ localStorage.setItem(KEY,'1'); }catch(e){} }
+  function build(){
+    var bar=document.createElement('div');
+    bar.setAttribute('role','region');
+    bar.setAttribute('aria-label',T.msg);
+    bar.style.cssText='position:fixed; left:16px; right:16px; bottom:16px; z-index:9000; margin:0 auto;'
+      +'max-width:640px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;'
+      +'background:#fff; border:1px solid #ece3df; border-radius:12px;'
+      +'box-shadow:0 8px 28px rgba(13,13,13,.13); padding:14px 16px;'
+      +"font:400 14px/1.45 'Roboto',sans-serif; color:#33302e;";
+    var msg=document.createElement('span'); msg.textContent=T.msg; msg.style.cssText='flex:1 1 220px;';
+    var a=document.createElement('a'); a.href=alt.href; a.textContent=T.cta;
+    a.setAttribute('hreflang',want);
+    a.style.cssText="font:500 14px 'Roboto',sans-serif; color:#0d0d0d; background:#FF5539;"
+      +'border-radius:8px; padding:9px 14px; text-decoration:none; white-space:nowrap;';
+    a.addEventListener('click',save);
+    var x=document.createElement('button'); x.type='button'; x.setAttribute('aria-label',T.close);
+    x.textContent='\u00d7';
+    x.style.cssText='background:none; border:0; cursor:pointer; font-size:22px; line-height:1;'
+      +'color:#8a827d; padding:0 2px;';
+    x.addEventListener('click',function(){ save(); bar.remove(); });
+    bar.appendChild(msg); bar.appendChild(a); bar.appendChild(x);
+    document.body.appendChild(bar);
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',build); } else { build(); }
+})();
 </script>
 </body>
 </html>
