@@ -13,3 +13,16 @@
 /ClaimSense%20Help.dc.html            /help/           301
 /ClaimSense%20Cookie%20Policy.dc.html /cookie-policy/  301
 /ClaimSense%20Privacy.dc.html         /privacy/        301
+
+# Německé anglické slugy -> lokalizované německé slugy, trvalé 301
+/de/features/         /de/funktionen/         301
+/de/architecture/     /de/architektur/        301
+/de/use-cases/        /de/anwendungsfaelle/   301
+/de/implementation/   /de/implementierung/    301
+/de/our-story/        /de/unsere-geschichte/  301
+/de/pricing/          /de/preise/             301
+/de/partners/         /de/partner/            301
+/de/help/             /de/hilfe/              301
+/de/privacy/          /de/datenschutz/        301
+/de/careers/          /de/karriere/           301
+/de/cookie-policy/    /de/cookie-richtlinie/  301
