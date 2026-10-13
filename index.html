@@ -104,6 +104,26 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
   [data-vid-el], [data-vid-dim], [data-vid-play] { transition:none; }
 }
 
+/* ── Product video e-mail gate (soft gate, EN homepage only) ─ */
+/* Badge is a first-visit affordance only: it goes away for good once the video has played. */
+[data-vid-frame][data-vid-started] [data-vid-badge] { display:none !important; }
+[data-vid-gate] { animation:csGateIn .14s ease-out; }
+@keyframes csGateIn { from { opacity:0; } to { opacity:1; } }
+[data-vid-gate-box] { width:80%; max-width:360px; max-height:100%; overflow:auto; }
+[data-vid-gate] input:focus-visible, [data-vid-gate] button:focus-visible, [data-vid-gate] a:focus-visible { outline:2px solid #002870; outline-offset:2px; }
+/* Below tablet the 16:9 stage is shorter than the dialog (113px tall at 375px wide), so the
+   dialog anchors to the top of the video and spills below it — openGate() un-clips the frame
+   and lifts it above the following content for as long as the dialog is open. */
+@media (max-width:767px) {
+  [data-vid-gate] { align-items:flex-start !important; }
+  [data-vid-gate-box] { max-height:none; overflow:visible; }
+}
+@media (max-width:480px) {
+  [data-vid-gate] { padding:8px !important; }
+  [data-vid-gate-box] { width:100%; padding:12px 14px !important; }
+}
+@media (prefers-reduced-motion: reduce) { [data-vid-gate] { animation:none; } }
+
 /* Decorative monogram: shrink + fade on tablet/mobile so it stays a quiet texture, contained in-section (section already has overflow:hidden) */
 @media (max-width:768px){ img[src*="Bull_symbol"]{ width:120px !important; opacity:0.07 !important; } }
 
@@ -348,6 +368,7 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
               <source src="/assets/video/claimsense-video-intro-en.mp4" type="video/mp4">
               <track kind="captions" srclang="en" label="English">
             </video>
+            <div data-vid-badge style="position:absolute; top:12px; left:12px; z-index:4; pointer-events:none; background:#FF5539; color:#ffffff; font:500 12px/1 'Roboto',sans-serif; padding:6px 10px; border-radius:9999px;">35 sec video</div>
             <div data-vid-dim style="position:absolute; inset:0; background:rgba(0,40,112,0.34);"></div>
             <div data-vid-playbtn style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center;">
               <button data-vid-play type="button" aria-label="Play product video" style="width:76px; height:76px; border-radius:50%; border:2px solid #002870; background:#ffffff; color:#002870; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 10px 30px -8px rgba(0,0,0,0.5);" style-hover="background:#eef1f8;">
@@ -375,6 +396,15 @@ footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
               </div>
             </div>
           </div>
+        </div>
+        <!-- Gate copy under the video: shown only while locked, swapped for the CTA box right after a submit. -->
+        <p data-vid-gate-note style="display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; text-align:center; font:400 13px/1.5 'Roboto',sans-serif; color:#ffffff; margin:0; max-width:640px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:0 0 auto;"><rect x="4" y="10.5" width="16" height="10" rx="2"></rect><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"></path></svg>
+          <span>See a claim go from inbox to proposed decision in 35 seconds. Work email required to play.</span>
+        </p>
+        <div data-vid-gate-cta style="display:none; flex-direction:column; align-items:center; gap:12px; background:#0f244d; border:1px solid #20356b; border-radius:10px; padding:16px 20px; text-align:center;">
+          <div style="font:500 15px/1.4 'Roboto',sans-serif; color:#ffffff;">Want to see it on your own claims?</div>
+          <button data-vid-gate-demo type="button" data-cta="primary" style="background:#FF5539; color:#000; border:none; border-radius:9px; padding:12px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer;">Book a walkthrough</button>
         </div>
         <div style="background:#0f244d; border:1px solid #20356b; border-radius:14px; padding:16px 24px; text-align:center;">
           <div style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:34px; line-height:1; color:#7788F9;">96%</div>
@@ -1090,6 +1120,67 @@ class Component extends DCLogic {
       syncToggle();
     };
 
+    // ---- E-mail gate: stored flag -------------------------------------------
+    // Only an unlock flag + timestamp is stored, NEVER the e-mail — that goes to Web3Forms
+    // and nowhere else. localStorage can throw outright (private windows, blocked storage),
+    // so every access is guarded; a blocked store just means the gate shows again.
+    const GATE_KEY = 'cs_video_gate_v1';
+    const readGate = () => {
+      try { if (localStorage.getItem(GATE_KEY)) return true; } catch (e) {}
+      try { if (document.cookie.indexOf(GATE_KEY + '=1') !== -1) return true; } catch (e) {}
+      return false;
+    };
+    const saveGate = () => {
+      try { localStorage.setItem(GATE_KEY, JSON.stringify({ t: Date.now() })); } catch (e) {}
+      try { document.cookie = GATE_KEY + '=1; max-age=31536000; path=/; SameSite=Lax'; } catch (e) {}
+    };
+    const track = (name) => { try { if (typeof gtag === 'function') gtag('event', name); } catch (e) {} };
+    let gateUnlocked = readGate();
+
+    // Consumer mailbox providers common in our European markets, plus the global ones and the
+    // throwaway services. A hit here is NOT an error — the visitor is asked for a work address
+    // instead. Deliberately exact-domain only: no pattern guessing, so a company that happens
+    // to sit on, say, mail.<country>.com is never caught by accident.
+    const FREE_MAIL = ('gmail.com googlemail.com yahoo.com yahoo.co.uk yahoo.de yahoo.fr yahoo.es yahoo.it ' +
+      'yahoo.ie yahoo.gr yahoo.se yahoo.dk yahoo.no yahoo.pl yahoo.com.br ymail.com rocketmail.com ' +
+      'hotmail.com hotmail.co.uk hotmail.de hotmail.fr hotmail.es hotmail.it hotmail.se hotmail.be hotmail.nl ' +
+      'outlook.com outlook.de outlook.fr outlook.es outlook.it outlook.cz outlook.pt live.com live.co.uk ' +
+      'live.de live.fr live.it live.nl live.se live.dk msn.com passport.com ' +
+      'icloud.com me.com mac.com aol.com aim.com ' +
+      'proton.me protonmail.com protonmail.ch pm.me tuta.com tutanota.com tutanota.de hushmail.com ' +
+      'zoho.com fastmail.com fastmail.fm hey.com mail.com email.com usa.com ' +
+      'gmx.de gmx.net gmx.at gmx.ch gmx.com gmx.co.uk web.de t-online.de freenet.de arcor.de ' +
+      'posteo.de mailbox.org 1und1.de ' +
+      'orange.fr wanadoo.fr free.fr laposte.net sfr.fr neuf.fr bbox.fr numericable.fr aliceadsl.fr ' +
+      'libero.it virgilio.it alice.it tiscali.it tin.it inwind.it fastwebnet.it email.it ' +
+      'terra.es telefonica.net ono.com ya.com ' +
+      'sapo.pt iol.pt clix.pt netcabo.pt ' +
+      'seznam.cz email.cz centrum.cz centrum.sk volny.cz post.cz atlas.cz tiscali.cz quick.cz ' +
+      'azet.sk zoznam.sk pobox.sk ' +
+      'wp.pl onet.pl onet.eu op.pl o2.pl interia.pl interia.eu gazeta.pl poczta.fm poczta.onet.pl ' +
+      'freemail.hu citromail.hu indamail.hu vipmail.hu ' +
+      'abv.bg mail.bg dir.bg ' +
+      'yahoo.ro mail.ru inbox.ru list.ru bk.ru yandex.com yandex.ru ya.ru rambler.ru ukr.net ' +
+      'telenet.be skynet.be proximus.be scarlet.be voo.be ' +
+      'ziggo.nl kpnmail.nl home.nl hetnet.nl xs4all.nl planet.nl chello.nl casema.nl ' +
+      'bluewin.ch sunrise.ch hispeed.ch gmx.li ' +
+      'aon.at chello.at a1.net ' +
+      'telia.com telia.se spray.se bredband.net comhem.se ' +
+      'online.no broadpark.no getmail.no start.no ' +
+      'mail.dk sol.dk stofanet.dk post.tele.dk ' +
+      'luukku.com suomi24.fi elisanet.fi saunalahti.fi kolumbus.fi ' +
+      'mail.ee hot.ee inbox.lv one.lv mail.lt ' +
+      'eircom.net btinternet.com virginmedia.com sky.com talktalk.net ntlworld.com blueyonder.co.uk ' +
+      'mailinator.com guerrillamail.com 10minutemail.com yopmail.com temp-mail.org trashmail.com ' +
+      'sharklasers.com getnada.com dispostable.com maildrop.cc').split(' ');
+    const FREE_MAIL_SET = {};
+    FREE_MAIL.forEach((d) => { FREE_MAIL_SET[d] = 1; });
+    const isFreeMail = (addr) => {
+      const at = String(addr).lastIndexOf('@');
+      if (at < 0) return false;
+      return FREE_MAIL_SET[String(addr).slice(at + 1).trim().toLowerCase()] === 1;
+    };
+
     // Explicit-click playback only — never autoplay. data-vid-started (set once, never
     // removed) drives the permanent LAYOUT change (hide chrome bar, lock frame to 16:9,
     // reveal video). render() then owns the transient show/hide of the play button and
@@ -1108,6 +1199,9 @@ class Component extends DCLogic {
       else if (!wantPlay && !video.paused) { video.pause(); }
     };
     const playVideo = () => {
+      // SOFT GATE: every play path (center button, control bar toggle, stage click, keyboard)
+      // ends up here, so one guard covers them all. The <source> stays in the HTML by design.
+      if (!gateUnlocked) { openGate(); return; }
       frame.setAttribute('data-vid-started', '');
       if (video.ended || (video.duration && video.currentTime >= video.duration - 0.05)) video.currentTime = 0;
       wantPlay = true;
@@ -1129,6 +1223,139 @@ class Component extends DCLogic {
       render();
     };
     const toggleVideo = () => { if (wantPlay) pauseVideo(); else playVideo(); };
+
+    // ---- E-mail gate: badge, under-video line, dialog --------------------------
+    const gateBadge = stage.querySelector('[data-vid-badge]');
+    const gateNote = document.querySelector('[data-vid-gate-note]');
+    const gateCta = document.querySelector('[data-vid-gate-cta]');
+    const gateDemo = gateCta ? gateCta.querySelector('[data-vid-gate-demo]') : null;
+    if (gateDemo) gateDemo.addEventListener('click', () => this.scrollTo('demo'));
+    // Returning visitor: no badge, no line, player behaves exactly as it did before the gate.
+    if (gateUnlocked) {
+      if (gateBadge) gateBadge.style.display = 'none';
+      if (gateNote) gateNote.style.display = 'none';
+    }
+
+    let gateEl = null;
+    const GATE_HTML = '' +
+      '<div data-vid-gate-box role="dialog" aria-modal="true" aria-labelledby="cs-vgate-title" style="position:relative; background:#ffffff; border-radius:12px; padding:18px 20px; box-shadow:0 20px 50px -18px rgba(0,0,0,0.65); text-align:left;">' +
+        '<button data-vid-gate-close type="button" aria-label="Close" style="position:absolute; top:5px; right:5px; width:28px; height:28px; display:flex; align-items:center; justify-content:center; background:none; border:none; border-radius:6px; color:#54504d; cursor:pointer; font:400 20px/1 Roboto,sans-serif;">\u00d7</button>' +
+        '<h3 id="cs-vgate-title" style="font-family:\'Tosh A\',sans-serif; font-weight:500; font-size:17px; line-height:1.25; margin:0 28px 6px 0; color:#0d0d0d;">See a claim go from inbox to proposed decision in 35 seconds</h3>' +
+        '<p style="font:400 13px/1.45 Roboto,sans-serif; color:#54504d; margin:0 0 12px;">Enter your work email to play the video.</p>' +
+        '<form data-vid-gate-form novalidate>' +
+          '<input type="hidden" name="access_key" value="a7e25bdc-625b-4a25-a202-953aad3e6cc1">' +
+          '<input type="hidden" name="subject" value="New Homepage Video Lead">' +
+          '<input type="hidden" name="from_name" value="ClaimSense website">' +
+          '<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;">' +
+          '<label style="display:block;"><span style="font:500 12px Roboto,sans-serif; color:#54504d;">Work email</span>' +
+            '<input data-vid-gate-email type="email" name="email" data-required autocomplete="email" placeholder="Work email" style="margin-top:5px; width:100%; box-sizing:border-box; padding:10px 12px; border:1px solid #e0d6d1; border-radius:8px; font:400 15px Roboto,sans-serif;">' +
+          '</label>' +
+          '<p data-vid-gate-error role="alert" style="display:none; font:500 12px/1.4 Roboto,sans-serif; margin:8px 0 0;"></p>' +
+          '<button type="submit" data-cta="primary" style="margin-top:12px; width:100%; background:#FF5539; color:#000; border:none; border-radius:9px; padding:12px; font:500 15px Roboto,sans-serif; cursor:pointer;">Play the video</button>' +
+          '<p style="font:400 11px/1.45 Roboto,sans-serif; color:#9a908b; margin:10px 0 0;">By continuing, you agree that ClaimSense may contact you about its solution. See our <a href="/privacy/" style="color:#002870;">Privacy Policy</a>.</p>' +
+        '</form>' +
+      '</div>';
+
+    const unlockGate = () => {
+      gateUnlocked = true;
+      saveGate();
+      if (gateBadge) gateBadge.style.display = 'none';
+      if (gateNote) gateNote.style.display = 'none';
+    };
+
+    const closeGate = (focusBack) => {
+      if (!gateEl) return;
+      gateEl.style.display = 'none';
+      frame.style.overflow = 'hidden';
+      frame.style.position = '';
+      frame.style.zIndex = '';
+      playbtnLayer.style.opacity = '';
+      if (focusBack) { try { playBtn.focus(); } catch (e) {} }
+    };
+
+    const gateSubmit = (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      const form = e.target;
+      if (form.__busy) return;
+      const btn = form.querySelector('button[type="submit"]');
+      const errEl = form.querySelector('[data-vid-gate-error]');
+      const emailEl = form.querySelector('[data-vid-gate-email]');
+      const val = String((emailEl && emailEl.value) || '').trim();
+      const fail = (msg, color) => { if (errEl) { errEl.textContent = msg; errEl.style.color = color; errEl.style.display = 'block'; } };
+      // The DC runtime strips `required`, so validation runs off data-required, as submitForm does.
+      const req = Array.prototype.slice.call(form.querySelectorAll('[data-required]'));
+      const watch = () => { if (!form.__reqWatch) { form.__reqWatch = true; form.addEventListener('input', () => { if (errEl) errEl.style.display = 'none'; }); } };
+      if (req.some((el) => !String(el.value || '').trim()) || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+        fail('Please fill in all required fields.', 'rgb(255, 85, 57)');
+        watch();
+        return;
+      }
+      if (isFreeMail(val)) {
+        fail('That looks like a personal address. Please use your work email.', 'rgb(255, 85, 57)');
+        watch();
+        track('video_gate_freemail');
+        return;
+      }
+      form.__busy = true;
+      const label = btn ? btn.textContent : '';
+      const release = () => { form.__busy = false; if (btn) { btn.disabled = false; btn.style.opacity = ''; btn.style.cursor = 'pointer'; btn.textContent = label; } };
+      if (btn) { btn.disabled = true; btn.style.opacity = '0.7'; btn.style.cursor = 'wait'; btn.textContent = 'Sending\u2026'; }
+      if (errEl) errEl.style.display = 'none';
+      const restore = () => { release(); fail('Something went wrong. Please try again or email us directly.', '#c02617'); };
+      fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form) })
+        .then((r) => r.json())
+        .then((json) => {
+          if (!(json && json.success)) { restore(); return; }
+          release();
+          track('video_gate_submit');
+          unlockGate();
+          closeGate(false);
+          if (gateCta) gateCta.style.display = 'flex';
+          // Safari can refuse play() this long after the original click; render() then keeps
+          // the center play button up and the next click starts it — the gate is already done.
+          playVideo();
+          try { toggle.focus(); } catch (e) {}
+        })
+        .catch(restore);
+    };
+
+    const buildGate = () => {
+      const wrap = document.createElement('div');
+      wrap.setAttribute('data-vid-gate', '');
+      // The stage sets line-height:0, so the dialog re-establishes its own text metrics.
+      wrap.style.cssText = 'position:absolute; inset:0; z-index:9; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(0,40,112,0.6); line-height:1.4; font-size:14px;';
+      wrap.innerHTML = GATE_HTML;
+      // Keep clicks inside the dialog away from the stage's play/pause handler.
+      wrap.addEventListener('click', (e) => e.stopPropagation());
+      wrap.querySelector('[data-vid-gate-close]').addEventListener('click', () => closeGate(true));
+      wrap.querySelector('[data-vid-gate-form]').addEventListener('submit', gateSubmit);
+      wrap.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { e.stopPropagation(); closeGate(true); return; }
+        if (e.key !== 'Tab') return;
+        const f = Array.prototype.slice.call(wrap.querySelectorAll('button, input[type=email], a[href]'));
+        if (!f.length) return;
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      });
+      return wrap;
+    };
+
+    const openGate = () => {
+      if (gateUnlocked) return;
+      // Rebuilt on demand, so a runtime re-render that drops the node can't leave a dead gate.
+      if (!gateEl || !stage.contains(gateEl)) { gateEl = buildGate(); stage.appendChild(gateEl); }
+      gateEl.style.display = 'flex';
+      // The frame clips to 16:9; on phones the dialog is taller than that, so let it spill
+      // out and paint above the line/tile underneath while it is open.
+      frame.style.overflow = 'visible';
+      frame.style.position = 'relative';
+      frame.style.zIndex = '20';
+      playbtnLayer.style.opacity = '0.3';
+      track('video_gate_open');
+      const emailEl = gateEl.querySelector('[data-vid-gate-email]');
+      setTimeout(() => { try { if (emailEl) emailEl.focus(); } catch (e) {} }, 0);
+    };
 
     playBtn.addEventListener('click', playVideo);
     toggle.addEventListener('click', toggleVideo);
