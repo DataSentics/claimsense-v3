@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Cookiebot consent banner: must precede every cookie-setting script (blockingmode=auto) -->
+<script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="5905147e-6b78-4c49-a577-3cbd41b2032f" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BNSTXFDTJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BNSTXFDTJG');
+</script>
+<script type="text/javascript">
+_linkedin_partner_id = "3170713";
+window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+</script><script type="text/javascript">
+(function(l) {
+if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+window.lintrk.q=[]}
+var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})(window.lintrk);
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=3170713&fmt=gif" />
+</noscript>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+<title>Scaling Claims Without Scaling Headcount – Pillow customer story | ClaimSense</title>
+<meta name="description" content="How Pillow&#x27;s COO put an always-on AI agent inside every claim and gave claim handlers 20-25% of their time per case back, without replacing the core claims system.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://claimsense.app/customer-stories/pillow/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Scaling Claims Without Scaling Headcount","description":"How Pillow's COO put an always-on AI agent inside every claim and gave claim handlers 20-25% of their time per case back, without replacing the core claims system.","datePublished":"2026-11-18","author":{"@type":"Person","name":"Marcel Beno","jobTitle":"Chief Operating Officer","worksFor":{"@type":"Organization","name":"Pillow"}},"publisher":{"@type":"Organization","name":"ClaimSense","url":"https://claimsense.app/"},"mainEntityOfPage":"https://claimsense.app/customer-stories/pillow/"}
+</script>
+<link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+@font-face { font-family:'Tosh A'; src:url('/assets/fonts/ToshA-Light.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('/assets/fonts/ToshA-Medium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+@font-face { font-family:'Tosh A'; src:url('/assets/fonts/ToshA-Black.woff2') format('woff2'); font-weight:900; font-display:swap; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:'Roboto',sans-serif; font-weight:400; color:#1a1a1a; line-height:1.6; -webkit-font-smoothing:antialiased; background:#ffffff; }
+::selection { background:#FFADA0; }
+a { text-decoration:none; color:inherit; }
+input, textarea, select, button { font-family:inherit; }
+
+
+
+/* ── CTA & Nav hover system v3 (Bull brand, all 7 fixes) ───────────────── */
+header a:not([data-nav-cta]), header button { outline:none !important; box-shadow:none !important; border:none !important; }
+header a:not([data-nav-cta]) { border:none !important; }
+footer a { border:none !important; outline:none !important; }
+header a:not([data-nav-cta]):hover { color:#FF5539 !important; transition:color .2s ease; }
+header a[style*="padding:10px"]:hover { background:#f5f0ee !important; color:#FF5539 !important; }
+[data-nav-cta] { transition:background .2s ease, color .2s ease; cursor:pointer; }
+[data-nav-cta]:hover { background:#ffffff !important; color:#000000 !important; border:3px solid #FF5539 !important; }
+[data-cta="primary"] { border:3px solid #FF5539 !important; transition:background .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="primary"]:hover { background:#ffffff !important; color:#000000 !important; box-shadow:none !important; }
+[data-cta="secondary"] { border:3px solid #002870 !important; transition:border-color .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="secondary"]:hover { border-color:#FF5539 !important; color:#000000 !important; box-shadow:none !important; }
+[data-cta="pricing"] { border:3px solid #002870 !important; transition:border-color .2s ease, background .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="pricing"]:hover { border-color:#FF5539 !important; box-shadow:none !important; }
+[data-cta="quickstart"] { background:#ffffff; color:#FF5539; border:3px solid #FF5539 !important; transition:background .2s ease, color .2s ease; cursor:pointer; box-shadow:none !important; }
+[data-cta="quickstart"]:hover { background:#FF5539 !important; color:#000000 !important; box-shadow:none !important; }
+[data-pill]:hover [data-pill-badge] { background-color:#FF5539 !important; color:#ffffff !important; }
+[data-footer-active] { color:#FF5539 !important; }
+footer a:hover { color:#FF5539 !important; transition:color .2s ease; }
+
+/* Decorative monogram: shrink + fade on tablet/mobile so it stays a quiet texture, contained in-section (section already has overflow:hidden) */
+@media (max-width:768px){ img[src*="Bull_symbol"]{ width:120px !important; opacity:0.07 !important; } }
+
+/* Mobile: fit-to-screen — no page-level horizontal scroll, so the sticky header (hamburger) is always fully visible. overflow-x:clip is sticky-safe (unlike hidden). */
+@media (max-width:900px){
+  html, body { overflow-x:clip !important; max-width:100% !important; }
+  /* Tighter header padding on mobile so logo + “built by Bull” + hamburger all fit. */
+  header > nav { padding-left:14px !important; padding-right:14px !important; }
+  header > nav > div:first-child { gap:8px !important; }
+  /* Card grids: auto-fit minmax() forces a fixed min column (280–340px) that overflows the
+     narrow mobile content area and gets clipped. Collapse to one shrinkable column so headings
+     and cards always fit the viewport. */
+  [style*="repeat(auto-fit,minmax"],
+  [style*="repeat(auto-fit, minmax"],
+  [style*="repeat(auto-fill,minmax"],
+  [style*="repeat(auto-fill, minmax"] { grid-template-columns:1fr !important; }
+}
+[data-flow-replay] { display:inline-flex; visibility:hidden; opacity:0; transition:opacity .3s ease, background .2s ease, border-color .2s ease; }
+[data-flow][data-anim="done"] [data-flow-replay] { visibility:visible; opacity:1; }
+[data-flow-replay]:hover { background:#FFE4DF; border-color:#FF5539 !important; }
+[data-flow-replay]:focus-visible { outline:2px solid #002870; outline-offset:2px; }
+@keyframes flowIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+[data-flow][data-anim="ready"] [data-step] { opacity:0; }
+[data-flow][data-anim="play"] [data-step] { animation:flowIn .55s cubic-bezier(.16,1,.3,1) both; }
+[data-flow][data-anim="play"] [data-step="2"] { animation-delay:.8s; }
+[data-flow][data-anim="play"] [data-step="3"] { animation-delay:1.6s; }
+[data-flow][data-anim="play"] [data-step="4"] { animation-delay:2.4s; }
+[data-flow][data-anim="play"] [data-step="5"] { animation-delay:3.2s; }
+[data-flow][data-anim="play"] [data-step="6"] { animation-delay:4s; }
+/* ── Version B: snackable blocks ─────────────────────────────── */
+[data-tldr-grid]{grid-template-columns:repeat(3,1fr);}
+[data-tldr-col] + [data-tldr-col]{border-left:1px solid #f0e6e3; padding-left:22px;}
+[data-tldr-col]{padding-right:22px;}
+[data-tldr-col]:last-child{padding-right:0;}
+[data-fork-grid]{grid-template-columns:repeat(3,1fr);}
+[data-rules]{grid-template-columns:1fr 1fr;}
+[data-rule-wide]{grid-column:1 / -1; display:grid; grid-template-columns:1.1fr 1fr; gap:22px; align-items:center;}
+[data-checks-tab]{appearance:none; -webkit-appearance:none; border:1px solid #e0d2cc; background:#fff; color:#33302e; border-radius:999px; padding:9px 16px; font:500 14px/1 'Roboto',sans-serif; cursor:pointer; transition:background .2s ease, color .2s ease, border-color .2s ease;}
+[data-checks-tab]:hover{border-color:#002870;}
+[data-checks-tab][aria-selected="true"]{background:#002870; border-color:#002870; color:#fff;}
+[data-checks-tab]:focus-visible, [data-checks-panel]:focus-visible{outline:2px solid #FF5539; outline-offset:2px;}
+[data-checks-panel] + [data-checks-panel]{margin-top:26px; padding-top:22px; border-top:1px dashed #e6d6d0;}
+[data-checks="on"] [data-checks-tabs]{display:flex !important;}
+[data-checks="on"] [data-checks-panel]{display:none; margin-top:0 !important; padding-top:0 !important; border-top:none !important;}
+[data-checks="on"] [data-checks-panel][data-active]{display:block; animation:csPanelIn .32s ease both;}
+[data-checks="on"] [data-checks-panel][data-active] [data-flag]{animation:csFlag 1.1s ease .3s 2;}
+@keyframes csPanelIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+@keyframes csFlag{0%,100%{box-shadow:0 0 0 0 rgba(255,182,0,0);} 50%{box-shadow:0 0 0 6px rgba(255,182,0,0.32);}}
+[data-pb-bar-go]:focus-visible, [data-pb-bar-close]:focus-visible{outline:2px solid #FF7761; outline-offset:2px;}
+@media (prefers-reduced-motion: reduce){ [data-checks] *, [data-pb-bar]{animation:none !important; transition:none !important;} }
+@media (max-width:700px){
+  [data-tldr-grid], [data-fork-grid], [data-rules], [data-rule-wide]{grid-template-columns:1fr !important;}
+  [data-fork-lines]{display:none !important;}
+  [data-fork] > div:first-child{margin-bottom:14px;}
+  [data-fork-q]{font-size:16px !important; padding:10px 18px !important; border-radius:18px !important;}
+  [data-flow-scroll]{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 -12px; padding:0 12px 6px;}
+  [data-flow-scroll] svg{min-width:640px;}
+  [data-flow-hint]{display:block !important;}
+  [data-checks-panel="c2"] div[style*="space-between"]{flex-wrap:wrap; row-gap:4px;}
+  [data-checks-panel="c2"] div[style*="space-between"] > span:first-child{flex:1 1 100% !important;}
+  [data-checks-tab]{min-height:44px; padding:0 16px;}
+  [data-flow-replay]{min-height:40px;}
+  [data-pb-strip] a{min-height:44px;}
+  [data-pb-card] img[src*="playbook-preview"]{display:none !important;}
+  [data-tldr-col]{padding-right:0 !important;}
+  [data-tldr-col] + [data-tldr-col]{border-left:none !important; padding-left:0 !important; border-top:1px solid #f0e6e3; padding-top:16px; margin-top:16px;}
+  [data-checks] table th, [data-checks] table td{padding:9px 7px !important; white-space:normal !important; font-size:14px !important;}
+  [data-checks] table th{font-size:11px !important; letter-spacing:0.04em !important;}
+  [data-checks] [data-flag] strong{white-space:nowrap;}
+}
+[data-pb-lessons]{grid-template-columns:1fr 1fr;}
+[data-pb-grid]{grid-template-columns:1.25fr 0.9fr;}
+[data-pb-card] input:focus-visible, [data-pb-card] button:focus-visible, [data-pb-card] a:focus-visible { outline:2px solid #FF7761; outline-offset:2px; }
+@media (max-width:760px){
+  [data-pb-lessons]{grid-template-columns:1fr !important;}
+  [data-pb-grid]{grid-template-columns:1fr !important;}
+  [data-pb-card]{padding:26px 20px 22px !important;}
+}
+[data-pl-grid]{grid-template-columns:repeat(3,1fr);}
+@media (max-width:700px){
+  [data-pl-grid]{grid-template-columns:1fr !important;}
+  [data-ba-head]{display:none !important;}
+  [data-ba-row]{grid-template-columns:1fr !important;}
+  [data-ba-after]{border-left:none !important; border-top:1px dashed #e6e8ee;}
+  [data-ba-label]{display:block !important;}
+}
+[data-story-stats]{grid-template-columns:repeat(3,1fr);}
+@media (max-width:760px){ [data-story-stats]{grid-template-columns:1fr !important;} }
+</style>
+</helmet>
+
+<!-- ================================================================ -->
+<!-- VERSION B (shorter text) of the ClaimSense customer story: Pillow — /customer-stories/pillow/                           -->
+<!-- Content preserved verbatim from content/pages/content_our-story.md -->
+<!-- status: content-ready | approval_required: bio, LinkedIn URL, DataSentics metrics -->
+<!-- primary_conversion: Book a Demo                                   -->
+<!-- ================================================================ -->
+
+<!-- ===================== HEADER (shared chrome) ===================== -->
+<header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.92); backdrop-filter:blur(14px); border-bottom:1px solid #f0e6e3;">
+  <nav style="max-width:1280px; margin:0 auto; padding:14px 32px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+    <div style="display:flex; align-items:center; gap:12px; flex:0 0 auto;">
+      <a href="/" style="display:flex; align-items:center;">
+        <img src="/assets/logos/ClaimSense_logo_black.svg" alt="ClaimSense" style="height:32px; width:auto; transform:translateY(1.1px);">
+      </a>
+      <span data-mobile-badge="" style="display:none; align-items:center; gap:6px; padding-left:8px; border-left:1px solid #e5e7eb;">
+        <span style="font:400 10px/1.2 'Tosh A',sans-serif; color:#8a827d; white-space:nowrap;">built by</span>
+        <img src="/assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:22px; width:auto; transform:translateY(-0.5px);">
+      </span>
+    </div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:34px; flex:1 1 auto;" data-nav="">
+      <a href="/" style="font:500 14px 'Tosh A',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Home</a>
+      <div style="position:relative;" onMouseEnter="{{ openProduct }}" onMouseLeave="{{ closeProduct }}">
+        <button onClick="{{ toggleProduct }}" aria-haspopup="true" aria-expanded="{{ productOpen }}" style="display:inline-flex; align-items:center; gap:6px; background:none; cursor:pointer; font:500 14px 'Tosh A',sans-serif; color:#33302e; padding:0;" style-hover="color:#FF5539;">
+          Product
+          <svg width="11" height="7" viewBox="0 0 11 7" aria-hidden="true" style="transition:transform .2s; transform:{{ chevronRotate }};"><path d="M1 1L5.5 5.5L10 1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </button>
+        <sc-if value="{{ productOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:100%; left:50%; transform:translateX(-50%); padding-top:14px; z-index:60;">
+            <div style="background:#fff; border:1px solid #ece3df; border-radius:12px; padding:8px; min-width:220px;">
+              <a href="/features/" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Tosh A',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Features</a>
+              <a href="/architecture/" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Tosh A',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Architecture</a>
+              <a href="/use-cases/" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Tosh A',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Use cases</a>
+              <a href="/implementation/" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Tosh A',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Implementation</a>
+              <a href="/customer-stories/" style="display:block; padding:10px 14px; border-radius:8px; font:500 15px 'Tosh A',sans-serif; color:#33302e;" style-hover="background:#f5f0ee; color:#FF5539;">Customer stories</a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+      <a href="/our-story/" style="font:500 14px 'Tosh A',sans-serif; color:#33302e;">Our story</a>
+      <a href="/pricing/" style="font:500 14px 'Tosh A',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Pricing</a>
+      <a href="/business-case/" style="font:500 14px 'Tosh A',sans-serif; color:#33302e;" style-hover="color:#FF5539;">Business case</a>
+    </div>
+    <div style="display:flex; align-items:center; flex:0 0 auto;" data-nav-right="">
+      <span style="display:flex; align-items:center; gap:8px;" data-trust-badge="">
+        <span style="font:400 14px/1.2 'Tosh A',sans-serif; color:#6b7280; white-space:nowrap;">built by</span>
+        <img src="/assets/bull/BULL_LOGO_COLOR_RGB.svg" alt="Bull" style="height:26px; width:auto;">
+      </span>
+      <span style="width:1px; align-self:stretch; min-height:26px; background:#e5e7eb; margin-left:24px;" data-nav-divider=""></span>
+      <span data-lang-switch style="display:flex; align-items:center; gap:6px; margin-left:24px;"><a href="/customer-stories/pillow/" hreflang="en" aria-current="true" style="font:700 13px/1 'Roboto',sans-serif; color:#0d0d0d; text-decoration:none; white-space:nowrap;">EN</a><span aria-hidden="true" style="color:#d6cec9;">&middot;</span><a href="/de/" hreflang="de" style="font:500 13px/1 'Roboto',sans-serif; color:#6b7280; text-decoration:none; white-space:nowrap;">DE</a></span>
+      <button onClick="{{ scrollToDemo }}" style="margin-left:24px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:8px; padding:11px 22px; font:500 15px 'Roboto',sans-serif; cursor:pointer; white-space:nowrap;" data-nav-cta="">Book a walkthrough</button>
+      <button data-nav-burger="" type="button" aria-label="Open menu" aria-expanded="false" style="display:none; align-items:center; justify-content:center; width:44px; height:44px; padding:0; background:none; border:none; cursor:pointer; color:#0d0d0d; margin-left:12px;">
+        <svg data-burger-icon="" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
+      </button>
+    </div>
+  </nav>
+  <div data-mobile-menu="" style="display:none; position:absolute; top:100%; right:16px; margin-top:8px; width:min(300px,calc(100vw - 32px)); background:#fff; border:1px solid #ece3df; border-radius:14px; box-shadow:0 24px 60px -18px rgba(0,40,112,0.3); padding:10px; z-index:70;">
+    <a href="/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Home</a>
+    <div style="font:600 11px 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#a89f9a; padding:10px 12px 4px;">Product</div>
+    <a href="/features/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Features</a>
+    <a href="/architecture/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Architecture</a>
+    <a href="/use-cases/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Use cases</a>
+    <a href="/implementation/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Implementation</a>
+    <a href="/customer-stories/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Customer stories</a>
+    <div style="height:1px; background:#f0e6e3; margin:8px 6px;"></div>
+    <a href="/our-story/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Our story</a>
+    <a href="/pricing/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Pricing</a>
+    <a href="/business-case/" style="display:block; padding:11px 12px; border-radius:9px; font:500 15px 'Tosh A',sans-serif; color:#33302e; text-decoration:none;" style-hover="background:#f5f0ee; color:#FF5539;">Business case</a>
+    <div data-lang-switch style="display:flex; gap:4px; margin-top:12px; padding-top:12px; border-top:1px solid #f0e6e3;"><a href="/customer-stories/pillow/" hreflang="en" aria-current="true" style="flex:1; text-align:center; padding:9px 0; border-radius:8px; font:600 14px 'Roboto',sans-serif; text-decoration:none; color:#0d0d0d; background:#f5f0ee;">EN</a><a href="/de/" hreflang="de" style="flex:1; text-align:center; padding:9px 0; border-radius:8px; font:500 14px 'Roboto',sans-serif; text-decoration:none; color:#6b7280; background:transparent;">DE</a></div>
+    <a href="/#demo" style="display:block; text-align:center; margin-top:10px; background:#FF5539; color:#000; border:2px solid #FF5539; border-radius:9px; padding:13px; font:500 15px 'Roboto',sans-serif; text-decoration:none;">Book a walkthrough</a>
+  </div>
+</header>
+
+<!-- ===================== STORY HERO ===================== -->
+<section style="padding:84px 32px 56px; background:linear-gradient(180deg,#FFF7F5 0%,#ffffff 100%); position:relative; overflow:hidden;">
+  <div style="max-width:820px; margin:0 auto;" data-reveal="">
+    <a href="/customer-stories/" style="display:inline-block; font:500 14px 'Roboto',sans-serif; color:#6b625d; margin-bottom:22px;">‹ All customer stories</a>
+    <div style="font:500 13px/1 'Roboto',sans-serif; letter-spacing:0.16em; text-transform:uppercase; color:#FF5539; margin-bottom:18px;">Customer story · Insurance · Claims operations</div>
+    <h1 style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:clamp(34px,4.6vw,56px); line-height:1.04; letter-spacing:-0.02em; margin:0 0 26px; color:#0d0d0d;">Scaling Claims Without Scaling Headcount</h1>
+    <p style="font-size:20px; line-height:1.55; color:#33302e; margin:0 0 26px;">How I put an AI agent inside every claim at Pillow and gave my handlers a quarter of their time back.</p>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <img src="/assets/testimonials/marcel-beno.png" alt="Marcel Beno" width="56" height="56" style="width:56px; height:56px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid #ecdcd6; flex:0 0 auto;">
+      <div style="font:400 15px/1.4 'Roboto',sans-serif; color:#6b625d;"><span style="display:block; color:#0d0d0d; font-weight:500; font-size:16px;">Marcel Beno</span>Chief Operating Officer, Pillow</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 32px 8px; background:#ffffff;">
+  <div style="max-width:1000px; margin:0 auto; display:grid; gap:18px;" data-story-stats="" data-reveal=""><div style="background:#fff; border:1px solid #ecdcd6; border-radius:16px; padding:26px 24px;"><div style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:44px; line-height:1; color:#FF5539;">20–25%</div><div style="font:500 16px/1.3 'Roboto',sans-serif; color:#0d0d0d; margin:12px 0 8px;">less handler time per case</div><p style="font-size:14px; line-height:1.5; color:#5a514d; margin:0;">The saved time comes from the checking work that moved to the agent.</p></div><div style="background:#fff; border:1px solid #ecdcd6; border-radius:16px; padding:26px 24px;"><div style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:44px; line-height:1; color:#002870;">24/7</div><div style="font:500 16px/1.3 'Roboto',sans-serif; color:#0d0d0d; margin:12px 0 8px;">document checks, inside every claim</div><p style="font-size:14px; line-height:1.5; color:#5a514d; margin:0;">Every arriving document triggers a re-check of the whole file.</p></div><div style="background:#fff; border:1px solid #ecdcd6; border-radius:16px; padding:26px 24px;"><div style="font-family:'Tosh A',sans-serif; font-weight:900; font-size:44px; line-height:1; color:#00B290;">1</div><div style="font:500 16px/1.3 'Roboto',sans-serif; color:#0d0d0d; margin:12px 0 8px;">integration</div><p style="font-size:14px; line-height:1.5; color:#5a514d; margin:0;">A separate configuration for each product line.</p></div></div>
+</section>
+
+<!-- ===================== STORY BODY ===================== -->
+<article style="padding:24px 32px 96px; background:#ffffff;">
+  <div style="max-width:720px; margin:0 auto;">
+<h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,36px); line-height:1.12; letter-spacing:-0.01em; color:#0d0d0d; margin:64px 0 22px;">Why I am writing this</h2>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">I am <a href="https://linkedin.com/in/marcel-beno-831506153?originalSubdomain=cz" target="_blank" rel="noopener noreferrer" style="color:#002870; text-decoration:underline; text-underline-offset:3px;">Marcel Beno</a>, COO of <a href="https://www.pillow.cz/" target="_blank" rel="noopener noreferrer" style="color:#002870; text-decoration:underline; text-underline-offset:3px;">Pillow</a>, a fast-growing challenger insurer. A year ago I was facing the classic operations problem: my claims volume was growing faster than I could sensibly hire. Today my claim handlers spend 20–25% less time per case, because I put an always-on AI agent inside every claim.</p>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">The agent has one job: to check that every document arriving in a claim is complete, correct and consistent with the rest of the file. It runs 24/7 and keeps a live health check on each claim, so my people spend their days on the cases that need judgment, negotiation and empathy.</p>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">We kept our standard core claims system and call ClaimSense as an API from inside it. I pick the AI models and tune the agent separately for each product line, from MTPL (motor third-party liability) to Casco (cover for damage to your own vehicle).</p>
+<div data-pb-strip="" role="complementary" aria-label="Playbook offer" style="margin:28px 0 8px; border:1px solid #f3d9d2; border-radius:14px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px 20px; padding:14px 24px; background:#FFF7F5;">
+<span style="font:400 15px/1.4 'Roboto',sans-serif; color:#33302e;"><strong style="font-weight:500; color:#0d0d0d;">Free playbook:</strong> the seven steps Marcel followed, as a PDF</span>
+<a href="#playbook" data-pb-jump="" data-cta="primary" style="display:inline-flex; align-items:center; gap:8px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:9px; padding:9px 16px; font:500 15px/1 'Roboto',sans-serif; white-space:nowrap;">Get the playbook <span aria-hidden="true">→</span></a>
+</div>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">This is the story of how I did it, told plainly, so that you can do the same.</p>
+<h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,36px); line-height:1.12; letter-spacing:-0.01em; color:#0d0d0d; margin:64px 0 22px;">The problem on my desk</h2>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">We had just brought claims handling in-house after years with an external partner. That gave us control over the client experience, the data and the speed of every decision. It also made the claims team my cost and my bottleneck.</p>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">At the same time, Pillow was growing fast, and every policy we sold was a future claim. If claims grew 40% a year, did my claims team have to grow 40% a year too?</p>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">I saw three options:</p>
+<div data-fork="" style="margin:8px 0 36px;">
+  <div style="text-align:center;"><span data-fork-q="" style="display:inline-block; max-width:100%; padding:11px 22px; border-radius:999px; background:#0a1b3d; color:#fff; font:400 18px/1.4 'Roboto',sans-serif;">If claims grow 40% a year, does the team grow 40% too?</span></div>
+  <svg data-fork-lines="" viewBox="0 0 720 56" preserveAspectRatio="none" aria-hidden="true" style="display:block; width:100%; height:44px;">
+    <path d="M360 0 C360 30 120 26 120 56" fill="none" stroke="#c4c9d4" stroke-width="2" stroke-dasharray="5 5" vector-effect="non-scaling-stroke"></path>
+    <path d="M360 0 L360 56" fill="none" stroke="#c4c9d4" stroke-width="2" stroke-dasharray="5 5" vector-effect="non-scaling-stroke"></path>
+    <path d="M360 0 C360 30 600 26 600 56" fill="none" stroke="#FF5539" stroke-width="3" vector-effect="non-scaling-stroke"></path>
+  </svg>
+  <div data-fork-grid="" style="display:grid; gap:14px; align-items:stretch;"><div style="background:#f6f7f9; border:1px solid #e6e8ee; border-radius:14px; padding:19px 19px;"><div style="display:flex; align-items:center; gap:8px; font:500 12px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#6b7280; margin-bottom:12px;"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#e6e8ee"></circle><path d="M7 7l6 6M13 7l-6 6" stroke="#8b93a3" stroke-width="2" stroke-linecap="round"></path></svg> Option 1</div><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#4a5060; margin-bottom:8px;">Hire more and more people.</div><p style="font-size:15px; line-height:1.5; color:#5a6170; margin:0;">Predictable, but slow and expensive. Good handlers are scarce, and a new hire needs months to become productive.</p></div><div style="background:#f6f7f9; border:1px solid #e6e8ee; border-radius:14px; padding:19px 19px;"><div style="display:flex; align-items:center; gap:8px; font:500 12px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#6b7280; margin-bottom:12px;"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#e6e8ee"></circle><path d="M7 7l6 6M13 7l-6 6" stroke="#8b93a3" stroke-width="2" stroke-linecap="round"></path></svg> Option 2</div><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#4a5060; margin-bottom:8px;">Let service slip.</div><p style="font-size:15px; line-height:1.5; color:#5a6170; margin:0;">Cheap in the short term and fatal for a challenger whose pitch is being better than the incumbents.</p></div><div style="position:relative; background:#fff; border:2px solid #FF5539; border-radius:14px; padding:18px 18px 18px; box-shadow:0 14px 30px -20px rgba(255,85,57,0.6);"><div style="display:flex; align-items:center; gap:8px; font:500 12px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#c23a22; margin-bottom:12px;"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#FFE4DF"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#FF5539" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg> Option 3 · My choice</div><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#0d0d0d; margin-bottom:8px;">Think differently.</div><p style="font-size:15px; line-height:1.5; color:#33302e; margin:0;">Find the part of a handler's day that does not need a human, and hand it to a machine.</p></div></div>
+</div>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">So I sat with the team. A large share of every handler's day was not decision-making at all. It was checking. Is the police report there? Does the registration number match across the claim form, the photos and the repair estimate? What is still missing before this case can move?</p>
+<blockquote aria-hidden="true" style="margin:36px 0 40px; padding:4px 0 4px 26px; border-left:4px solid #FF5539; font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(22px,2.6vw,28px); line-height:1.25; color:#002870;">A large share of every handler's day was not decision-making at all. It was checking.</blockquote>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">This work matters, but it is repetitive, rule-based and constantly interrupting. Every arriving document means someone opens the file, re-reads it and re-checks it. It was the obvious place to start with an AI agent.</p>
+<h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,36px); line-height:1.12; letter-spacing:-0.01em; color:#0d0d0d; margin:64px 0 22px;">What I decided</h2>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">I decided to hand one clearly bounded part of the claims process to AI agents: the factual completeness and cross-validation of client documents. Everything else, from liability assessment to reserving and settlement, stayed with my people.</p>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">I set myself three rules:</p>
+<div data-rules="" style="display:grid; gap:14px; margin:8px 0 32px;">
+  <div style="border:1px solid #ecdcd6; border-radius:14px; padding:20px 22px; background:#fff;"><span style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; background:#002870; color:#fff; font:900 15px/1 'Tosh A',sans-serif; margin-bottom:14px;">1</span><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#0d0d0d; margin-bottom:8px;">Start with the boring part.</div><p style="font-size:15px; line-height:1.55; color:#4a4340; margin:0;">My first AI use case had to be something my handlers were glad to give up. Nobody joined Pillow to compare registration numbers across PDFs.</p></div>
+  <div style="border:1px solid #ecdcd6; border-radius:14px; padding:20px 22px; background:#fff;"><span style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; background:#002870; color:#fff; font:900 15px/1 'Tosh A',sans-serif; margin-bottom:14px;">2</span><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#0d0d0d; margin-bottom:8px;">Do not touch the core system.</div><p style="font-size:15px; line-height:1.55; color:#4a4340; margin:0;">Our claims system holds the process, the audit trail and all our integrations. Ripping it out to add AI would have turned a quarter's project into a multi-year programme. The AI had to plug into what we already had.</p></div>
+  <div data-rule-wide="" style="border:1px solid #ecdcd6; border-radius:14px; padding:20px 22px; background:#FFF7F5;"><div><span style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:9px; background:#FF5539; color:#000; font:900 15px/1 'Tosh A',sans-serif; margin-bottom:14px;">3</span><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#0d0d0d; margin-bottom:8px;">Put the agent inside the claim, not beside it.</div><p style="font-size:15px; line-height:1.55; color:#4a4340; margin:0;">I did not want another tool to open. The agent runs inside each claim and shows its findings on the screen my handlers already use.</p></div><div><svg viewBox="0 0 300 132" role="img" aria-label="A separate AI tool next to the claim screen is crossed out. An agent panel inside the claim screen is ticked." style="display:block; width:100%; max-width:340px; height:auto; margin:0 auto;" font-family="Roboto, sans-serif">
+  <rect x="6" y="14" width="84" height="74" rx="7" fill="#fff" stroke="#c9bdb8" stroke-width="1.6"></rect>
+  <rect x="6" y="14" width="84" height="13" rx="7" fill="#eef0f5"></rect>
+  <rect x="14" y="36" width="54" height="5" rx="2.5" fill="#e3ddda"></rect><rect x="14" y="47" width="64" height="5" rx="2.5" fill="#e3ddda"></rect><rect x="14" y="58" width="46" height="5" rx="2.5" fill="#e3ddda"></rect>
+  <rect x="98" y="34" width="40" height="40" rx="7" fill="#fff" stroke="#c9bdb8" stroke-width="1.6" stroke-dasharray="4 3"></rect>
+  <text x="118" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="#8b93a3">AI</text>
+  <circle cx="134" cy="22" r="10" fill="#e6e8ee"></circle><path d="M130 18l8 8M138 18l-8 8" stroke="#8b93a3" stroke-width="2" stroke-linecap="round"></path>
+  <text x="72" y="112" text-anchor="middle" font-size="12" fill="#6b7280">Beside the claim</text>
+  <rect x="164" y="14" width="128" height="74" rx="7" fill="#fff" stroke="#002870" stroke-width="1.6"></rect>
+  <rect x="164" y="14" width="128" height="13" rx="7" fill="#dfe5f3"></rect>
+  <rect x="172" y="36" width="54" height="5" rx="2.5" fill="#e3ddda"></rect><rect x="172" y="47" width="62" height="5" rx="2.5" fill="#e3ddda"></rect><rect x="172" y="58" width="44" height="5" rx="2.5" fill="#e3ddda"></rect>
+  <rect x="242" y="33" width="42" height="48" rx="6" fill="#FFE4DF" stroke="#FF5539" stroke-width="1.4"></rect>
+  <text x="263" y="50" text-anchor="middle" font-size="10" font-weight="700" fill="#c23a22">Agent</text>
+  <circle cx="254" cy="64" r="3.4" fill="#00B290"></circle><rect x="260" y="61.5" width="18" height="5" rx="2.5" fill="#f7b9ad"></rect>
+  <circle cx="288" cy="22" r="10" fill="#E3F5F0"></circle><path d="M283.5 22.3l3 3 5.5-6" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path>
+  <text x="228" y="112" text-anchor="middle" font-size="12" font-weight="500" fill="#002870">Inside the claim</text>
+</svg></div></div>
+</div>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">With those rules, the choice was quick. I chose ClaimSense, an AI claims solution called as an API from a core claims system. It gave me an agent per claim, an untouched core system, and separate behaviour per product line without new code.</p>
+<h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,36px); line-height:1.12; letter-spacing:-0.01em; color:#0d0d0d; margin:64px 0 22px;">How it works today</h2>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">Every claim in our core system now has its own AI agent, from the moment the claim is opened until it is closed. It keeps asking one question: is this claim complete and consistent right now?</p>
+<figure data-flow="" style="margin:36px 0 40px; padding:20px 12px 8px; background:#FFF7F5; border:1px solid #ecdcd6; border-radius:16px;">
+<div data-flow-hint="" aria-hidden="true" style="display:none; font:500 13px/1.3 'Roboto',sans-serif; color:#6b625d; margin:0 4px 10px;">Swipe sideways to see the whole flow →</div>
+<div data-flow-scroll="">
+<svg viewBox="0 0 940 500" role="img" aria-labelledby="flowT flowD" style="width:100%; height:auto; display:block;" font-family="Roboto, sans-serif">
+<title id="flowT">How a new document moves through the claim</title>
+<desc id="flowD">The client submits a document to the core claims system. The core system sends it to the ClaimSense API, which extracts facts and cross-validates the claim, then returns an updated health check. The core system shows status and open issues to the claim handler, who requests any missing item from the client.</desc>
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#002870"></path></marker>
+<marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FF5539"></path></marker></defs>
+<g stroke="#c9bdb8" stroke-width="2" stroke-dasharray="5 6"><line x1="120" y1="60" x2="120" y2="485"></line><line x1="350" y1="60" x2="350" y2="485"></line><line x1="600" y1="60" x2="600" y2="485"></line><line x1="820" y1="60" x2="820" y2="485"></line></g>
+<g font-size="15" font-weight="500" text-anchor="middle">
+<rect x="30" y="14" width="180" height="46" rx="10" fill="#002870"></rect><text x="120" y="43" fill="#fff">Client</text>
+<rect x="250" y="14" width="200" height="46" rx="10" fill="#002870"></rect><text x="350" y="43" fill="#fff">Our core claims system</text>
+<rect x="500" y="14" width="200" height="46" rx="10" fill="#FF5539"></rect><text x="600" y="43" fill="#000">ClaimSense API</text>
+<rect x="730" y="14" width="180" height="46" rx="10" fill="#002870"></rect><text x="820" y="43" fill="#fff">Claim handler</text></g>
+<g data-step="1"><line x1="120" y1="118" x2="346" y2="118" stroke="#002870" stroke-width="2.4" marker-end="url(#ah)"></line><circle cx="169" cy="96" r="12" fill="#002870"></circle><text x="169" y="100" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">1</text><text x="188" y="101" font-size="16" font-weight="500" fill="#0d0d0d" stroke="#FFF7F5" stroke-width="7" stroke-linejoin="round" paint-order="stroke">Submits document</text></g>
+<g data-step="2"><line x1="350" y1="184" x2="596" y2="184" stroke="#002870" stroke-width="2.4" marker-end="url(#ah)"></line><circle cx="390" cy="162" r="12" fill="#002870"></circle><text x="390" y="166" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">2</text><text x="409" y="167" font-size="16" font-weight="500" fill="#0d0d0d" stroke="#FFF7F5" stroke-width="7" stroke-linejoin="round" paint-order="stroke">New document in claim</text></g>
+<g data-step="3"><path d="M600 232 h46 v36 h-46" fill="none" stroke="#002870" stroke-width="2.4" marker-end="url(#ah)"></path><circle cx="672" cy="240" r="12" fill="#FF5539"></circle><text x="672" y="244" text-anchor="middle" font-size="13" font-weight="700" fill="#000">3</text><text x="691" y="245" font-size="16" font-weight="500" fill="#0d0d0d" stroke="#FFF7F5" stroke-width="7" stroke-linejoin="round" paint-order="stroke">Extract facts,</text><text x="691" y="266" font-size="16" font-weight="500" fill="#0d0d0d" stroke="#FFF7F5" stroke-width="7" stroke-linejoin="round" paint-order="stroke">cross-validate the claim</text></g>
+<g data-step="4"><line x1="596" y1="322" x2="354" y2="322" stroke="#FF5539" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#ahr)"></line><circle cx="396" cy="300" r="12" fill="#FF5539"></circle><text x="396" y="304" text-anchor="middle" font-size="13" font-weight="700" fill="#000">4</text><text x="415" y="305" font-size="16" font-weight="500" fill="#0d0d0d" stroke="#FFF7F5" stroke-width="7" stroke-linejoin="round" paint-order="stroke">Updated health check</text></g>
+<g data-step="5"><line x1="350" y1="388" x2="816" y2="388" stroke="#FF5539" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#ahr)"></line><circle cx="496" cy="366" r="12" fill="#FF5539"></circle><text x="496" y="370" text-anchor="middle" font-size="13" font-weight="700" fill="#000">5</text><text x="515" y="371" font-size="16" font-weight="500" fill="#0d0d0d" stroke="#FFF7F5" stroke-width="7" stroke-linejoin="round" paint-order="stroke">Status and open issues</text></g>
+<g data-step="6"><line x1="816" y1="454" x2="124" y2="454" stroke="#002870" stroke-width="2.4" marker-end="url(#ah)"></line><circle cx="339" cy="432" r="12" fill="#002870"></circle><text x="339" y="436" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">6</text><text x="358" y="437" font-size="16" font-weight="500" fill="#0d0d0d" stroke="#FFF7F5" stroke-width="7" stroke-linejoin="round" paint-order="stroke">Requests the missing item, if any</text></g>
+</svg>
+</div>
+<figcaption style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; font-size:14px; color:#6b625d; padding:8px 10px 12px;"><span style="flex:1 1 300px;">One document arrives, the whole claim is re-checked, the handler steps in only when a person is needed.</span><button type="button" data-flow-replay="" aria-label="Replay the diagram animation" style="align-items:center; gap:7px; padding:7px 14px 7px 11px; border-radius:999px; border:1px solid #d9c9c3; background:#fff; color:#002870; font:500 13px/1 'Roboto',sans-serif; cursor:pointer;"><svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.3-5.7M4 4v4h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>Replay</button></figcaption></figure>
+<h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:21px; line-height:1.25; color:#002870; margin:36px 0 12px;">What the agent checks on every document arrival</h3>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">A live health check inside the claim screen they already know: green when the file is complete and consistent, amber with a plain-language list of gaps or contradictions when it is not. Nobody re-reads the file to find out what changed.</p>
+<div data-checks="" style="margin:24px 0 40px; border:1px solid #ecdcd6; border-radius:16px; background:#FFF7F5; overflow:hidden;">
+  <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 12px; padding:14px 18px; border-bottom:1px solid #ecdcd6; background:#fff;">
+    <span style="display:flex; align-items:center; gap:9px; font:500 14px 'Roboto',sans-serif; color:#0d0d0d;"><span style="width:9px; height:9px; border-radius:50%; background:#FFB600;"></span>Example claim · Motor · #1234</span>
+    <span style="font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#8a827d;">Illustrative values</span>
+  </div>
+  <div data-checks-tabs="" style="display:none; flex-wrap:wrap; gap:8px; padding:16px 18px 0;"><button type="button" data-checks-tab="c1">Completeness</button><button type="button" data-checks-tab="c2">Correctness</button><button type="button" data-checks-tab="c3">Cross-validation</button></div>
+  <div style="padding:16px 18px 20px;"><div data-checks-panel="c1"><p style="font-size:16px; line-height:1.55; color:#33302e; margin:0 0 14px;"><strong style="color:#0d0d0d; font-weight:700;">Completeness.</strong> Are all required documents for this claim type present? If not, which ones are missing?</p><div style="display:grid; gap:8px;"><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; background:#fff; border:1px solid #ece3df; border-radius:10px; font-size:15px; color:#0d0d0d;"><span style="display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="flex:0 0 auto;"><path d="M6 2h8l5 5v15H6z" fill="#fff" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path><path d="M14 2v5h5" fill="none" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path></svg>Claim form</span><span style="display:flex; align-items:center; gap:6px; font:500 13px 'Roboto',sans-serif; color:#007a63;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg> Received</span></div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; background:#fff; border:1px solid #ece3df; border-radius:10px; font-size:15px; color:#0d0d0d;"><span style="display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="flex:0 0 auto;"><path d="M6 2h8l5 5v15H6z" fill="#fff" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path><path d="M14 2v5h5" fill="none" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path></svg>Police report</span><span style="display:flex; align-items:center; gap:6px; font:500 13px 'Roboto',sans-serif; color:#007a63;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg> Received</span></div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; background:#fff; border:1px solid #ece3df; border-radius:10px; font-size:15px; color:#0d0d0d;"><span style="display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="flex:0 0 auto;"><path d="M6 2h8l5 5v15H6z" fill="#fff" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path><path d="M14 2v5h5" fill="none" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path></svg>Photos of the damage</span><span style="display:flex; align-items:center; gap:6px; font:500 13px 'Roboto',sans-serif; color:#007a63;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg> Received</span></div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; background:#fff; border:1px solid #ece3df; border-radius:10px; font-size:15px; color:#0d0d0d;"><span style="display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="flex:0 0 auto;"><path d="M6 2h8l5 5v15H6z" fill="#fff" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path><path d="M14 2v5h5" fill="none" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path></svg>Repair estimate</span><span style="display:flex; align-items:center; gap:6px; font:500 13px 'Roboto',sans-serif; color:#007a63;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg> Received</span></div><div data-flag="" style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; background:#FFFBF0; border:1.5px dashed #FFB600; border-radius:10px; font-size:15px; color:#0d0d0d;"><span style="display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="flex:0 0 auto;"><path d="M6 2h8l5 5v15H6z" fill="#fff" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path><path d="M14 2v5h5" fill="none" stroke="#8b93a3" stroke-width="1.8" stroke-linejoin="round"></path></svg>Repair invoice</span><span style="flex:0 0 auto; padding:4px 10px; border-radius:999px; background:#FFB600; color:#000; font:500 12px/1.2 'Roboto',sans-serif;">Missing</span></div></div><div style="display:flex; gap:11px; align-items:flex-start; margin-top:14px; padding:12px 14px; border-radius:10px; background:#fff; border:1px solid #f1e3c4; border-left:4px solid #FFB600;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#FFB600"></circle><path d="M10 5.2v6" stroke="#000" stroke-width="2.3" stroke-linecap="round"></path><circle cx="10" cy="14.6" r="1.35" fill="#000"></circle></svg><div><span style="display:block; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#7a5900; margin-bottom:5px;">Health check · needs attention</span><span style="font-size:15px; line-height:1.45; color:#0d0d0d;">The repair invoice is missing. The claim cannot move until it arrives.</span></div></div></div><div data-checks-panel="c2"><p style="font-size:16px; line-height:1.55; color:#33302e; margin:0 0 14px;"><strong style="color:#0d0d0d; font-weight:700;">Correctness.</strong> Are the extracted facts plausible, and do they match what we have agreed? Dates in the right order, mandatory fields filled, and the discount on a repair invoice equal to the one we negotiated with that repair shop.</p><div style="display:grid; gap:8px;"><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; background:#fff; border:1px solid #ece3df; border-radius:10px; font-size:15px; color:#0d0d0d;"><span style="color:#6b625d; font-size:14px; flex:1 1 40%;">Incident date (claim form)</span><span style="flex:1 1 30%; font-weight:500;">12 Mar 2026</span><span style="display:flex; align-items:center; gap:6px; font:500 13px 'Roboto',sans-serif; color:#007a63;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg> Consistent</span></div><div data-flag="" style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; background:#FFFBF0; border:1.5px dashed #FFB600; border-radius:10px; font-size:15px; color:#0d0d0d;"><span style="color:#6b625d; font-size:14px; flex:1 1 40%;">Invoice date</span><span style="flex:1 1 30%; font-weight:500;">9 Mar 2026</span><span style="flex:0 0 auto; padding:4px 10px; border-radius:999px; background:#FFB600; color:#000; font:500 12px/1.2 'Roboto',sans-serif;">Before the incident</span></div><div data-flag="" style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; background:#FFFBF0; border:1.5px dashed #FFB600; border-radius:10px; font-size:15px; color:#0d0d0d;"><span style="color:#6b625d; font-size:14px; flex:1 1 40%;">Discount on the invoice</span><span style="flex:1 1 30%; font-weight:500;">10% (agreed: 15%)</span><span style="flex:0 0 auto; padding:4px 10px; border-radius:999px; background:#FFB600; color:#000; font:500 12px/1.2 'Roboto',sans-serif;">Below agreed</span></div><div style="display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 14px; background:#fff; border:1px solid #ece3df; border-radius:10px; font-size:15px; color:#0d0d0d;"><span style="color:#6b625d; font-size:14px; flex:1 1 40%;">Mandatory fields</span><span style="flex:1 1 30%; font-weight:500;">All filled</span><span style="display:flex; align-items:center; gap:6px; font:500 13px 'Roboto',sans-serif; color:#007a63;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg> Complete</span></div></div><div style="display:flex; gap:11px; align-items:flex-start; margin-top:14px; padding:12px 14px; border-radius:10px; background:#fff; border:1px solid #f1e3c4; border-left:4px solid #FFB600;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#FFB600"></circle><path d="M10 5.2v6" stroke="#000" stroke-width="2.3" stroke-linecap="round"></path><circle cx="10" cy="14.6" r="1.35" fill="#000"></circle></svg><div><span style="display:block; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#7a5900; margin-bottom:5px;">Health check · needs attention</span><span style="font-size:15px; line-height:1.45; color:#0d0d0d;">The invoice is dated three days before the incident, and the repair shop's discount is lower than agreed.</span></div></div></div><div data-checks-panel="c3"><p style="font-size:16px; line-height:1.55; color:#33302e; margin:0 0 14px;"><strong style="color:#0d0d0d; font-weight:700;">Cross-validation.</strong> Do the documents agree with each other and with the claim form? Same vehicle, same people, same date, same location and same damage across the police report, photos, invoices and estimates. And when we pay the repair shop directly, is the person who signed the power of attorney the owner named in the vehicle registration certificate?</p><div style="overflow-x:auto; border:1px solid #ece3df; border-radius:10px; background:#fff;"><table style="border-collapse:collapse; width:100%;"><thead><tr><th style="text-align:left; padding:10px 12px; font:500 12px/1.2 'Roboto',sans-serif; letter-spacing:0.08em; text-transform:uppercase; color:#6b625d; background:#f7f2f0;">Document</th><th style="text-align:left; padding:10px 12px; font:500 12px/1.2 'Roboto',sans-serif; letter-spacing:0.08em; text-transform:uppercase; color:#6b625d; background:#f7f2f0;">Registration</th><th style="text-align:left; padding:10px 12px; font:500 12px/1.2 'Roboto',sans-serif; letter-spacing:0.08em; text-transform:uppercase; color:#6b625d; background:#f7f2f0;">Incident date</th></tr></thead><tbody><tr><td style="padding:11px 12px; border-top:1px solid #ece3df; font-size:15px; color:#0d0d0d; white-space:nowrap; color:#6b625d;">Claim form</td><td style="padding:11px 12px; border-top:1px solid #ece3df; font-size:15px; color:#0d0d0d; white-space:nowrap;"><span style="display:inline-flex; align-items:center; gap:6px;"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>1AB 2345</span></td><td style="padding:11px 12px; border-top:1px solid #ece3df; font-size:15px; color:#0d0d0d; white-space:nowrap;"><span style="display:inline-flex; align-items:center; gap:6px;"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>12 Mar</span></td></tr><tr><td style="padding:11px 12px; border-top:1px solid #ece3df; font-size:15px; color:#0d0d0d; white-space:nowrap; color:#6b625d;">Police report</td><td style="padding:11px 12px; border-top:1px solid #ece3df; font-size:15px; color:#0d0d0d; white-space:nowrap;"><span style="display:inline-flex; align-items:center; gap:6px;"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>1AB 2345</span></td><td style="padding:11px 12px; border-top:1px solid #ece3df; font-size:15px; color:#0d0d0d; white-space:nowrap;"><span style="display:inline-flex; align-items:center; gap:6px;"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>12 Mar</span></td></tr><tr><td style="padding:11px 12px; border-top:1px solid #ece3df; font-size:15px; color:#0d0d0d; white-space:nowrap; color:#6b625d;">Repair estimate</td><td style="padding:11px 12px; border-top:1px solid #ece3df; font-size:15px; color:#0d0d0d; white-space:nowrap;"><span data-flag="" style="display:inline-flex; align-items:center; gap:6px; padding:3px 8px 3px 4px; margin:-3px 0; border-radius:8px; background:#FFF3D1; border:1.5px dashed #FFB600;"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#FFB600"></circle><path d="M10 5.2v6" stroke="#000" stroke-width="2.3" stroke-linecap="round"></path><circle cx="10" cy="14.6" r="1.35" fill="#000"></circle></svg><strong style="font-weight:700;">1AB 2346</strong></span></td><td style="padding:11px 12px; border-top:1px solid #ece3df; font-size:15px; color:#0d0d0d; white-space:nowrap;"><span style="display:inline-flex; align-items:center; gap:6px;"><svg width="15" height="15" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#E3F5F0"></circle><path d="M5.5 10.4l3 3 6-6.4" fill="none" stroke="#00B290" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></path></svg>12 Mar</span></td></tr></tbody></table></div><div style="display:flex; gap:11px; align-items:flex-start; margin-top:14px; padding:12px 14px; border-radius:10px; background:#fff; border:1px solid #f1e3c4; border-left:4px solid #FFB600;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto;"><circle cx="10" cy="10" r="10" fill="#FFB600"></circle><path d="M10 5.2v6" stroke="#000" stroke-width="2.3" stroke-linecap="round"></path><circle cx="10" cy="14.6" r="1.35" fill="#000"></circle></svg><div><span style="display:block; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#7a5900; margin-bottom:5px;">Health check · needs attention</span><span style="font-size:15px; line-height:1.45; color:#0d0d0d;">The registration number in the repair estimate does not match the other documents.</span></div></div></div></div>
+</div>
+<h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:21px; line-height:1.25; color:#002870; margin:36px 0 12px;">Why 24/7 was the whole point for me</h3>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">Documents arrive whenever clients and repair shops send them. Before, each one waited in a queue until a handler had time to re-check the case. Now the check is done by the time my team starts the day, and a handler's first action on a case is a decision.</p>
+<h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,36px); line-height:1.12; letter-spacing:-0.01em; color:#0d0d0d; margin:64px 0 22px;">What it gave me back</h2>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">My claim handlers now spend 20–25% less time per case, and the time saved comes from the checking work that moved to the AI agent.</p>
+<div role="table" aria-label="Before and after" style="margin:36px 0 44px; border:1px solid #e6e8ee; border-radius:16px; overflow:hidden;"><div data-ba-head="" style="display:grid; grid-template-columns:1fr 1fr;"><div style="padding:15px 22px; font:500 12px/1.2 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; background:#eef0f5; color:#4a5568;">Before</div><div style="padding:15px 22px; font:500 12px/1.2 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; background:#FF5539; color:#000;">With the AI agent</div></div><div data-ba-row="" style="display:grid; grid-template-columns:1fr 1fr; border-top:1px solid #e6e8ee;"><div style="padding:18px 22px; background:#fafbfc;"><div data-ba-label="" style="display:none; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; color:#6b7280;">Before</div><div style="display:flex; gap:12px; font-size:16px; line-height:1.5; color:#5a6170;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:3px;"><circle cx="10" cy="10" r="10" fill="#e6e8ee"></circle><path d="M6 10h8" stroke="#8b93a3" stroke-width="2" stroke-linecap="round"></path></svg><span>Handler re-opens the claim on every new document and re-checks the whole file</span></div></div><div data-ba-after="" style="padding:18px 22px; background:#fff; border-left:1px solid #e6e8ee;"><div data-ba-label="" style="display:none; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; color:#FF5539;">With the AI agent</div><div style="display:flex; gap:12px; font-size:16px; line-height:1.5; font-weight:500; color:#0d0d0d;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:3px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#FF5539" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Agent re-checks the whole file automatically on every arrival</span></div></div></div><div data-ba-row="" style="display:grid; grid-template-columns:1fr 1fr; border-top:1px solid #e6e8ee;"><div style="padding:18px 22px; background:#fafbfc;"><div data-ba-label="" style="display:none; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; color:#6b7280;">Before</div><div style="display:flex; gap:12px; font-size:16px; line-height:1.5; color:#5a6170;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:3px;"><circle cx="10" cy="10" r="10" fill="#e6e8ee"></circle><path d="M6 10h8" stroke="#8b93a3" stroke-width="2" stroke-linecap="round"></path></svg><span>Missing documents discovered when a handler next looks at the case</span></div></div><div data-ba-after="" style="padding:18px 22px; background:#fff; border-left:1px solid #e6e8ee;"><div data-ba-label="" style="display:none; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; color:#FF5539;">With the AI agent</div><div style="display:flex; gap:12px; font-size:16px; line-height:1.5; font-weight:500; color:#0d0d0d;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:3px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#FF5539" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Missing documents flagged the moment the last one arrives without them</span></div></div></div><div data-ba-row="" style="display:grid; grid-template-columns:1fr 1fr; border-top:1px solid #e6e8ee;"><div style="padding:18px 22px; background:#fafbfc;"><div data-ba-label="" style="display:none; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; color:#6b7280;">Before</div><div style="display:flex; gap:12px; font-size:16px; line-height:1.5; color:#5a6170;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:3px;"><circle cx="10" cy="10" r="10" fill="#e6e8ee"></circle><path d="M6 10h8" stroke="#8b93a3" stroke-width="2" stroke-linecap="round"></path></svg><span>Cross-checking done by hand, case by case</span></div></div><div data-ba-after="" style="padding:18px 22px; background:#fff; border-left:1px solid #e6e8ee;"><div data-ba-label="" style="display:none; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; color:#FF5539;">With the AI agent</div><div style="display:flex; gap:12px; font-size:16px; line-height:1.5; font-weight:500; color:#0d0d0d;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:3px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#FF5539" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Cross-validation done continuously, 24/7</span></div></div></div><div data-ba-row="" style="display:grid; grid-template-columns:1fr 1fr; border-top:1px solid #e6e8ee;"><div style="padding:18px 22px; background:#fafbfc;"><div data-ba-label="" style="display:none; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; color:#6b7280;">Before</div><div style="display:flex; gap:12px; font-size:16px; line-height:1.5; color:#5a6170;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:3px;"><circle cx="10" cy="10" r="10" fill="#e6e8ee"></circle><path d="M6 10h8" stroke="#8b93a3" stroke-width="2" stroke-linecap="round"></path></svg><span>Handler time split between paperwork review and decisions</span></div></div><div data-ba-after="" style="padding:18px 22px; background:#fff; border-left:1px solid #e6e8ee;"><div data-ba-label="" style="display:none; font:500 11px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; color:#FF5539;">With the AI agent</div><div style="display:flex; gap:12px; font-size:16px; line-height:1.5; font-weight:500; color:#0d0d0d;"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:3px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#FF5539" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Handler time spent on decisions and complex cases</span></div></div></div></div>
+<h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:21px; line-height:1.25; color:#002870; margin:36px 0 12px;">Where the freed time went</h3>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">I did not use the 20–25% to cut headcount. I used it to absorb growth and to raise quality. My handlers now spend more time on:</p>
+<ul style="margin:0 0 24px; padding-left:24px;"><li style="font-size:18px; line-height:1.65; color:#33302e; margin:0 0 12px;">Complex and contested claims, where experience and negotiation skill change the outcome.</li><li style="font-size:18px; line-height:1.65; color:#33302e; margin:0 0 12px;">Direct contact with clients, instead of chasing paperwork.</li><li style="font-size:18px; line-height:1.65; color:#33302e; margin:0 0 12px;">Suspected fraud and edge cases, where a flagged contradiction needs a person to investigate.</li></ul>
+<h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:21px; line-height:1.25; color:#002870; margin:36px 0 12px;">What it meant for my growth question</h3>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">My claims team now handles more claims per person. The team still grows, but at a fraction of the rate of the claims volume, and the people who join spend their first weeks learning to decide, not to check.</p>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">The point was never to remove people from claims. It was to stop wasting their time on something a machine does better.</p>
+<h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,36px); line-height:1.12; letter-spacing:-0.01em; color:#0d0d0d; margin:64px 0 22px;">Why it was easier than I expected: ClaimSense as an API</h2>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">The project stayed small because ClaimSense fits into our core claims system instead of replacing it. Three things made the difference.</p>
+<h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:21px; line-height:1.25; color:#002870; margin:36px 0 12px;">1. It is just an API call from our core system</h3>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">Connecting ClaimSense meant one outbound call when a document arrives and one place to display the findings. No handler logs into a second tool, and our core system remains the single source of truth.</p>
+<h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:21px; line-height:1.25; color:#002870; margin:36px 0 12px;">2. I choose the models</h3>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">ClaimSense is not locked to a single AI model. I choose which models the agent uses and can change them as models improve, prices move or compliance requirements shift. As a European insurer, I want control over where our data goes and which vendors we depend on.</p>
+<h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:21px; line-height:1.25; color:#002870; margin:36px 0 12px;">3. I tune the behaviour per product line</h3>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">An MTPL claim and a Casco claim do not need the same checks, and neither does a property or travel claim. I configure the agent for each claims process separately:</p>
+<div style="font:500 12px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#6b625d; margin:36px 0 14px;">What I tuned the agent to check</div><div data-pl-grid="" style="display:grid; gap:16px; margin:0 0 44px;"><div style="background:#fff; border:1px solid #ecdcd6; border-top:5px solid #002870; border-radius:14px; padding:20px 20px 12px;"><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:22px; line-height:1.1; color:#0d0d0d;">MTPL</div><div style="font-size:13px; line-height:1.4; color:#6b625d; margin:6px 0 16px; min-height:36px;">Motor third-party liability</div><ul style="list-style:none; margin:0; padding:0;"><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#002870" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Third-party details</span></li><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#002870" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Police report</span></li><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#002870" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Liability-relevant facts</span></li><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#002870" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Consistency between the two parties' accounts</span></li></ul></div><div style="background:#fff; border:1px solid #ecdcd6; border-top:5px solid #FF5539; border-radius:14px; padding:20px 20px 12px;"><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:22px; line-height:1.1; color:#0d0d0d;">Casco</div><div style="font-size:13px; line-height:1.4; color:#6b625d; margin:6px 0 16px; min-height:36px;">Cover for damage to your own vehicle</div><ul style="list-style:none; margin:0; padding:0;"><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#FF5539" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Own-vehicle documentation</span></li><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#FF5539" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Repair estimates against photos</span></li><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#FF5539" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Coverage conditions</span></li><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#FF5539" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Repair shop discount against the agreed one</span></li><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#FF5539" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Power of attorney signed by the vehicle owner</span></li></ul></div><div style="background:#fff; border:1px solid #ecdcd6; border-top:5px solid #00B290; border-radius:14px; padding:20px 20px 12px;"><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:22px; line-height:1.1; color:#0d0d0d;">Other lines</div><div style="font-size:13px; line-height:1.4; color:#6b625d; margin:6px 0 16px; min-height:36px;">Property, travel and more</div><ul style="list-style:none; margin:0; padding:0;"><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#00B290" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Their own required-document sets</span></li><li style="display:flex; gap:9px; font-size:15px; line-height:1.45; color:#33302e; margin:0 0 9px;"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex:0 0 auto; margin-top:4px;"><path d="M3.5 10.5l4.2 4.2L16.5 5.8" fill="none" stroke="#00B290" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"></path></svg><span>Validation rules and tolerance thresholds</span></li></ul></div></div>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">Same API and integration, a different configuration per line. Adding a product line is configuration, not development.</p>
+<h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,36px); line-height:1.12; letter-spacing:-0.01em; color:#0d0d0d; margin:64px 0 22px;">If you want to do the same</h2>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">Nothing in my setup is exotic. If you run claims at an insurer with a core system and an IT team that can call an API, you can follow the same path.</p>
+<h3 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:21px; line-height:1.25; color:#002870; margin:36px 0 16px;">What I learned along the way</h3>
+<div data-pb-lessons="" style="display:grid; gap:14px; margin:0 0 44px;"><div style="border:1px solid #ecdcd6; border-radius:14px; padding:22px 24px; grid-column:1 / -1; background:#FFF7F5;"><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#0d0d0d; margin-bottom:8px;">Pick a task people are happy to give away.</div><div style="font-size:16px; line-height:1.55; color:#4a4340;">Nobody missed the checking.</div></div><div style="border:1px solid #ecdcd6; border-radius:14px; padding:22px 24px; background:#fff;"><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#0d0d0d; margin-bottom:8px;">Do not build a parallel system.</div><div style="font-size:16px; line-height:1.55; color:#4a4340;">An agent inside the claim is used on every case by default.</div></div><div style="border:1px solid #ecdcd6; border-radius:14px; padding:22px 24px; background:#fff;"><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#0d0d0d; margin-bottom:8px;">Configure per product line from day one.</div><div style="font-size:16px; line-height:1.55; color:#4a4340;">One generic checker would have been too strict for some lines and too loose for others.</div></div><div style="border:1px solid #ecdcd6; border-radius:14px; padding:22px 24px; background:#fff;"><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#0d0d0d; margin-bottom:8px;">Keep model choice in your own hands.</div><div style="font-size:16px; line-height:1.55; color:#4a4340;">It removed the vendor-risk objections from my board conversations.</div></div><div style="border:1px solid #ecdcd6; border-radius:14px; padding:22px 24px; background:#fff;"><div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; line-height:1.2; color:#0d0d0d; margin-bottom:8px;">Measure before and after.</div><div style="font-size:16px; line-height:1.55; color:#4a4340;">A concrete 20–25% figure did more for my business case than any slide about AI.</div></div></div>
+
+<!-- ===== Playbook card: the seven steps are sent as a PDF in exchange for a work email ===== -->
+<section data-pb-card="" id="playbook" aria-labelledby="pbTitle" style="position:relative; overflow:hidden; background:#0a1b3d; color:#fff; border-radius:20px; padding:34px 34px 30px; margin:0 0 8px;">
+  <img src="/assets/bull/Bull_symbol_white.svg" alt="" aria-hidden="true" style="position:absolute; right:-30px; bottom:-30px; width:200px; opacity:0.06; pointer-events:none;">
+  <div data-pb-grid="" style="position:relative; display:grid; gap:30px; align-items:start;">
+    <div>
+      <div style="font:500 12px/1 'Roboto',sans-serif; letter-spacing:0.14em; text-transform:uppercase; color:#FF7761; margin-bottom:14px;">Free playbook · PDF · 5 pages</div>
+      <h3 id="pbTitle" style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(24px,2.8vw,30px); line-height:1.12; letter-spacing:-0.01em; color:#fff; margin:0 0 12px;">Seven steps to faster claims handling with an AI agent</h3>
+      <p style="font-size:16px; line-height:1.55; color:#c3cbe0; margin:0 0 20px;">Marcel Beno's own path from the first measurement to the next product line, written down step by step with example checklists you can adapt.</p>
+      <ol style="list-style:none; margin:0 0 20px; padding:0;"><li style="display:flex; align-items:flex-start; gap:11px; margin:0 0 9px; font-size:15px; line-height:1.4; color:#e6eaf5;"><span style="flex:0 0 auto; width:22px; height:22px; border-radius:6px; background:#1d3a7a; color:#fff; font:900 12px/22px 'Tosh A',sans-serif; text-align:center;">1</span><span>Measure the checking first</span></li><li style="display:flex; align-items:flex-start; gap:11px; margin:0 0 9px; font-size:15px; line-height:1.4; color:#e6eaf5;"><span style="flex:0 0 auto; width:22px; height:22px; border-radius:6px; background:#1d3a7a; color:#fff; font:900 12px/22px 'Tosh A',sans-serif; text-align:center;">2</span><span>Pick one product line</span></li><li style="display:flex; align-items:flex-start; gap:11px; margin:0 0 9px; font-size:15px; line-height:1.4; color:#e6eaf5;"><span style="flex:0 0 auto; width:22px; height:22px; border-radius:6px; background:#1d3a7a; color:#fff; font:900 12px/22px 'Tosh A',sans-serif; text-align:center;">3</span><span>Write down the document set and the rules</span></li><li style="display:flex; align-items:flex-start; gap:11px; margin:0 0 9px; font-size:15px; line-height:1.4; color:#e6eaf5;"><span style="flex:0 0 auto; width:22px; height:22px; border-radius:6px; background:#FF5539; color:#000; font:900 12px/22px 'Tosh A',sans-serif; text-align:center;">4</span><span>Wire the API</span></li><li style="display:flex; align-items:flex-start; gap:11px; margin:0 0 9px; font-size:15px; line-height:1.4; color:#e6eaf5;"><span style="flex:0 0 auto; width:22px; height:22px; border-radius:6px; background:#1d3a7a; color:#fff; font:900 12px/22px 'Tosh A',sans-serif; text-align:center;">5</span><span aria-hidden="true" style="filter:blur(5px); user-select:none; pointer-events:none;">Included in the playbook PDF</span></li><li style="display:flex; align-items:flex-start; gap:11px; margin:0 0 9px; font-size:15px; line-height:1.4; color:#e6eaf5;"><span style="flex:0 0 auto; width:22px; height:22px; border-radius:6px; background:#1d3a7a; color:#fff; font:900 12px/22px 'Tosh A',sans-serif; text-align:center;">6</span><span aria-hidden="true" style="filter:blur(5px); user-select:none; pointer-events:none;">Included in the playbook PDF, with a worked example to adapt</span></li><li style="display:flex; align-items:flex-start; gap:11px; margin:0 0 9px; font-size:15px; line-height:1.4; color:#e6eaf5;"><span style="flex:0 0 auto; width:22px; height:22px; border-radius:6px; background:#1d3a7a; color:#fff; font:900 12px/22px 'Tosh A',sans-serif; text-align:center;">7</span><span aria-hidden="true" style="filter:blur(5px); user-select:none; pointer-events:none;">Included in the playbook</span></li></ol>
+      <div style="display:flex; align-items:center; gap:8px; margin:-8px 0 20px 33px; font:500 13px/1.3 'Roboto',sans-serif; color:#FF9280;"><svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="flex:0 0 auto;"><rect x="4" y="11" width="16" height="10" rx="2" fill="currentColor"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path></svg>Steps 5 to 7 are in the playbook</div>
+      <div style="border-top:1px solid #20356b; padding-top:16px; font-size:15px; line-height:1.5; color:#c3cbe0;">
+        <p style="margin:0 0 8px;"><strong style="color:#fff; font-weight:500;">Still weighing it up?</strong> See what the work involves before you commit to it.</p>
+        <p style="margin:0;"><strong style="color:#fff; font-weight:500;">About to start?</strong> Practical advice from someone who runs the company and knows claims operations from the inside.</p>
+      </div>
+    </div>
+    <div>
+      <img src="/assets/playbook/playbook-preview.jpg" alt="A page from the playbook with an example table of rules" width="620" height="877" loading="lazy" style="display:block; width:100%; max-width:230px; height:auto; margin:0 auto 20px; border-radius:6px; box-shadow:0 18px 40px -16px rgba(0,0,0,0.7);">
+      <form data-pb-form="" action="https://api.web3forms.com/submit" method="POST" novalidate style="background:#fff; border-radius:14px; padding:18px;">
+        <input type="hidden" name="access_key" value="a7e25bdc-625b-4a25-a202-953aad3e6cc1">
+        <input type="hidden" name="subject" value="New Playbook Request (Pillow story)">
+        <input type="hidden" name="from_name" value="ClaimSense website">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;">
+        <label style="display:block;"><span style="font:500 13px 'Roboto',sans-serif; color:#54504d;">Work email</span>
+          <input data-pb-email="" data-required="" type="email" name="email" autocomplete="email" placeholder="name@company.com" style="margin-top:6px; width:100%; padding:11px 12px; border:1px solid #e0d6d1; border-radius:8px; font:400 16px 'Roboto',sans-serif; color:#0d0d0d;">
+        </label>
+        <p data-pb-error="" role="alert" style="display:none; font:500 13px/1.4 'Roboto',sans-serif; margin:8px 0 0;"></p>
+        <button type="submit" data-cta="primary" style="margin-top:12px; width:100%; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:9px; padding:12px; font:500 16px 'Roboto',sans-serif; cursor:pointer;">Get the playbook</button>
+        <p style="font:400 11px/1.45 'Roboto',sans-serif; color:#8a827d; margin:10px 0 0;">By continuing, you agree that ClaimSense may contact you about its solution. See our <a href="/privacy/" style="color:#002870; text-decoration:underline;">Privacy Policy</a>.</p>
+      </form>
+      <div data-pb-done="" style="display:none; background:#fff; border-radius:14px; padding:20px 18px; text-align:center;">
+        <div style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:19px; color:#0d0d0d; margin-bottom:6px;">Thank you. Your playbook is ready.</div>
+        <p style="font-size:14px; line-height:1.5; color:#54504d; margin:0 0 14px;">It opens as a PDF you can save, print or forward.</p>
+        <a data-pb-link="" href="/assets/downloads/6mifgu0q75/claimsense-7-step-playbook.pdf" target="_blank" rel="noopener" style="display:block; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:9px; padding:12px; font:500 16px 'Roboto',sans-serif;">Open the playbook (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(26px,3vw,36px); line-height:1.12; letter-spacing:-0.01em; color:#0d0d0d; margin:64px 0 22px;">A closing word</h2>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">I did not innovate Pillow's claims operation by buying a big platform or launching a transformation programme. I found the one piece of work my people were quietly losing a quarter of their day to, and I gave it to an agent that never sleeps. Everything else stayed the same, which is exactly why it worked.</p>
+<p style="font-size:18px; line-height:1.7; color:#33302e; margin:0 0 20px;">If you are facing the same choice, I am happy to compare notes with any operations leader who wants to try it.</p>
+<div style="margin:34px 0 0; padding-top:22px; border-top:1px solid #ecdcd6; font-size:17px; color:#4a4340;"><strong style="color:#0d0d0d; font-size:19px;">Marcel Beno</strong><br>Chief Operating Officer, Pillow</div>
+<aside style="margin:40px 0 0; padding:24px 26px; background:#FFF7F5; border:1px solid #ecdcd6; border-radius:14px; font-size:16px; line-height:1.65; color:#4a4340;"><strong style="color:#0d0d0d; font-weight:700;">About ClaimSense.</strong> ClaimSense is an AI claims solution delivered as an API. It runs an always-on agent inside each claim case that checks factual completeness, correctness and cross-validation of client documents. It integrates with your core claims system, lets you select the AI models it uses, and can be configured separately for each product line and claims process, including MTPL, Casco and other lines.</aside>
+<p style="font-size:14px; line-height:1.55; color:#7a716c; margin:22px 0 0;"><em>Figures in this paper are Pillow's own operational estimates.</em></p>
+  </div>
+</article>
+
+<!-- ===================== CTA ===================== -->
+<a id="demo"></a>
+<section style="padding:80px 32px; background:#FFF7F5; position:relative; overflow:hidden;">
+  <div style="max-width:680px; margin:0 auto; text-align:center; position:relative;" data-reveal="">
+    <h2 style="font-family:'Tosh A',sans-serif; font-weight:500; font-size:clamp(28px,3.4vw,44px); line-height:1.08; margin:0 0 18px; color:#0d0d0d;">Ready to transform your claims?</h2>
+    <p style="font-size:18px; line-height:1.6; color:#5a514d; margin:0 0 32px;">Let's discuss how ClaimSense can help your organisation process claims faster and more efficiently.</p>
+    <!-- FUNCTIONAL-SPEC NEEDED: Book a Demo routing -->
+    <button onClick="{{ scrollToDemo }}" style="display:inline-flex; align-items:center; gap:11px; background:#FF5539; color:#000; border:3px solid #FF5539; border-radius:10px; padding:16px 34px; font:600 18px 'Roboto',sans-serif; cursor:pointer;" data-cta="primary">Book a walkthrough <span aria-hidden="true">→</span></button>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer style="background:#06122b; color:#c3cbe0; padding:64px 32px 36px;">
+  <div style="max-width:1200px; margin:0 auto;">
+    <div style="display:grid; gap:40px;" data-footer-grid="">
+      <div>
+        <img src="/assets/logos/ClaimSense_logo_white.svg" alt="ClaimSense" style="height:26px; width:auto; margin-bottom:18px;">
+        <p style="font-size:14px; line-height:1.6; color:#9aa6c8; margin:0 0 22px; max-width:280px;">AI-first workflow for your claim team. Transform complex claims processing with intelligent automation.</p>
+        <div style="display:flex; align-items:center; gap:12px; padding-top:18px; border-top:1px solid #1a2c54;">
+          <img src="/assets/bull/BULL_LOGO_WHITE_RGB.png" alt="Bull" style="height:26px; width:auto;">
+        </div>
+        <p style="font-size:12px; color:#7e8ab0; margin:12px 0 0;">ClaimSense is built by DataSentics, <br>part of the Bull.</p>
+      </div>
+      <div>
+        <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Product</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
+          <li><a href="/features/" style="color:#9aa6c8;" style-hover="color:#FF7761;">Features</a></li>
+          <li><a href="/pricing/" style="color:#9aa6c8;" style-hover="color:#FF7761;">Pricing</a></li>
+          <li><a href="/use-cases/" style="color:#9aa6c8;" style-hover="color:#FF7761;">Use cases</a></li>
+          <li><a href="/implementation/" style="color:#9aa6c8;" style-hover="color:#FF7761;">Implementation</a></li>
+          <li><a href="/customer-stories/" style="color:#9aa6c8;" style-hover="color:#FF7761;">Customer stories</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Company</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
+          <li><a href="/our-story/" style="color:#FF5539;">Our story</a></li>
+          <li><a href="/partners/" style="color:#9aa6c8;" style-hover="color:#FF7761;">Partners</a></li>
+          <li><a href="https://careers.datasentics.com/?utm_source=slaimsense&amp;utm_medium=webfooter&amp;utm_campaign=1" target="_blank" rel="noopener noreferrer" style="color:#9aa6c8;" style-hover="color:#FF7761;">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font:500 13px 'Roboto',sans-serif; letter-spacing:0.06em; text-transform:uppercase; color:#fff; margin-bottom:16px;">Resources</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:11px; font-size:14px;">
+          <li><a href="/faq/" style="color:#9aa6c8;" style-hover="color:#FF7761;">FAQ</a></li>
+          <li><a href="/help/" style="color:#9aa6c8;" style-hover="color:#FF7761;">Help Centre</a></li>
+          <li><a href="/help/" style="color:#9aa6c8;" style-hover="color:#FF7761;">Documentation</a></li>
+          <li><a href="/help/" style="color:#9aa6c8;" style-hover="color:#FF7761;">API Reference</a></li>
+        </ul>
+      </div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; margin-top:48px; padding-top:24px; border-top:1px solid #1a2c54; font-size:13px; color:#7e8ab0;">
+      <div style="display:flex; gap:22px; align-items:center;">
+        <a href="/privacy/" style="color:#9aa6c8;">Privacy Policy</a>
+        <a href="javascript: Cookiebot.renew()" style="color:#9aa6c8;">Cookie consent</a>
+        <span>© 2026 ClaimSense. All rights reserved.</span>
+      </div>
+      <span>Built with ❤ for claims teams worldwide</span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1440}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { productOpen: false };
+  }
+
+  componentDidMount() {
+    this._applyResponsive();
+    this._onResize = () => this._applyResponsive();
+    window.addEventListener('resize', this._onResize);
+    this._setupReveal();
+  }
+
+  _setupReveal() {
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const els = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    if (reduce || !els.length) return;
+    const reveal = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; el.__shown = true; };
+    const belowFold = (el) => { const r = el.getBoundingClientRect(); return r.top > (window.innerHeight || 768) * 0.92; };
+    requestAnimationFrame(() => {
+      els.forEach((el) => {
+        el.style.transition = 'opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1)';
+        if (belowFold(el)) { el.style.opacity = '0'; el.style.transform = 'translateY(28px)'; }
+        else { el.__shown = true; }
+      });
+      const check = () => els.forEach((el) => { if (!el.__shown && !belowFold(el)) reveal(el); });
+      this._onScroll = check;
+      window.addEventListener('scroll', check, { passive: true });
+      this._revealSafety = setTimeout(() => els.forEach((el) => { if (!el.__shown) reveal(el); }), 2200);
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); } }); }, { threshold: 0.04 });
+        els.forEach((el) => { if (!el.__shown) io.observe(el); });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._revealSafety);
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+    if (this._onScroll) { window.removeEventListener('scroll', this._onScroll); window.removeEventListener('resize', this._onScroll); }
+  }
+
+  _setupMobileMenu() {
+    if (this._mmInit) return;
+    const burger = document.querySelector('[data-nav-burger]');
+    const menu = document.querySelector('[data-mobile-menu]');
+    if (!burger || !menu) return;
+    this._mmInit = true;
+    const icon = burger.querySelector('[data-burger-icon] path');
+    const PATH_OPEN = 'M3 6h18M3 12h18M3 18h18';
+    const PATH_CLOSE = 'M5 5l14 14M19 5L5 19';
+    const setOpen = (open) => {
+      menu.style.display = open ? 'block' : 'none';
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (icon) icon.setAttribute('d', open ? PATH_CLOSE : PATH_OPEN);
+    };
+    burger.addEventListener('click', (e) => { e.stopPropagation(); setOpen(menu.style.display !== 'block'); });
+    menu.addEventListener('click', (e) => e.stopPropagation());
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  }
+
+  _applyResponsive() {
+    const w = window.innerWidth;
+    const sg = document.querySelector('[data-story-grid]');
+    if (sg) sg.style.gridTemplateColumns = w >= 900 ? '2fr 1fr' : '1fr';
+    const bg = document.querySelector('[data-backed-grid]');
+    if (bg) bg.style.gridTemplateColumns = w >= 820 ? '1.4fr 1fr' : '1fr';
+    const dm = document.querySelector('[data-ds-metrics]');
+    if (dm) dm.style.gridTemplateColumns = w >= 420 ? '1fr 1fr 1fr' : '1fr';
+    const fg = document.querySelector('[data-footer-grid]');
+    if (fg) fg.style.gridTemplateColumns = w >= 860 ? '1.5fr 1fr 1fr 1fr' : (w >= 560 ? '1fr 1fr' : '1fr');
+    const nav = document.querySelector('[data-nav]');
+    if (nav) nav.style.display = w >= 900 ? 'flex' : 'none';
+    const badge = document.querySelector('[data-trust-badge]');
+    const divider = document.querySelector('[data-nav-divider]');
+    if (badge) badge.style.display = w >= 1040 ? 'flex' : 'none';
+    if (divider) divider.style.display = w >= 1040 ? 'block' : 'none';
+    const langSw = document.querySelector('[data-lang-switch]');
+    if (langSw) langSw.style.display = w >= 900 ? 'flex' : 'none';
+    const burger = document.querySelector('[data-nav-burger]');
+    const navCta = document.querySelector('[data-nav-cta]');
+    const mobileNav = w < 900;
+    if (burger) burger.style.display = mobileNav ? 'flex' : 'none';
+    if (navCta) navCta.style.display = mobileNav ? 'none' : '';
+    const mobileBadge = document.querySelector('[data-mobile-badge]');
+    if (mobileBadge) mobileBadge.style.display = (mobileNav && w >= 340) ? 'flex' : 'none';
+    if (!mobileNav) { const mm = document.querySelector('[data-mobile-menu]'); if (mm) mm.style.display = 'none'; if (burger) burger.setAttribute('aria-expanded', 'false'); }
+    this._setupMobileMenu();
+  }
+
+  _scrollTo(id) {
+    const el = document.getElementById(id);
+    if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 72; window.scrollTo({ top: y, behavior: 'smooth' }); }
+  }
+
+  renderVals() {
+    return {
+      scrollToDemo: (e) => { if (e && e.preventDefault) e.preventDefault(); window.location.href = '/#demo'; },
+      productOpen: this.state.productOpen,
+      chevronRotate: this.state.productOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+      openProduct: () => this.setState({ productOpen: true }),
+      closeProduct: () => this.setState({ productOpen: false }),
+      toggleProduct: () => this.setState((s) => ({ productOpen: !s.productOpen }))
+    };
+  }
+}
+</script>
+
+<script data-story-b>
+/* Version B behaviour: tabs for the checks demo, a playbook reminder bar, scroll and view tracking.
+   Without this script the checks demo shows all three panels stacked and no bar appears. */
+(function(){
+  var VERSION='B';
+  function track(name, params){
+    try{ if(typeof gtag==='function'){ params=params||{}; params.story_version=VERSION; gtag('event', name, params); } }catch(e){}
+  }
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  function whenReady(sel, fn){
+    var n=0, t=setInterval(function(){ var el=document.querySelector(sel); if(el){ clearInterval(t); fn(el); } else if(++n>120){ clearInterval(t); } }, 100);
+  }
+  function scrollToCard(){
+    var card=document.querySelector('[data-pb-card]'); if(!card) return;
+    var y=card.getBoundingClientRect().top + window.pageYOffset - 90;
+    window.scrollTo({ top:y, behavior: reduce ? 'auto' : 'smooth' });
+    var input=card.querySelector('[data-pb-email]');
+    if(input && input.offsetParent){ setTimeout(function(){ try{ input.focus({ preventScroll:true }); }catch(e){} }, reduce ? 0 : 650); }
+  }
+
+  /* ---------- checks demo: tabs ---------- */
+  whenReady('[data-checks]', function(root){
+    var wrap=root.querySelector('[data-checks-tabs]');
+    var tabs=[].slice.call(root.querySelectorAll('[data-checks-tab]'));
+    var panels=[].slice.call(root.querySelectorAll('[data-checks-panel]'));
+    if(!wrap || tabs.length!==panels.length) return;
+    wrap.setAttribute('role','tablist');
+    wrap.setAttribute('aria-label','What the agent checks');
+    tabs.forEach(function(tab, i){
+      tab.id='chk-tab-'+i; tab.setAttribute('role','tab'); tab.setAttribute('aria-controls','chk-panel-'+i);
+      panels[i].id='chk-panel-'+i; panels[i].setAttribute('role','tabpanel'); panels[i].setAttribute('aria-labelledby', tab.id); panels[i].tabIndex=0;
+    });
+    function select(i, byUser){
+      tabs.forEach(function(tab, k){ tab.setAttribute('aria-selected', k===i ? 'true' : 'false'); tab.tabIndex = k===i ? 0 : -1; });
+      panels.forEach(function(p){ p.removeAttribute('data-active'); });
+      void panels[i].offsetWidth;
+      panels[i].setAttribute('data-active','');
+      if(byUser) track('checks_tab', { tab: tabs[i].getAttribute('data-checks-tab') });
+    }
+    root.setAttribute('data-checks','on');
+    select(0, false);
+    root.addEventListener('click', function(e){
+      var tab=e.target.closest && e.target.closest('[data-checks-tab]'); if(!tab) return;
+      select(tabs.indexOf(tab), true);
+    });
+    root.addEventListener('keydown', function(e){
+      var i=tabs.indexOf(document.activeElement); if(i<0) return;
+      var j = e.key==='ArrowRight' ? (i+1)%tabs.length : e.key==='ArrowLeft' ? (i-1+tabs.length)%tabs.length : e.key==='Home' ? 0 : e.key==='End' ? tabs.length-1 : -1;
+      if(j<0) return; e.preventDefault(); tabs[j].focus(); select(j, true);
+    });
+  });
+
+  /* ---------- jump link in the summary ---------- */
+  document.addEventListener('click', function(e){
+    var a=e.target.closest && e.target.closest('[data-pb-jump]'); if(!a) return;
+    e.preventDefault(); track('playbook_jump', { from:'summary' }); scrollToCard();
+  });
+
+  /* ---------- playbook reminder bar ---------- */
+  var BAR_KEY='cs_pb_bar_closed', GATE_KEY='cs_playbook_gate_v1';
+  function stored(store, key){ try{ return !!window[store].getItem(key); }catch(e){ return false; } }
+  whenReady('[data-pb-card]', function(card){
+    if(stored('localStorage', GATE_KEY) || stored('sessionStorage', BAR_KEY)) return;
+    var bar=document.createElement('div');
+    bar.setAttribute('data-pb-bar','');
+    bar.setAttribute('role','complementary');
+    bar.setAttribute('aria-label','Playbook offer');
+    var narrow=window.innerWidth<600;
+    bar.style.cssText='position:fixed; z-index:80; bottom:'+(narrow?'12px':'22px')+'; '+(narrow?'left:12px; right:12px;':'right:22px; width:380px;')+
+      ' display:flex; align-items:center; gap:12px; padding:12px 12px 12px 14px; background:#0a1b3d; color:#fff; border-radius:14px;'+
+      ' box-shadow:0 20px 44px -16px rgba(0,20,60,0.55); font-family:Roboto,sans-serif; opacity:0; transform:translateY(16px); visibility:hidden;'+
+      ' transition:opacity .3s ease, transform .3s ease, visibility 0s linear .3s;';
+    bar.innerHTML=
+      '<img src="/assets/playbook/playbook-preview.jpg" alt="" width="34" height="48" style="flex:0 0 auto; width:34px; height:48px; border-radius:3px; object-fit:cover; object-position:top;">'+
+      '<div style="flex:1 1 auto; min-width:0;"><div style="font:500 11px/1 Roboto,sans-serif; letter-spacing:0.12em; text-transform:uppercase; color:#FF9280; margin-bottom:5px;">Free playbook · PDF</div>'+
+      '<div style="font:500 15px/1.3 Roboto,sans-serif; color:#fff;">The seven steps Marcel followed</div></div>'+
+      '<button type="button" data-pb-bar-go style="flex:0 0 auto; background:#FF5539; color:#000; border:none; border-radius:9px; padding:10px 14px; font:500 14px/1 Roboto,sans-serif; cursor:pointer;">Get it</button>'+
+      '<button type="button" data-pb-bar-close aria-label="Dismiss the playbook offer" style="flex:0 0 auto; width:30px; height:30px; display:flex; align-items:center; justify-content:center; background:none; border:none; border-radius:7px; color:#9aa6c8; font:400 20px/1 Roboto,sans-serif; cursor:pointer;">\u00d7</button>';
+    document.body.appendChild(bar);
+    var shown=false, done=false, cardSeen=false;
+    function cookieDialogOpen(){
+      var d=document.getElementById('CybotCookiebotDialog');
+      return !!(d && d.offsetHeight>0 && getComputedStyle(d).display!=='none' && getComputedStyle(d).visibility!=='hidden');
+    }
+    function setShown(v){
+      if(v===shown) return; shown=v;
+      bar.style.transition = v ? 'opacity .3s ease, transform .3s ease, visibility 0s' : 'opacity .3s ease, transform .3s ease, visibility 0s linear .3s';
+      bar.style.opacity = v ? '1' : '0'; bar.style.transform = v ? 'none' : 'translateY(16px)'; bar.style.visibility = v ? 'visible' : 'hidden';
+      if(v) track('playbook_bar_shown');
+    }
+    function update(){
+      if(done) return;
+      var doc=document.documentElement, max=Math.max(1, doc.scrollHeight - window.innerHeight);
+      var progress=window.pageYOffset/max;
+      var r=card.getBoundingClientRect();
+      if(r.top < window.innerHeight*0.9) cardSeen=true;
+      setShown(progress>0.3 && !cardSeen && !cookieDialogOpen());
+    }
+    function finish(){ done=true; setShown(false); window.removeEventListener('scroll', update); }
+    bar.addEventListener('click', function(e){
+      if(e.target.closest('[data-pb-bar-go]')){ track('playbook_bar_click'); finish(); scrollToCard(); }
+      else if(e.target.closest('[data-pb-bar-close]')){ track('playbook_bar_dismiss'); try{ sessionStorage.setItem(BAR_KEY,'1'); }catch(err){} finish(); }
+    });
+    window.addEventListener('scroll', update, { passive:true });
+    setInterval(update, 1500);
+  });
+
+  /* ---------- tracking: playbook card in view, scroll depth ---------- */
+  whenReady('[data-pb-card]', function(card){
+    if(!('IntersectionObserver' in window)) return;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ track('playbook_card_view'); io.disconnect(); } });
+    }, { threshold:0.5 });
+    io.observe(card);
+  });
+  whenReady('article', function(article){
+    var marks=[25,50,75,100], hit={};
+    function depth(){
+      var top=article.getBoundingClientRect().top + window.pageYOffset, h=article.offsetHeight;
+      var pct=Math.max(0, Math.min(100, ((window.pageYOffset + window.innerHeight) - top) / h * 100));
+      marks.forEach(function(m){ if(pct>=m && !hit[m]){ hit[m]=1; track('story_scroll', { percent:m }); } });
+    }
+    window.addEventListener('scroll', depth, { passive:true });
+  });
+})();
+</script>
+
+<script data-pb-gate>
+/* Playbook card: checks the work email, sends it to Web3Forms, then swaps the form for the PDF link.
+   Only an "already unlocked" flag is stored in the browser, never the email address. */
+(function(){
+  var KEY='cs_playbook_gate_v1';
+  var FREE={}; 'gmail.com googlemail.com yahoo.com yahoo.co.uk yahoo.de yahoo.fr yahoo.es yahoo.it yahoo.ie yahoo.gr yahoo.se yahoo.dk yahoo.no yahoo.pl yahoo.com.br ymail.com rocketmail.com hotmail.com hotmail.co.uk hotmail.de hotmail.fr hotmail.es hotmail.it hotmail.se hotmail.be hotmail.nl outlook.com outlook.de outlook.fr outlook.es outlook.it outlook.cz outlook.pt live.com live.co.uk live.de live.fr live.it live.nl live.se live.dk msn.com passport.com icloud.com me.com mac.com aol.com aim.com proton.me protonmail.com protonmail.ch pm.me tuta.com tutanota.com tutanota.de hushmail.com zoho.com fastmail.com fastmail.fm hey.com mail.com email.com usa.com gmx.de gmx.net gmx.at gmx.ch gmx.com gmx.co.uk web.de t-online.de freenet.de arcor.de posteo.de mailbox.org 1und1.de orange.fr wanadoo.fr free.fr laposte.net sfr.fr neuf.fr bbox.fr numericable.fr aliceadsl.fr libero.it virgilio.it alice.it tiscali.it tin.it inwind.it fastwebnet.it email.it terra.es telefonica.net ono.com ya.com sapo.pt iol.pt clix.pt netcabo.pt seznam.cz email.cz centrum.cz centrum.sk volny.cz post.cz atlas.cz tiscali.cz quick.cz azet.sk zoznam.sk pobox.sk wp.pl onet.pl onet.eu op.pl o2.pl interia.pl interia.eu gazeta.pl poczta.fm poczta.onet.pl freemail.hu citromail.hu indamail.hu vipmail.hu abv.bg mail.bg dir.bg yahoo.ro mail.ru inbox.ru list.ru bk.ru yandex.com yandex.ru ya.ru rambler.ru ukr.net telenet.be skynet.be proximus.be scarlet.be voo.be ziggo.nl kpnmail.nl home.nl hetnet.nl xs4all.nl planet.nl chello.nl casema.nl bluewin.ch sunrise.ch hispeed.ch gmx.li aon.at chello.at a1.net telia.com telia.se spray.se bredband.net comhem.se online.no broadpark.no getmail.no start.no mail.dk sol.dk stofanet.dk post.tele.dk luukku.com suomi24.fi elisanet.fi saunalahti.fi kolumbus.fi mail.ee hot.ee inbox.lv one.lv mail.lt eircom.net btinternet.com virginmedia.com sky.com talktalk.net ntlworld.com blueyonder.co.uk mailinator.com guerrillamail.com 10minutemail.com yopmail.com temp-mail.org trashmail.com sharklasers.com getnada.com dispostable.com maildrop.cc'.split(' ').forEach(function(d){ FREE[d]=1; });
+  function track(n){ try{ if(typeof gtag==='function') gtag('event', n, { story_version:'B' }); }catch(e){} }
+  function unlocked(){ try{ return !!localStorage.getItem(KEY); }catch(e){ return false; } }
+  function showDone(card){
+    var f=card.querySelector('[data-pb-form]'), d=card.querySelector('[data-pb-done]');
+    if(f) f.style.display='none'; if(d) d.style.display='block';
+  }
+  document.addEventListener('submit', function(e){
+    var form=e.target; if(!form || !form.matches || !form.matches('[data-pb-form]')) return;
+    e.preventDefault();
+    if(form.__busy) return;
+    var card=form.closest('[data-pb-card]'), btn=form.querySelector('button[type="submit"]');
+    var err=form.querySelector('[data-pb-error]'), el=form.querySelector('[data-pb-email]');
+    var val=String((el && el.value) || '').trim();
+    function fail(msg, color){ if(err){ err.textContent=msg; err.style.color=color; err.style.display='block'; } }
+    if(!form.__watch){ form.__watch=true; form.addEventListener('input', function(){ if(err) err.style.display='none'; }); }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)){ fail('Please enter your work email.', '#c02617'); return; }
+    if(FREE[val.slice(val.lastIndexOf('@')+1).toLowerCase()]===1){ fail('That looks like a personal address. Please use your work email.', '#c02617'); track('playbook_gate_freemail'); return; }
+    form.__busy=true; var label=btn ? btn.textContent : '';
+    if(btn){ btn.disabled=true; btn.style.opacity='0.7'; btn.textContent='Sending\u2026'; }
+    function release(){ form.__busy=false; if(btn){ btn.disabled=false; btn.style.opacity=''; btn.textContent=label; } }
+    function broken(){ release(); fail('Something went wrong. Please try again or email us directly.', '#c02617'); }
+    fetch('https://api.web3forms.com/submit', { method:'POST', headers:{ Accept:'application/json' }, body:new FormData(form) })
+      .then(function(r){ return r.json(); })
+      .then(function(j){
+        if(!(j && j.success)){ broken(); return; }
+        release(); track('playbook_gate_submit');
+        try{ localStorage.setItem(KEY, JSON.stringify({ t:Date.now() })); }catch(e){}
+        if(card) showDone(card);
+      })
+      .catch(broken);
+  }, true);
+  document.addEventListener('click', function(e){
+    if(e.target && e.target.closest && e.target.closest('[data-pb-link]')) track('playbook_open');
+  });
+  if(unlocked()){
+    var tries=0, timer=setInterval(function(){
+      var card=document.querySelector('[data-pb-card]');
+      if(!card){ if(++tries>100) clearInterval(timer); return; }
+      clearInterval(timer); showDone(card);
+    },100);
+  }
+})();
+</script>
+
+<script data-flow-anim>
+/* Reveals the flow diagram step by step the first time it scrolls into view, then offers a Replay button.
+   Without this script, or with reduced motion, the diagram is shown whole and the button stays hidden. */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var DURATION=4700, doneTimer;
+  function play(el){
+    clearTimeout(doneTimer);
+    el.setAttribute('data-anim','ready');
+    void el.getBoundingClientRect();
+    el.setAttribute('data-anim','play');
+    doneTimer=setTimeout(function(){ el.setAttribute('data-anim','done'); }, DURATION);
+  }
+  document.addEventListener('click', function(e){
+    var btn=e.target && e.target.closest && e.target.closest('[data-flow-replay]');
+    if(!btn) return;
+    var el=btn.closest('[data-flow]'); if(el) play(el);
+  });
+  var tries=0, timer=setInterval(function(){
+    var el=document.querySelector('[data-flow]');
+    if(!el){ if(++tries>100) clearInterval(timer); return; }
+    clearInterval(timer);
+    el.setAttribute('data-anim','ready');
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ play(el); io.disconnect(); } });
+    },{threshold:0.45});
+    io.observe(el);
+  },100);
+})();
+</script>
+
+<script data-lang-suggest>
+(function(){
+  var KEY='cs_lang_choice';
+  try{ if(localStorage.getItem(KEY)) return; }catch(e){}
+  var cur=(document.documentElement.lang||'en').slice(0,2).toLowerCase();
+  var langs=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||'en'];
+  var want=null;
+  for(var i=0;i<langs.length;i++){
+    var l=String(langs[i]||'').slice(0,2).toLowerCase();
+    if(l===cur) return;
+    if(l==='de'||l==='fr'||l==='en'){ want=l; break; }
+  }
+  if(!want||want===cur) return;
+  var alt=document.querySelector('link[rel="alternate"][hreflang="'+want+'"]');
+  if(!alt) return;
+  var T={
+    de:{msg:'Diese Seite gibt es auch auf Deutsch.',cta:'Zur deutschen Version',close:'Schlie\u00dfen'},
+    fr:{msg:'Cette page est aussi disponible en fran\u00e7ais.',cta:'Voir la version fran\u00e7aise',close:'Fermer'},
+    en:{msg:'This page is also available in English.',cta:'Go to the English version',close:'Close'}
+  }[want];
+  function save(){ try{ localStorage.setItem(KEY,'1'); }catch(e){} }
+  function build(){
+    var bar=document.createElement('div');
+    bar.setAttribute('role','region');
+    bar.setAttribute('aria-label',T.msg);
+    bar.style.cssText='position:fixed; left:16px; right:16px; bottom:16px; z-index:9000; margin:0 auto;'
+      +'max-width:640px; display:flex; align-items:center; gap:14px; flex-wrap:wrap;'
+      +'background:#fff; border:1px solid #ece3df; border-radius:12px;'
+      +'box-shadow:0 8px 28px rgba(13,13,13,.13); padding:14px 16px;'
+      +"font:400 14px/1.45 'Roboto',sans-serif; color:#33302e;";
+    var msg=document.createElement('span'); msg.textContent=T.msg; msg.style.cssText='flex:1 1 220px;';
+    var a=document.createElement('a'); a.href=alt.href; a.textContent=T.cta;
+    a.setAttribute('hreflang',want);
+    a.style.cssText="font:500 14px 'Roboto',sans-serif; color:#0d0d0d; background:#FF5539;"
+      +'border-radius:8px; padding:9px 14px; text-decoration:none; white-space:nowrap;';
+    a.addEventListener('click',save);
+    var x=document.createElement('button'); x.type='button'; x.setAttribute('aria-label',T.close);
+    x.textContent='\u00d7';
+    x.style.cssText='background:none; border:0; cursor:pointer; font-size:22px; line-height:1;'
+      +'color:#8a827d; padding:0 2px;';
+    x.addEventListener('click',function(){ save(); bar.remove(); });
+    bar.appendChild(msg); bar.appendChild(a); bar.appendChild(x);
+    document.body.appendChild(bar);
+  }
+  if(document.readyState==='loading'){ document.addEventListener('DOMContentLoaded',build); } else { build(); }
+})();
+</script>
+</body>
+</html>

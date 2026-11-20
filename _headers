@@ -1,0 +1,4 @@
+# Gated downloads: reachable only by direct link, kept out of search engines.
+# Do not list these paths in robots.txt or sitemap.xml, that would reveal them.
+/assets/downloads/*
+  X-Robots-Tag: noindex, nofollow
